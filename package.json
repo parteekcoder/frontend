@@ -1,0 +1,71 @@
+{
+  "homepage": "https://Diksha3773.github.io/TeamC",
+  "name": "directorscorner",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@gumgum/react-script-tag": "^0.0.3",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@tippyjs/react": "^4.2.6",
+    "axios": "^0.27.2",
+    "bootstrap": "^5.1.3",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.4.0",
+    "react-countup": "^6.2.0",
+    "react-dom": "^18.2.0",
+    "react-easy-swipe": "^0.0.22",
+    "react-handle-scroll": "^0.1.0",
+    "react-icons": "^4.4.0",
+    "react-modal-video": "^1.2.9",
+    "react-router-dom": "^6.3.0",
+    "react-router-hash-link": "^2.4.3",
+    "react-script-tag": "^1.1.2",
+    "react-scripts": "5.0.1",
+    "react-transition-group": "^4.4.2",
+    "react-uuid": "^1.0.2",
+    "react-visibility-sensor": "^5.1.1",
+    "swiper": "^8.2.4",
+    "vite": "^2.9.9",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "go": "vite",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "https://nitjdept.onrender.com/",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "engines": {
+    "node": "16.14.0",
+    "npm": "8.3.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "gh-pages": "^4.0.0",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.2"
+  }
+}
