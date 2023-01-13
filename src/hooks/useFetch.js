@@ -11,7 +11,7 @@ const [error,setError]=React.useState(false);
       
       setLoading(true);
      try {
-      const res=await axios.get("https://nitjdept.onrender.com/"+url);
+      const res=await axios.get("https://nitjdept.onrender.com"+url);
 
       setData(res.data);
      } catch (error) {
