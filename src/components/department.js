@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 
 
 export const Department = () => {
-  const dept=useLocation().pathname.split('/')[1];
+  const dept=useLocation().pathname.split('/')[2];
   return (
     <div>
     <Departmentupper name={dept.toUpperCase()} introduction="Located in Jalandhar district of Punjab, NIT Jalandhar enjoys a really scenic environment 

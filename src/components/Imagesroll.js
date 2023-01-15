@@ -15,9 +15,9 @@ function Test() {
         five,
         six
     ]
-    const dept=useLocation().pathname.split('/')[1];
-    console.log(dept)
-    const department={
+    const dept=useLocation().pathname.split('/')[2];
+    const departments={
+
         "it":"Information Technology",
         "cse":"Computer Science and Engineering",
         "bt":"Bio Technology",
@@ -27,8 +27,13 @@ function Test() {
         "ee":"Electrical And Electronics Engineering",
         "ice":"Instrumentation And Control Engineering",
         "me":"Mechanical Engineering",
-        "ipe":"Industrial And Production Enginnering"
-    }
+        "ipe":"Industrial And Production Enginnering",
+        "math":"Mathematics",
+        "phy":"Physics",
+        "tt":"Textile Technology",
+        "hum":"Humaniyies",
+        "cy":"Chemistry"
+      }
     const [value, setValue] = useState(0);
     useEffect(() => {
         const interval = setInterval(() => {
@@ -44,7 +49,7 @@ function Test() {
                         <img src={image[value]} className='w-screen aspect-video sm:h-[450px] block align-middle' alt="" />
                         <div className='absolute bg-gradient-to-b from-accent to-transparent bg-cover bg-center flex flex-col w-full h-fit bottom-0 items-center justify-center '>
                             <div className="sm:text-4xl m-2 font-bold text-white">
-                                <h6>{department[dept]}</h6>
+                                <h6>{departments[dept]}</h6>
                             </div>
                             <h2 className="text-2xl sm:text-3xl m-2 font-bold text-white">
                                 NITJ<span className="mx-2 p-1 font-medium uppercase">Welcomes you</span> 

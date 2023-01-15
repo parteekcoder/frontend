@@ -31,8 +31,9 @@ import useFetch from '../hooks/useFetch.js'
 const Departmentmiddle = () => {
 
     const [url,setUrl]=useState(useLocation());
-    const Activity=useFetch(`Activity`).data;
-    const News=useFetch(`News`).data;
+    const dept=useLocation().pathname.split('/')[2];
+    const Activity=useFetch(`/dept/${dept}/Activity`).data;
+    const News=useFetch(`/dept/${dept}/News`).data;
     return (
         <>
             <div className='flex flex-col overflow-hidden md:flex-row'>
@@ -45,7 +46,7 @@ const Departmentmiddle = () => {
                           Activity?Activity.map((n, i) =>
                                 <div key={i} className='flex p-2 m-2'>
                                     <li className='list-[circle] list-inside w-4 h-4'></li>
-                                    <a href={`${n.link}`} className={"flex items-end mx-1 border-b pb-2 text-justify sm:text-[16px] leading-tight tracking-wide text-gray-900 font-sans hover:font-serif hover:text-[rgba(0,105,140,1)] text-opacity-100 "}>{n.title} <img src={gif} alt='...' className='border-0 align-middle' /></a>
+                                    <a href={`${n?.link}`} className={"flex items-end mx-1 border-b pb-2 text-justify sm:text-[16px] leading-tight tracking-wide text-gray-900 font-sans hover:font-serif hover:text-[rgba(0,105,140,1)] text-opacity-100 "}>{n?.title} <img src={gif} alt='...' className='border-0 align-middle' /></a>
                                 </div>
                             ):<h1>Data not Available</h1>
                         }
@@ -58,7 +59,7 @@ const Departmentmiddle = () => {
                            News?News.map((n, i) =>
                                 <div key={i} className='flex p-2 m-2'>
                                     <li className='list-[circle] list-inside w-4 h-4'></li>
-                                    <a href={`${n.link}`} className={"flex items-end mx-1 border-b pb-2 text-justify sm:text-[16px] leading-tight tracking-wide text-gray-900 font-sans hover:font-serif hover:text-[rgba(0,105,140,1)] text-opacity-100 "}>{n.title} <img src={gif} alt='...' className='border-0 align-middle' /></a>
+                                    <a href={`${n?.link}`} className={"flex items-end mx-1 border-b pb-2 text-justify sm:text-[16px] leading-tight tracking-wide text-gray-900 font-sans hover:font-serif hover:text-[rgba(0,105,140,1)] text-opacity-100 "}>{n?.title} <img src={gif} alt='...' className='border-0 align-middle' /></a>
                                 </div>
                             ):<h1>Data not available</h1>
                         }

@@ -3,8 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 function Menu({ fixedmenu }) {
     let navigate = useNavigate();
-    const dept= useLocation().pathname.split('/')[1];
-    console.log(dept);
+    const dept= useLocation().pathname.split('/')[2];
     const Menu = [
         {
             Title: 'About',
@@ -12,19 +11,19 @@ function Menu({ fixedmenu }) {
             List: [
                 {
                     l: 'Vision and Mission',
-                    link: `/${dept}/MissionandVision`
+                    link: `/dept/${dept}/MissionandVision`
                 }, {
                     l: 'Infrastructure: At a glance',
-                    link: `/${dept}/Infrastructure`
+                    link: `/dept/${dept}/Infrastructure`
                 }, {
                     l: "HOD's Message",
-                    link: `/${dept}/messageofHOD`
+                    link: `/dept/${dept}/messageofHOD`
                 }, {
                     l: 'Achievements',
-                    link: `/${dept}/Achievements`
+                    link: `/dept/${dept}/Achievement`
                 }, {
                     l: 'Contact Us',
-                    link: `/${dept}/contactus`
+                    link: `/dept/${dept}/contactus`
                 }
             ],
         }, {
@@ -33,19 +32,19 @@ function Menu({ fixedmenu }) {
             List: [
                 {
                     l: 'Programmes',
-                    link: `/${dept}/Programme`
+                    link: `/dept/${dept}/Programme`
                 }, {
                     l: 'Academic Coordinates',
-                    link: `/${dept}/Acadcord`
+                    link: `/dept/${dept}/Acadcord`
                 }, {
                     l: 'Syllabus',
-                    link: `/${dept}/Syllabus`
+                    link: `/dept/${dept}/Syllabus`
                 }, {
                     l: 'Time-Tables',
-                    link: `/${dept}/Timetable`
+                    link: `/dept/${dept}/Timetable`
                 }, {
                     l: 'Department Activities Calendar',
-                    link: `/${dept}/Home`
+                    link: `/dept/${dept}/Home`
                 }
             ]
         }, {
@@ -54,19 +53,19 @@ function Menu({ fixedmenu }) {
             List: [
                 {
                     l: 'Faculty',
-                    link: `/${dept}/Faculty`
+                    link: `/dept/${dept}/Faculty`
                 }, {
                     l: 'PhD Scholars',
-                    link: `${dept}/PhdScholar`
+                    link: `/dept/${dept}/PhdScholar`
                 }, {
                     l: 'Students',
-                    link: `/${dept}/Students`
+                    link: `/dept/${dept}/Student`
                 }, {
                     l: 'Alumni*',
-                    link: `/${dept}/Alumni`
+                    link: `/dept/${dept}/Alumni`
                 }, {
                     l: 'Staff',
-                    link: `/${dept}/Staff`
+                    link: `/dept/${dept}/Staff`
                 }
             ]
         }, {
@@ -75,22 +74,22 @@ function Menu({ fixedmenu }) {
             List: [
                 {
                     l: 'Research Areas',
-                    link: `/${dept}/Home`
+                    link: `/dept/${dept}/Home`
                 }, {
                     l: 'Department Labs',
-                    link: `/${dept}/Home`
+                    link: `/dept/${dept}/Home`
                 }, {
                     l: 'Publications(Year-Wise)',
-                    link: `/${dept}/Home`
+                    link: `/dept/${dept}/Home`
                 }, {
                     l: 'Projects',
-                    link: `/${dept}/Home`
+                    link: `/dept/${dept}/Home`
                 }, {
                     l: 'Consultancy',
-                    link: `/${dept}/Home`
+                    link: `/dept/${dept}/Home`
                 }, {
                     l: 'Research Labs',
-                    link: `/${dept}/Home`
+                    link: `/dept/${dept}/Home`
                 }
             ]
         }, {
@@ -99,7 +98,7 @@ function Menu({ fixedmenu }) {
             List: [
 
             ],
-            link: `/${dept}/Home`
+            link: `/dept/${dept}/Home`
         },
     ]
     const [menu, setMenu] = useState(false);
@@ -115,7 +114,7 @@ function Menu({ fixedmenu }) {
 
                 <div className={"lg:flex flex-col items-center w-full h-full overflow-y-auto scrollbar mt-1 py-1 " + (menu ? 'flex' : 'hidden')}>
                     <div className='w-full'>
-                        <span className="flex items-center w-full h-10 px-3 mt-2 rounded hover:bg-gray-200 cursor-pointer active:translate-y-[2px]" onClick={() => { navigate(`/${dept}/Home`); setMenu(!menu); }}>
+                        <span className="flex items-center w-full h-10 px-3 mt-2 rounded hover:bg-gray-200 cursor-pointer active:translate-y-[2px]" onClick={() => { navigate(`/dept/${dept}/Home`); setMenu(!menu); }}>
                             <i className="pl-1 w-6 h-6 stroke-current fa fa-home"></i>
                             <span className="ml-1 font-medium">Home</span>
                         </span>
