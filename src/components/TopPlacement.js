@@ -4,7 +4,7 @@ import Placement from './Placement'
 function TopPlacement() {
   let navigate = useNavigate();
   
-  const dept= useLocation().pathname.split('/')[1];
+  const dept= useLocation().pathname.split('/')[2];
   const scrollNextPage=()=>{
     const gallery = document.querySelector('#scrollcontrol');
     const gallery_scroller = gallery.querySelector('.cards');
@@ -37,7 +37,7 @@ function TopPlacement() {
             </button>
         </div>
         
-        <button class="flex hover:shadow-lg hover:-translate-y-1 hover:shadow-yellow-500/50 bg-transparent my-2 text-blue-700 font-medium border hover:border-blue-900 border-blue-400 duration-500 py-2 px-3 rounded mx-auto tracking-wide active:translate-y-[2px]" onClick={() => navigate(`/${dept}/placements`)}>
+        <button class="flex hover:shadow-lg hover:-translate-y-1 hover:shadow-yellow-500/50 bg-transparent my-2 text-blue-700 font-medium border hover:border-blue-900 border-blue-400 duration-500 py-2 px-3 rounded mx-auto tracking-wide active:translate-y-[2px]" onClick={() => navigate(`/dept/${dept}/Placement`)}>
           View More
         </button>
       </div>

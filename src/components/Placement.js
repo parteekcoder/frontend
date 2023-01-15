@@ -6,8 +6,8 @@ import searchgif from './Vedio/search.gif'
 function Placement({ search,cnt = Infinity }) {
     
     const [url,setUrl]=useState(useLocation());
-    const dept=url.pathname.split('/')[1];
-    const {data,error,loading,reFetch}=useFetch(`/${dept}/placements?limit=${cnt || 100}`);
+    const dept=url.pathname.split('/')[2];
+    const {data,error,loading,reFetch}=useFetch(`/dept/${dept}/Placement?limit=${cnt || 100}`);
     
     var count = 0;
     const handlecount = (val) => {
@@ -44,12 +44,12 @@ function Placement({ search,cnt = Infinity }) {
 
                             <div class="flex md:flex-row border-t-0 text-[rgba(0,105,140,1)] max-w-min py-8 text-left text-base items-center content-center px-[18px]">
                                 <div class="w-32 h-32 md:w-36 md:h-36 flex-grow-0 flex-shrink-0">
-                                    <img src={item.imgurl} class="w-full h-full object-cover object-left-top rounded-full shadow-xl flex-grow-0 flex-shrink-0" alt='...'/>
+                                    <img src={item?.img} class="w-full h-full object-cover object-left-top rounded-full shadow-xl flex-grow-0 flex-shrink-0" alt='...'/>
                                 </div>
                                 <div class="flex flex-col flex-grow leading-8 mr-5 md:justify-start md:mt-0 ml-7 md:ml-9 md:mb-0 w-52">
-                                    <div class="text-[22.5px]">{item.name}</div>
-                                    <div class="font-semibold text-[rgba(0,0,0,0.7)] tracking-wide text-lg">{item.Companyname}</div>
-                                    <div class="font-normal text-[rgba(0,0,0,0.7)] tracking-wide">{item.packages}  ({item.duration})</div>
+                                    <div class="text-[22.5px]">{item?.name}</div>
+                                    <div class="font-semibold text-[rgba(0,0,0,0.7)] tracking-wide text-lg">{item?.company}</div>
+                                    <div class="font-normal text-[rgba(0,0,0,0.7)] tracking-wide">{item?.package}  ({item?.duration})</div>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@ function Placement({ search,cnt = Infinity }) {
 
                             <div class="flex md:flex-row border-t-0 text-[rgba(0,105,140,1)] max-w-min py-8 text-left text-base items-center content-center px-[18px]">
                                 <div class="w-32 h-32 md:w-36 md:h-36 flex-grow-0 flex-shrink-0">
-                                    <img src={item.imgurl} class="w-full h-full object-cover object-left-top rounded-full shadow-xl flex-grow-0 flex-shrink-0 border-2" />
+                                    <img src={item.img} class="w-full h-full object-cover object-left-top rounded-full shadow-xl flex-grow-0 flex-shrink-0 border-2" />
                                 </div>
                                 <div class="flex flex-col flex-grow leading-8 mr-5 md:justify-start md:mt-0 ml-7 md:ml-9 md:mb-0 w-52">
                                     <div class="text-[22.5px]">Riya sharma</div>
