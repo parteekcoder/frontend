@@ -8,9 +8,8 @@ const [error,setError]=React.useState(false);
 
   React.useEffect(()=>{
     const fetchData=async()=>{
-      // https://nitjdept.onrender.com
+      // https://wdmc.onrender.com
       setLoading(true);
-      console.log(url)
      try {
       const res=await axios.get("https://wdmc.onrender.com"+url);
 

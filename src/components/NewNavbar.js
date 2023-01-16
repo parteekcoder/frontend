@@ -497,22 +497,22 @@ function NewNavbar() {
                                                         <div className="h-full rounded-b-xl bg-white">
                                                             <ul className="flex flex-col gap-1  bg-white px-2 font-normal text-black">
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/committees.html#institute-development">Institute
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/committees.html#institute-development">Institute
                                                                         Development Committee</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/committees.html#internal-complaint">Internal
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/committees.html#internal-complaint">Internal
                                                                         Complaint Committee</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/committees.html#print-digital">Print, Digital
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/committees.html#print-digital">Print, Digital
                                                                         Media and Newsletter</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/committees.html#social-media">Social Media</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/committees.html#social-media">Social Media</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/committees.html#website-management">Website
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/committees.html#website-management">Website
                                                                         Development and Management</a>
                                                                 </li>
                                                             </ul>
@@ -532,49 +532,49 @@ function NewNavbar() {
                                                         <div className="h-full rounded-b-xl bg-white">
                                                             <ul className="flex flex-col gap-1  bg-white px-2 font-normal text-black">
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Biotechnology
+                                                                    <a  href='http://nitjintranet.ac.in:8081/dept/bt/Home'>Bio Technology</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Chemistry
+                                                                    <a href='http://nitjintranet.ac.in:8081/dept/cy/Home'>Chemistry</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Chemical Engineering
+                                                                    <a href='http://nitjintranet.ac.in:8081/dept/ch/Home'>Chemical Engineering</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Civil Engineering
+                                                                    <a href='http://nitjintranet.ac.in:8081/dept/ce/Home'>Civil Engineering</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Computer Science and Engineering
+                                                                    <a href='http://nitjintranet.ac.in:8081/dept/cse/Home'>Computer Science and Engineering</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Electronics and Communication Engineering
+                                                                    <a href='http://nitjintranet.ac.in:8081/dept/ece/Home'>Electronics and Communication Engineering</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Electrical Engineering
+                                                                    <a href='http://nitjintranet.ac.in:8081/dept/ee/Home'>Electrical Engineering</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Humanities and Management
+                                                                    <a href='http://nitjintranet.ac.in:8081/dept/hum/Home'>Humanities and Management</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Industrial and Production Engineering
+                                                                    <a href='http://nitjintranet.ac.in:8081/dept/ipe/Home'>Industrial and Production Engineering</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Information Technology
+                                                                    <a href='http://nitjintranet.ac.in:8081/dept/it/Home'>Information Technology</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Instrumentation and Control Engineering
+                                                                    <a href='http://nitjintranet.ac.in:8081/dept/ice/Home'>Instrumentation and Control Engineering</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Mathematics
+                                                                    <a href='http://nitjintranet.ac.in:8081/dept/math/Home'>Mathematics</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Mechanical Engineering
+                                                                    <a href='http://nitjintranet.ac.in:8081/dept/me/Home'>Mechanical Engineering</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Physics
+                                                                    <a href='http://nitjintranet.ac.in:8081/dept/phy/Home'>Physics</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    Textile Technology
+                                                                    <a href='http://nitjintranet.ac.in:8081/dept/tt/Home'>Textile Technology</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -592,7 +592,7 @@ function NewNavbar() {
                                                                         <a href="/academic/energy.html">Center for Energy and Environment</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/AI.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/AI.html">
                                                                             Center for Artificial Intelligence</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
@@ -610,23 +610,23 @@ function NewNavbar() {
                                                             <div className="h-full rounded-b-xl bg-white">
                                                                 <ul className="flex flex-col gap-1 px-2 font-normal text-black">
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/notices.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/notices.html">
                                                                             Academic Circulars &amp; Notices </a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/calendar.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/calendar.html">
                                                                             Academic Calender</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/rules.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/rules.html">
                                                                             Academic Regulations</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/curriculum.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/curriculum.html">
                                                                             Curriculum</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/fees.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/fees.html">
                                                                             Fee Structure</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
@@ -639,7 +639,7 @@ function NewNavbar() {
                                                                         UMC Rules
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/faq.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/faq.html">
                                                                             General FAQs</a>
                                                                     </li>
                                                                 </ul>
@@ -703,15 +703,15 @@ function NewNavbar() {
                                                                         Central Library
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/Cc.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/Cc.html">
                                                                             Computer Center</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/Cw.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/Cw.html">
                                                                             Central Workshop</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/IIC.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/IIC.html">
                                                                             Institute Instrumentation Center</a>
                                                                     </li>
                                                                 </ul>
@@ -728,27 +728,27 @@ function NewNavbar() {
                                                             <div className="h-full rounded-b-xl bg-white">
                                                                 <ul className="flex flex-col gap-1 px-2 font-normal text-black">
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/BTech.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/BTech.html">
                                                                             Bachelor of Technology</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/Mtech.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/Mtech.html">
                                                                             Master of Technology</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/MBA.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/MBA.html">
                                                                             Master of Business Administration</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/MSC.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/MSC.html">
                                                                             Master of Science</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/PgDiploma.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/PgDiploma.html">
                                                                             Post Graduate Diploma</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/Phd.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/Phd.html">
                                                                             Doctor of Philosophy</a>
                                                                     </li>
                                                                 </ul>
@@ -816,28 +816,28 @@ function NewNavbar() {
                                                                         Explore NITJ
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admissions/student_life.html"> Discover Student Life </a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/student_life.html"> Discover Student Life </a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admissions/courses_offered.html"> Courses Offered
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/courses_offered.html"> Courses Offered
                                                                         </a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
                                                                         How to Apply
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admissions/admission_procedure.html"> Admissions
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/admission_procedure.html"> Admissions
                                                                             Process </a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admin/virtualtour.html"> Virtual Tour </a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/admin/virtualtour.html"> Virtual Tour </a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admissions/index.html#foreign_admissions">
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/index.html#foreign_admissions">
                                                                             International Students </a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600] md:font-bold py-2">
-                                                                        <a href="/admissions/contactDetails.html"> Contact Details
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/contactDetails.html"> Contact Details
                                                                             for Admission </a>
                                                                     </li>
                                                                 </ul>
@@ -852,13 +852,13 @@ function NewNavbar() {
                                                             <div className="h-full rounded-b-xl bg-white">
                                                                 <ul className="flex flex-col gap-1 px-2 font-normal text-black">
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admissions/antiRagging.html"> Anti Ragging Act</a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/antiRagging.html"> Anti Ragging Act</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
                                                                         <a href="https://www.nitj.ac.in/nitj_files/links/Anti_Ragging_Affidavit_by_Student_78947.pdf"> Anti Ragging Affadvit</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href> Institute Anti-ragging Rules </a>
+                                                                        <a href='#'> Institute Anti-ragging Rules </a>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -874,19 +874,19 @@ function NewNavbar() {
                                                             <div className="h-full rounded-b-xl bg-white">
                                                                 <ul className="flex flex-col gap-1 px-2 font-normal text-black" id="admissionpages">
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admissions/index.html#btech">B.Tech Admission</a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/index.html#btech">B.Tech Admission</a>
                                                                     </li>
                                                                     <li className=" over:text-[#FF6600]">
-                                                                        <a href="/admissions/index.html#mtech">M.Tech Admission</a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/index.html#mtech">M.Tech Admission</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admissions/index.html#msc">Msc Admission</a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/index.html#msc">Msc Admission</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admissions/index.html#mba">MBA Admission</a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/index.html#mba">MBA Admission</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admissions/index.html#phd">Ph.D Admission</a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/index.html#phd">Ph.D Admission</a>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -901,22 +901,22 @@ function NewNavbar() {
                                                             <div className="h-full rounded-b-xl bg-white">
                                                                 <ul className="flex flex-col gap-1 px-2 font-normal text-black">
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admissions/admission_procedure.html">B.Tech</a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/admission_procedure.html">B.Tech</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admissions/src/prospectus.pdf" target="_blank">
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/src/prospectus.pdf" target="_blank">
                                                                             M.Tech </a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admissions/src/prospectus.pdf" target="_blank">
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/src/prospectus.pdf" target="_blank">
                                                                             M.Sc. </a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admissions/src/prospectus.pdf" target="_blank">MBA
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/src/prospectus.pdf" target="_blank">MBA
                                                                         </a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admissions/src/prospectus.pdf" target="_blank">
+                                                                        <a href="http://nitjintranet.ac.in:8080/admissions/src/prospectus.pdf" target="_blank">
                                                                             Ph.D </a>
                                                                     </li>
                                                                 </ul>
@@ -947,19 +947,19 @@ function NewNavbar() {
                                                                                 <a href="https://vidwan.inflibnet.ac.in/searchc/search" target="_blank"> VIDWAN (IRINS Instance) </a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/research_publications.html">
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/research_publications.html">
                                                                                     Research Publications</a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/jobs.html">
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/jobs.html">
                                                                                     Research Jobs </a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/jobs.html">
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/jobs.html">
                                                                                     Internships </a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/researchProjects.html"> Sponsored
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/researchProjects.html"> Sponsored
                                                                                     Research Projects</a>
                                                                             </li>
                                                                         </ul>
@@ -974,23 +974,23 @@ function NewNavbar() {
                                                                     <div className="h-full rounded-b-xl bg-white">
                                                                         <ul className="flex flex-col gap-1 px-2 font-normal text-black">
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/sti_hub.html"> STI Hub </a>
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/sti_hub.html"> STI Hub </a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/admin/e-cell.html">E-Cell</a>
+                                                                                <a href="http://nitjintranet.ac.in:8080/admin/e-cell.html">E-Cell</a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/InnovationClub.html">
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/InnovationClub.html">
                                                                                     Innovation Club
                                                                                 </a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/InstituteInnovationCouncil.html">
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/InstituteInnovationCouncil.html">
                                                                                     Institute Innovation Council
                                                                                 </a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/TechnologyBusinessIncubator.html">
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/TechnologyBusinessIncubator.html">
                                                                                     Technology Business Incubator
                                                                                 </a>
                                                                             </li>
@@ -1008,14 +1008,14 @@ function NewNavbar() {
                                                                     <div className="h-full rounded-b-xl bg-white">
                                                                         <ul className="flex flex-col gap-1 px-2 font-normal text-black">
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/consultancy.html"> Consultancy
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/consultancy.html"> Consultancy
                                                                                     works</a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/mous.html">MoUs</a>
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/mous.html">MoUs</a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/iprs.html">IPRs</a>
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/iprs.html">IPRs</a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
                                                                                 Find an Expert
@@ -1035,19 +1035,19 @@ function NewNavbar() {
                                                                     <div className="h-full rounded-b-xl bg-white">
                                                                         <ul className="flex flex-col gap-1 px-2 font-normal text-black">
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/upcoming_conferences.html">
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/upcoming_conferences.html">
                                                                                     Conferences</a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/upcoming_seminars.html"> Seminars
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/upcoming_seminars.html"> Seminars
                                                                                 </a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/upcoming_stcfdp.html"> STC/ FDP
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/upcoming_stcfdp.html"> STC/ FDP
                                                                                 </a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="/research/upcoming_workshops.html">
+                                                                                <a href="http://nitjintranet.ac.in:8080/research/upcoming_workshops.html">
                                                                                     Workshops </a>
                                                                             </li>
                                                                         </ul>
@@ -1066,7 +1066,7 @@ function NewNavbar() {
                                                             <div className="h-full rounded-b-xl bg-white">
                                                                 <ul className="flex flex-col gap-1 px-2 py-2 font-normal text-black">
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/alumni/alumni.html">Alumni Portal</a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/alumni/alumni.html">Alumni Portal</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
                                                                         Alumni Registration
@@ -1102,27 +1102,27 @@ function NewNavbar() {
                                                                     <div className="p-2 text-center">CLUBS &amp; SOCITIES</div>
                                                                     <div className="h-full rounded-b-xl bg-white">
                                                                         <ul className="flex flex-col gap-1 px-2 font-normal text-black">
-                                                                            <a href="/clubs/yoga.html" className="hover:text-[#FF6600]">
+                                                                            <a href="http://nitjintranet.ac.in:8080/clubs/yoga.html" className="hover:text-[#FF6600]">
                                                                                 Heartfulness Mediation Club
                                                                             </a>
-                                                                            <a href="/clubs/prayas.html" className="hover:text-[#FF6600]">
+                                                                            <a href="http://nitjintranet.ac.in:8080/clubs/prayas.html" className="hover:text-[#FF6600]">
                                                                                 Prayaas - A Campaign for Smile
                                                                             </a>
-                                                                            <a href="/clubs/rtist.html" className="hover:text-[#FF6600]">
+                                                                            <a href="http://nitjintranet.ac.in:8080/clubs/rtist.html" className="hover:text-[#FF6600]">
                                                                                 R-Tist Robotics Club
                                                                             </a>
-                                                                            <a href="/clubs/spic.html" className="hover:text-[#FF6600]">
+                                                                            <a href="http://nitjintranet.ac.in:8080/clubs/spic.html" className="hover:text-[#FF6600]">
                                                                                 SPIC MACAY
                                                                             </a>
-                                                                            <a href="/clubs/we-can.html" className="hover:text-[#FF6600]">
+                                                                            <a href="http://nitjintranet.ac.in:8080/clubs/we-can.html" className="hover:text-[#FF6600]">
                                                                                 “We Can” Club
                                                                             </a>
-                                                                            <a href="/clubs/yoga.html" className="hover:text-[#FF6600]">
+                                                                            <a href="http://nitjintranet.ac.in:8080/clubs/yoga.html" className="hover:text-[#FF6600]">
                                                                                 Yoga Club
                                                                             </a>
                                                                         </ul>
                                                                         <ul className="flex flex-row px-2 font-normal text-black justify-between">
-                                                                            <a href="/clubs/zeal.html" className="hover:text-[#FF6600]">
+                                                                            <a href="http://nitjintranet.ac.in:8080/clubs/zeal.html" className="hover:text-[#FF6600]">
                                                                                 Zeal Society
                                                                             </a>
                                                                             <li className="hover:text-[#FF6600] font-bold">
