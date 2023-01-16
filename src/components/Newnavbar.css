@@ -119,3 +119,7 @@ body {
     width: 100%;
     height: 100%;
 }
+.bg-accent {
+    --tw-bg-opacity: 1;
+    background-color: hsl(201 96% 32% / var(--tw-bg-opacity));
+}

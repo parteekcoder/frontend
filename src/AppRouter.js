@@ -47,15 +47,15 @@ const AppRouter = () => {
     "tt":"Textile Technology",
     "hum":"Humaniyies"
   }
-  const ProtectorRoute=({children})=>{
-    const dept=useLocation().pathname.split('/')[2];
+  // const ProtectorRoute=({children})=>{
+  //   const dept=useLocation().pathname.split('/')[2];
    
-      if(dept in departments){
-        return children;
-      }else{
-        return <Navigate to={"/dept/errorpage"}/>
-      }
-    }
+  //     if(dept in departments){
+  //       return children;
+  //     }else{
+  //       return <Navigate to={"/dept/errorpage"}/>
+  //     }
+  //   }
   return (
     <>
       <div className='top-0 p-0 my-0 mx-auto max-w-[1600px] h-full shadow-lg'>
@@ -64,35 +64,35 @@ const AppRouter = () => {
             <NewNavbar />
           </div>
 
-          <div className="flex flex-col lg:flex-row w-full lg:mt-[6.5rem] lg:min-h-screen overflow-y-auto overflow-x-hidden">
-            <div className=" w-full lg:w-[260px] absolute lg:relative bg-white z-10 py-2 px-0">
+          <div className="flex flex-col lg:flex-row w-full mt-[6.5rem] lg:min-h-screen overflow-y-auto overflow-x-hidden">
+            <div className=" w-full lg:w-[270px] absolute lg:relative bg-white z-10 py-2 px-0">
               <div className='w-full my-auto lg:shadow-lg lg:block lg:pt-8 h-full'>
                 <Menu fixedmenu={fixedmenu}/>
               </div>
             </div>
-            <div className="w-full flex items-center justify-center lg:w-[calc(100%-260px)] mt-8 md:mt-2 h-full">
+            <div className="w-full flex items-center justify-center lg:w-[calc(100%-270px)] mt-8 md:mt-2 h-full">
               <Routes>
-                <Route path='/dept/:dept/Home' element={<ProtectorRoute><Homepage/></ProtectorRoute>} />
-                <Route path='/dept/:dept/Placement' element={<ProtectorRoute><AllPlacement /></ProtectorRoute>} />
+                <Route path='/dept/:dept/Home' element={ <Homepage/> } />
+                <Route path='/dept/:dept/Placement' element={ <AllPlacement /> } />
                 <Route path='/*' element={<Error />} />
                 {/* About us */}
-                <Route path='/dept/:dept/MessageofHOD' element={<ProtectorRoute><HodMessage /></ProtectorRoute>} />
-                <Route path='/dept/:dept/MissionandVision' element={<ProtectorRoute><VisionandMission /></ProtectorRoute>} />
-                <Route path='/dept/:dept/Infrastructure' element={<ProtectorRoute><Infrastructure /></ProtectorRoute>} />
+                <Route path='/dept/:dept/MessageofHOD' element={ <HodMessage /> } />
+                <Route path='/dept/:dept/MissionandVision' element={ <VisionandMission /> } />
+                <Route path='/dept/:dept/Infrastructure' element={ <Infrastructure /> } />
                 {/* Academic */}
-                <Route path='/dept/:dept/Syllabus' element={<ProtectorRoute><Syllabus heading='Syallbus' syllabus={true} /></ProtectorRoute>} />
-                <Route path='/dept/:dept/Timetable' element={<ProtectorRoute><Syllabus heading='Time Table' syllabus={false} /></ProtectorRoute>} />
-                <Route path='/dept/:dept/Acadcord' element={<ProtectorRoute><AcadCordinator /></ProtectorRoute>} />
-                <Route path='/dept/:dept/Programme' element={<ProtectorRoute><Programme /></ProtectorRoute>} />
-                <Route path='/dept/:dept/contactus' element={<ProtectorRoute><ContactUs /></ProtectorRoute>} />
-                <Route path='/dept/:dept/Achievement' element={<ProtectorRoute><Achievements /></ProtectorRoute>} />
+                <Route path='/dept/:dept/Syllabus' element={ <Syllabus heading='Syallbus' syllabus={true} /> } />
+                <Route path='/dept/:dept/Timetable' element={ <Syllabus heading='Time Table' syllabus={false} /> } />
+                <Route path='/dept/:dept/Acadcord' element={ <AcadCordinator /> } />
+                <Route path='/dept/:dept/Programme' element={ <Programme /> } />
+                <Route path='/dept/:dept/contactus' element={ <ContactUs /> } />
+                <Route path='/dept/:dept/Achievement' element={ <Achievements /> } />
                 {/* Faculty */}
-                <Route path='/dept/:dept/Faculty' element={<ProtectorRoute><Faculty/></ProtectorRoute>} />
-                <Route path='/dept/:dept/Profile/:id' element={<ProtectorRoute><Profile/></ProtectorRoute>} />
-                <Route path='/dept/:dept/Staff' element={<ProtectorRoute><Staff/></ProtectorRoute>} />
-                <Route path='/dept/:dept/Student' element={<ProtectorRoute><Students/></ProtectorRoute>} />
-                <Route path='/dept/:dept/Alumni' element={<ProtectorRoute><Alumni/></ProtectorRoute>} />
-                <Route path='/dept/:dept/PhdScholar' element={<ProtectorRoute><PhdScholar/></ProtectorRoute>} />
+                <Route path='/dept/:dept/Faculty' element={ <Faculty/> } />
+                <Route path='/dept/:dept/Profile/:id' element={ <Profile/> } />
+                <Route path='/dept/:dept/Staff' element={ <Staff/> } />
+                <Route path='/dept/:dept/Student' element={ <Students/> } />
+                <Route path='/dept/:dept/Alumni' element={ <Alumni/> } />
+                <Route path='/dept/:dept/PhdScholar' element={ <PhdScholar/> } />
               </Routes>
             </div>
           </div>
