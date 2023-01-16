@@ -206,8 +206,8 @@ function NewNavbar() {
                                 </li></ul>
                         </div>
                         <div className="extra-links absolute bottom-1.5 left-0 w-full select-none flex flex-col align-middle justify-center">
-                            <a className="text-center text-white" href="/">Privacy Policy</a>
-                            <a className="text-center text-white" href="/">Terms &amp; conditions</a>
+                            <a className="text-center text-white" href="http://nitjintranet.ac.in:8080/">Privacy Policy</a>
+                            <a className="text-center text-white" href="http://nitjintranet.ac.in:8080/">Terms &amp; conditions</a>
                         </div>
                     </div>
                 </div>
@@ -222,7 +222,7 @@ function NewNavbar() {
                                     <span className="material-symbols-outlined" >
                                         engineering
                                     </span>
-                                    <a href="/research/jobs.html" className="hidden sm:block pl-1.5 text-xs">Jobs</a>
+                                    <a href="http://nitjintranet.ac.in:8080/research/jobs.html" className="hidden sm:block pl-1.5 text-xs">Jobs</a>
                                 </div>
                                 <div className="flex items-center">
                                     <span className="material-symbols-outlined">
@@ -337,32 +337,32 @@ function NewNavbar() {
                                                 <div id="col" className="flex flex-col w-52 gap-5 border-2 rounded-b-xl border-accent hover:bg-orange-500 hover:border-orange-500 ">
                                                     <div id="block" className="h-full">
                                                         <div id="head" className="h-full rounded-b-xl overflow-clip  bg-accent hover:bg-orange-500">
-                                                            <div className="p-2 text-center"><a href="/admin/index.html">ABOUT US</a>
+                                                            <div className="p-2 text-center"><a href="http://nitjintranet.ac.in:8080/admin/index.html">ABOUT US</a>
                                                             </div>
                                                             <div className="h-full rounded-b-xl bg-white">
                                                                 <ul className="flex flex-col gap-1 px-2 font-normal text-black">
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admin/index.html#vision-mission">Vision, Mission &amp;
+                                                                        <a href="http://nitjintranet.ac.in:8080/admin/index.html#vision-mission">Vision, Mission &amp;
                                                                             Quality Policy</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admin/virtualtour.html">Virtual Tour</a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/admin/virtualtour.html">Virtual Tour</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admin/index.html#history">Institute History</a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/admin/index.html#history">Institute History</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admin/explore.html">Explore NITJ</a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/admin/explore.html">Explore NITJ</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admin/ranking.html">NITJ Rankings &amp; Awards</a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/admin/ranking.html">NITJ Rankings &amp; Awards</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
                                                                         <a href="https://drive.google.com/file/d/1iQraSeXVHabN4_Y_4rUK3cUET7TiR7ts/view?usp=sharing">Institute
                                                                             Prospectus</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/admin/location.html">Location</a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/admin/location.html">Location</a>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -378,43 +378,43 @@ function NewNavbar() {
                                                         <div className="h-full rounded-b-xl bg-white">
                                                             <ul className="flex flex-col gap-1  bg-white px-2 font-normal text-black">
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/oc.html">Organisational Chart</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/oc.html">Organisational Chart</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/chairperson.html">Chairperson</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/chairperson.html">Chairperson</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/director.html">Director</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/director.html">Director</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/registrar.html">Registrar</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/registrar.html">Registrar</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/administration.html#academic-administration">Academic
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/administration.html#academic-administration">Academic
                                                                         administration</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/administration.html#student-welfare">Student
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/administration.html#student-welfare">Student
                                                                         Welfare</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/administration.html#faculty-welfare">Faculty
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/administration.html#faculty-welfare">Faculty
                                                                         Welfare</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/administration.html#planning-development">Planning
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/administration.html#planning-development">Planning
                                                                         &amp; Development</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/administration.html#research-consultancy">Research
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/administration.html#research-consultancy">Research
                                                                         &amp; Consultancy</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/administration.html#international-affairs">International
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/administration.html#international-affairs">International
                                                                         Affairs</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/hostels.html">Hostel Administration</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/hostels.html">Hostel Administration</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -428,23 +428,23 @@ function NewNavbar() {
                                                         <div className="h-full rounded-b-xl bg-white">
                                                             <ul className="flex flex-col gap-1  bg-white px-2 font-normal text-black">
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/council.html">NIT Council</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/council.html">NIT Council</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/governors.html">Board of Governors</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/governors.html">Board of Governors</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/senate.html">Senate</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/senate.html">Senate</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/senate.html">Standing committee of the
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/senate.html">Standing committee of the
                                                                         senate</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/senate.html">Finance committee</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/senate.html">Finance committee</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/senate.html">Building &amp; works committee</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/senate.html">Building &amp; works committee</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -458,32 +458,32 @@ function NewNavbar() {
                                                         <div className="h-full rounded-b-xl bg-white">
                                                             <ul className="flex flex-col gap-1  bg-white px-2 font-normal text-black">
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/e-cell.html">E-Cell</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/e-cell.html">E-Cell</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/staff-g-cell.html">Equal Opportunities and
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/staff-g-cell.html">Equal Opportunities and
                                                                         SC/ST/OBC/PwD Cell</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/staff-g-cell.html">Rajbhasha Cell</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/staff-g-cell.html">Rajbhasha Cell</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/staff-g-cell.html">RTI Cell</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/staff-g-cell.html">RTI Cell</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/student-g-cell.html">Student Grievances Cell</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/student-g-cell.html">Student Grievances Cell</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/faculty-g-cell.html">Faculty Grievances Cell</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/faculty-g-cell.html">Faculty Grievances Cell</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/staff-g-cell.html">Staff Grievances Cell</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/staff-g-cell.html">Staff Grievances Cell</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/public-g-cell.html">Public Grievances Cell</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/public-g-cell.html">Public Grievances Cell</a>
                                                                 </li>
                                                                 <li className="hover:text-[#FF6600]">
-                                                                    <a href="/admin/women-cell.html">Women Cell</a>
+                                                                    <a href="http://nitjintranet.ac.in:8080/admin/women-cell.html">Women Cell</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -589,7 +589,7 @@ function NewNavbar() {
                                                             <div className="h-full rounded-b-xl bg-white">
                                                                 <ul className="flex flex-col gap-1 px-2 font-normal text-black">
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/energy.html">Center for Energy and Environment</a>
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/energy.html">Center for Energy and Environment</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
                                                                         <a href="http://nitjintranet.ac.in:8080/academic/AI.html">
@@ -671,15 +671,15 @@ function NewNavbar() {
                                                                         Results
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/OATC.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/OATC.html">
                                                                             Online Application for Transcripts and Certificates</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/Oavd.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/Oavd.html">
                                                                             Online Application for Verification of Degree</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
-                                                                        <a href="/academic/Cgpa.html">
+                                                                        <a href="http://nitjintranet.ac.in:8080/academic/Cgpa.html">
                                                                             CGPA Criteria and Medium of Education</a>
                                                                     </li>
                                                                     <li className="hover:text-[#FF6600]">
@@ -1238,19 +1238,19 @@ function NewNavbar() {
                                                                     <div className="p-2 text-center">NITJ FESTIVALS</div>
                                                                     <div className="h-full rounded-b-xl bg-white">
                                                                         <ul className="flex flex-col gap-1 px-2 font-normal text-black">
-                                                                            <a href="/clubs/bharat_dhwani.html" className="hover:text-[#FF6600]">
+                                                                            <a href="http://nitjintranet.ac.in:8080/clubs/bharat_dhwani.html" className="hover:text-[#FF6600]">
                                                                                 Foundation Day
                                                                             </a>
-                                                                            <a href="/clubs/cultural.html" className="hover:text-[#FF6600]">
+                                                                            <a href="http://nitjintranet.ac.in:8080/clubs/cultural.html" className="hover:text-[#FF6600]">
                                                                                 Annual Cultural Fest
                                                                             </a>
-                                                                            <a href="/clubs/tech_fest.html" className="hover:text-[#FF6600]">
+                                                                            <a href="http://nitjintranet.ac.in:8080/clubs/tech_fest.html" className="hover:text-[#FF6600]">
                                                                                 Annual Technical Fest
                                                                             </a>
-                                                                            <a href="/clubs/athletic_fest.html" className="hover:text-[#FF6600]">
+                                                                            <a href="http://nitjintranet.ac.in:8080/clubs/athletic_fest.html" className="hover:text-[#FF6600]">
                                                                                 Athletic Fest
                                                                             </a>
-                                                                            <a href="/clubs/sports.html" className="hover:text-[#FF6600]">
+                                                                            <a href="http://nitjintranet.ac.in:8080/clubs/sports.html" className="hover:text-[#FF6600]">
                                                                                 Sports Tournaments
                                                                             </a>
                                                                         </ul>
