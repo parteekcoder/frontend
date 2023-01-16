@@ -17,7 +17,6 @@ function Test() {
     ]
     const dept=useLocation().pathname.split('/')[2];
     const departments={
-
         "it":"Information Technology",
         "cse":"Computer Science and Engineering",
         "bt":"Bio Technology",

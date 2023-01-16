@@ -2,12 +2,12 @@ import React from 'react'
 
 function ContactUs() {
   return (
-    <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[90px] pt-[54px] place-items-center'>
+    <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-3 my-[90px] pt-[54px] place-items-center'>
       <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[400] text-[#fff] shadow-lg rounded-3xl text-2xl'>Contact Us</div>
 
       <div className='flex-1 shadow p-8 rounded-md'>
-        <div className=' w-11/12 mx-9'>
-          <div className="bg-white relative flex flex-wrap py-6 rounded shadow">
+        <div className=' w-11/12 mx-auto'>
+          <div className="w-full bg-white relative flex flex-wrap py-6 rounded">
             <div className="lg:w-1/2 px-6 ">
               <h2 className="title-font font-semibold text-gray-900 tracking-widest">ADDRESS</h2>
               <p className="mt-1">Grand Trunk Road, Barnala Amritsar Bypass Rd Jalandhar, Punjab-144027, India</p>
