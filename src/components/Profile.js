@@ -17,7 +17,7 @@ function Profile() {
     const data=[
         {
             photo:'https://www.nitj.ac.in/images/faculty/20071962443.jpg',
-            name:'Geeta Phoghat',
+            name:'Geeta Sikha',
             position:'Assistant Professor'
         }
     ]
