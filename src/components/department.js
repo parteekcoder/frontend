@@ -3,10 +3,15 @@ import Departmentupper from './Departmentupper';
 import Departmentmiddle from './Departmentmiddle';
 import Departmentlower from './Departmentlower';
 import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import useFetch from '../hooks/useFetch';
 
 
 export const Department = () => {
-  const dept=useLocation().pathname.split('/')[2];
+  const [url,setUrl]=useState(useLocation());
+  const dept=url.pathname.split('/')[2];
+  const {data,loading,error,reFetch}=useFetch(`/dept/${dept}/messageofHOD`);
+  
   return (
     <div>
     <Departmentupper name={dept.toUpperCase()} introduction="Located in Jalandhar district of Punjab, NIT Jalandhar enjoys a really scenic environment 
@@ -16,7 +21,7 @@ in 1990 as the Department of Computer Science & Engineering, we have an excellen
 and an outstanding record of contributions to the profession and community."
  departmentimage='https://www.nitj.ac.in/cse/images/carousel/001_1.jpeg'/>
     <Departmentmiddle/>
-    <Departmentlower nameofhod="~Dr Geeta Sikka" hod='https://www.nitj.ac.in/images/faculty/20071962443.jpg' name="CSE"/>
+    <Departmentlower name={data?.name} img= {data?.img} message={data?.message}/>
     </div>
   )
 }

@@ -19,7 +19,7 @@ const {data,loading,error,reFetch}=useFetch(url.pathname);
                   <div className="transition-all mx-4 -mt-10 border-2 rounded-lg shadow-2xl overflow-hidden bg-black">
                     <img
                       className="w-full h-full"
-                      src={item.photo}
+                      src={item.img}
                       alt="..."
                     />
                   </div>
