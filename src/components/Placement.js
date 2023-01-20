@@ -18,7 +18,6 @@ function Placement({ search,cnt = Infinity }) {
     const isEqual = (itemE, searchV) => {
         itemE = itemE.toUpperCase();
         searchV = searchV.toUpperCase();
-        console.log(searchV, itemE);
         if (!isNaN(searchV) && itemE.indexOf('-') === -1) {
             return parseInt(itemE) >= parseInt(searchV);
         }

@@ -29,7 +29,10 @@ const AppRouter = () => {
   useEffect(() => {
     setFixedmenu(isInViewport1);
   }, [isInViewport1]);
- 
+  const [scrollupmenu, setScrollupmenu] = useState(false);
+  const SetScrollupmenu = (val)=>{
+    setScrollupmenu(val);
+  }
   const departments={
 
     "it":"Information Technology",
@@ -62,13 +65,13 @@ const AppRouter = () => {
       <div className='top-0 p-0 my-0 mx-auto max-w-[1600px] h-full shadow-lg'>
         <Router>
           <div className='md:mb-2'>
-            <NewNavbar />
+            <NewNavbar SetScrollupmenu={SetScrollupmenu} />
           </div>
 
           <div className="flex flex-col lg:flex-row w-full mt-[6.5rem] lg:min-h-screen overflow-y-auto overflow-x-hidden">
             <div className=" w-full lg:w-[270px] absolute lg:relative bg-white z-10 py-2 px-0">
               <div className='w-full my-auto lg:shadow-lg lg:block lg:pt-8 h-full'>
-                <Menu fixedmenu={fixedmenu}/>
+                <Menu fixedmenu={fixedmenu} scrollupmenu={scrollupmenu}/>
               </div>
             </div>
             <div className="w-full flex items-center justify-center lg:w-[calc(100%-270px)] mt-8 md:mt-2 h-full">
