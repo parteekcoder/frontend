@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import logo from './Img/logo.png'
 import Rect from './Img/rect.png'
 import './Newnavbar.css'
-function NewNavbar() {
+function NewNavbar({SetScrollupmenu}) {
     const handlescroll = () => {
         // const insti_name_cont = document.getElementById('instituteNameContainer')
         const institute_name = document.getElementsByClassName('institute_name')
@@ -13,11 +13,12 @@ function NewNavbar() {
         // animateValueIntiator()
         // animateValueIntiatorInstitute()
         // resAutoScroll()
-
         if (window.scrollY > 100) {
+            SetScrollupmenu(true);
             // insti_name_cont.classList.remove('sm:h-20', 'sm:max-h-20')
             // insti_name_cont.classList.add('sm:h-10', 'sm:max-h-10')
             // insti_name_cont.classList.add(' sm:max-h-20')
+
             topbar.style.transform = 'translateY(-50px)'
             for (let i = 0; i < diff_lang.length; i++) {
                 diff_lang[i].classList.remove('mt-7')
@@ -43,6 +44,7 @@ function NewNavbar() {
         } else {
             // insti_name_cont.classList.remove('sm:h-10', 'sm:max-h-10')
             // insti_name_cont.classList.add('sm:h-20', 'sm:max-h-20')
+            SetScrollupmenu(false);
             logo.style.width = '120px'
             logo.style.height = '120px'
             topbar.style.transform = 'translateY(0)'
@@ -53,7 +55,6 @@ function NewNavbar() {
             logo.classList.add('top-9')
             logo.classList.remove('top-0', 'py-4')
             for (var i = 0; i < institute_name.length; i++) {
-                console.log(institute_name[i].classList);
                 if (institute_name[i].classList.contains('sm:text-lg')) {
                     institute_name[i].classList.remove('sm:text-lg')
                     institute_name[i].classList.add('sm:text-xl')
@@ -69,19 +70,19 @@ function NewNavbar() {
     }
     useEffect(() => {
         window.addEventListener('scroll', handlescroll);
-    }, [])
+    }, [handlescroll])
     return (
         <div>
             <div className=" p-0 top-0 flex items-start justify-start h-full w-full z-10 fixed bg-transparent backdrop-blur-2xl" id="nav-menu" style={{ display: 'none' }}>
-                <div id="menu" className="h-screen w-3/4 z-10 relative" onclick="close_menu();">
-                    <div className="menu-content w-3/4 z-40 bg-accent h-full relative" onclick="keep_menu_open();z=1;">
+                <div id="menu" className="h-screen w-3/4 z-10 relative">
+                    <div className="menu-content w-3/4 z-40 bg-accent h-full relative">
                         <div className="top-bar h-1/6">
-                            <div className="menu-btn z-50 flex justify-end py-4 px-4" onclick="z=0;close_menu();">
+                            <div className="menu-btn z-50 flex justify-end py-4 px-4">
                                 <div className="line bg-white w-[20px] h-[2px] rotate-45 absolute" />
                                 <div className="line bg-white w-[20px] h-[2px] -rotate-45" />
                             </div>
                         </div>
-                        <button id="dropdown-button" data-dropdown-toggle="dropdown" className="z-10 w-full inline-flex flex-shrink-0 items-center border border-gray-300 bg-gray-100 py-2.5 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700" type="button" onclick="openDropdown()">
+                        <button id="dropdown-button" data-dropdown-toggle="dropdown" className="z-10 w-full inline-flex flex-shrink-0 items-center border border-gray-300 bg-gray-100 py-2.5 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700" type="button">
                             Administration
                             <svg className="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -90,7 +91,7 @@ function NewNavbar() {
                         <div id="dropdown" className="absolute z-10 w-full hidden divide-y divide-gray-100 rounded bg-white shadow dark:bg-gray-700" data-popper-reference-hidden data-popper-escaped data-popper-placement="top">
                             <ul className="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
                                 <li>
-                                    <button id="dropdown-button" data-dropdown-toggle="dropdown" className="z-10 w-full inline-flex flex-shrink-0 items-center border border-gray-300 bg-gray-100 py-2.5 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700" type="button" onclick="openDropdown2()">
+                                    <button id="dropdown-button" data-dropdown-toggle="dropdown" className="z-10 w-full inline-flex flex-shrink-0 items-center border border-gray-300 bg-gray-100 py-2.5 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700" type="button">
                                         About Us
                                         <svg className="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -138,7 +139,7 @@ function NewNavbar() {
                                 </li></ul>
                             <ul className="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
                                 <li>
-                                    <button id="dropdown-button" data-dropdown-toggle="dropdown" className="z-10 w-full inline-flex flex-shrink-0 items-center border border-gray-300 bg-gray-100 py-2.5 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700" type="button" onclick="openDropdown3()">
+                                    <button id="dropdown-button" data-dropdown-toggle="dropdown" className="z-10 w-full inline-flex flex-shrink-0 items-center border border-gray-300 bg-gray-100 py-2.5 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700" type="button">
                                         Leadership
                                         <svg className="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -234,7 +235,7 @@ function NewNavbar() {
                                     <span className="material-symbols-outlined">
                                         badge
                                     </span>
-                                    <a href="https://placement-q1bq.onrender.com/" target="_blank" className="hidden sm:block pl-1.5 text-xs">Placements</a>
+                                    <a href="https://placement-q1bq.onrender.com/" target="_blank" rel="noreferrer" className="hidden sm:block pl-1.5 text-xs">Placements</a>
                                 </div>
                                 <div className="flex items-center">
                                     <span className="material-symbols-outlined">
@@ -320,11 +321,11 @@ function NewNavbar() {
                 <div className="sm:block bg-accent drop-shadow-lg z-40">
                     <div className="container">
                         <div className="z-40 flex h-7 sm:h-10 max-w-screen px-4 flex-row justify-between bg-accent text-lg text-white">
-                            <div className="flex items-center sm:hidden" onclick="open_menu();">
+                            <div className="flex items-center sm:hidden">
                                 <span className="material-symbols-outlined"> menu </span>
                             </div>
                             <div className="sm:hidden block">
-                                <button type="button" className="block material-symbols-outlined duration-50 cursor-pointer text-center transition ease-in-out hover:box-border sm:hover:h-10 sm:hover:w-10 hover:rounded-full hover:border-2 hover:border-accent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tap to search" onclick="showSearchPage(event)">
+                                <button type="button" className="block material-symbols-outlined duration-50 cursor-pointer text-center transition ease-in-out hover:box-border sm:hover:h-10 sm:hover:w-10 hover:rounded-full hover:border-2 hover:border-accent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tap to search">
                                     search
                                 </button>
                             </div>
@@ -369,7 +370,7 @@ function NewNavbar() {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <img src="/public/assets/images/logo_250.png" alt="" style={{ width: '100px' }} />
+                                                <img src={logo} alt="" style={{ width: '100px' }} />
                                             </div>
                                             <div id="col" className="flex flex-col rounded-b-xl w-52 gap-5  border-2 border-accent hover:border-orange-500 hover:bg-orange-500">
                                                 <div id="block" className="h-full">
@@ -944,7 +945,7 @@ function NewNavbar() {
                                                                     <div className="h-full rounded-b-xl bg-white">
                                                                         <ul className="flex flex-col gap-1 px-2 font-normal text-black">
                                                                             <li className="hover:text-[#FF6600]">
-                                                                                <a href="https://vidwan.inflibnet.ac.in/searchc/search" target="_blank"> VIDWAN (IRINS Instance) </a>
+                                                                                <a href="https://vidwan.inflibnet.ac.in/searchc/search" target="_blank" rel="noreferrer"> VIDWAN (IRINS Instance) </a>
                                                                             </li>
                                                                             <li className="hover:text-[#FF6600]">
                                                                                 <a href="/research/research_publications.html">
@@ -1281,14 +1282,14 @@ function NewNavbar() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <img src="/public/assets/images/logo_250.png" alt="" style={{ width: '100px' }} />
+                                                        <img src={logo} alt="" style={{ width: '100px' }} />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="flex basis-1/5 flex-row justify-center">
-                                        <button type="button" className="material-symbols-outlined duration-50 cursor-pointer text-center transition ease-in-out hover:box-border hover:h-10 hover:w-10 hover:rounded-full hover:border-2 hover:border-accent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tap to search" onclick="showSearchPage(event)">
+                                        <button type="button" className="material-symbols-outlined duration-50 cursor-pointer text-center transition ease-in-out hover:box-border hover:h-10 hover:w-10 hover:rounded-full hover:border-2 hover:border-accent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tap to search">
                                             search
                                         </button>
                                     </div>

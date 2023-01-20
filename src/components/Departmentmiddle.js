@@ -17,10 +17,10 @@ const Departmentmiddle = () => {
                 {/* Activity  */}
                 <div className='max-w-full md:w-1/2 h-96 rounded-[9px] border border-[rgba(0,105,140,0.2)] py-3 px-0 mx-3 my-[36px] pt-[54px]'>
                     <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[410] tracking-wide leading-8 text-[#fff] shadow-lg rounded-3xl text-2xl mx-3'>Activities</div>
-                    <ul class="flex flex-col gap-[12px] lg:gap-[20px] list-disc text-justify px-8 py-2 h-80">
+                    <ul className="flex flex-col gap-[12px] lg:gap-[20px] list-disc text-justify px-8 py-2 h-80">
                         {
                             Activity ? Activity.map((n, i) =>
-                                <li key={i} class="hover:font-medium"><a href={`${n?.link}`}>{n?.title}</a>&nbsp;<span class="absolute pt-1 text-lg"><img src={gif} alt='...' /></span>
+                                <li key={i} className="hover:font-medium"><a href={`${n?.link}`}>{n?.title}</a>&nbsp;<span className="absolute pt-1 text-lg"><img src={gif} alt='...' /></span>
                                 </li>
                             ) : <h1>Data not Available</h1>
                         }

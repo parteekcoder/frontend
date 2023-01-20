@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import logo from './Img/logo.png'
-function Menu({ fixedmenu }) {
+function Menu({ fixedmenu,scrollupmenu }) {
     let navigate = useNavigate();
     const dept= useLocation().pathname.split('/')[2];
     const Menu = [
@@ -94,7 +94,7 @@ function Menu({ fixedmenu }) {
             ]
         }, {
             Title: 'Join Us',
-            Logo: 'fa fa-flask',
+            Logo: 'fa fa-address-book',
             List: [
 
             ],
@@ -121,16 +121,16 @@ function Menu({ fixedmenu }) {
     const [menu, setMenu] = useState(false);
     return (
         <>
-            <div className={"flex flex-col bg-white z-50 lg:z-10 items-center ml-2 max-h-[78vh] lg:h-[80vh] max-w-full lg:max-w-[260px] overflow-hidden text-gray-700 rounded lg:" + (fixedmenu ? 'absolute bottom-1' : 'fixed')}>
+            <div className={"flex flex-col bg-white z-50 lg:z-10 items-center ml-2 max-h-[78vh] lg:h-[80vh] max-w-full lg:max-w-[260px] overflow-hidden text-gray-700 rounded lg:" + (fixedmenu ? 'absolute bottom-1' : scrollupmenu?'fixed top-[80px]':'fixed top-[140px]')}>
                 <span className="flex items-center border-b border-gray-300 w-full px-2 mt-2 active:translate-y-[2px]" onClick={() => { setMenu(!menu) }}>
                     <span className='w-8 lg:w-10 pb-1'><img src={logo} alt="logo"/></span>
                     <span className="ml-2 text font-bold py-2">{departments[dept]}</span>
                 </span>
 
-                <div className={"lg:flex flex-col items-center w-full h-full overflow-y-auto scrollbar mt-1 mb-3 py-1 " + (menu ? 'flex' : 'hidden')}>
+                <div className={"mr-1 lg:flex flex-col items-center w-[98%] h-full overflow-y-auto scrollbar mt-1 mb-3 py-1 " + (menu ? 'flex' : 'hidden')}>
                     <div className='w-full'>
-                        <span className="flex items-center w-full h-10 px-3 mt-2 rounded hover:bg-gray-200 cursor-pointer active:translate-y-[2px]" onClick={() => { navigate(`/dept/${dept}/Home`); setMenu(!menu); }}>
-                            <i className="pl-1 w-6 h-6 stroke-current fa fa-home"></i>
+                        <span className="flex items-center w-full h-10 px-3 mt-2 rounded hover:bg-gray-200 cursor-pointer active:translate-y-[2px] shadow-sm border border-gray-200/75" onClick={() => { navigate(`/dept/${dept}/Home`); setMenu(!menu); }}>
+                            <i className="pl-1 pt-[2px] w-6 h-6 stroke-current fa fa-home"></i>
                             <span className="ml-1 font-medium">Home</span>
                         </span>
                     </div>
@@ -139,16 +139,18 @@ function Menu({ fixedmenu }) {
 
                             return (
                                 <div key={i} className='w-full group'>
-                                    <span className="flex items-center w-full h-10 px-3 mt-2 rounded hover:bg-gray-200 cursor-pointer">
-                                        <i className={"pl-1 w-6 h-6 stroke-current " + item.Logo}></i>
+                                    <span className="flex items-center w-full h-10 px-3 mt-2 rounded hover:bg-gray-200 shadow-sm border border-gray-200/75 cursor-pointer">
+                                        <i className={"pl-1 pt-[2px] w-6 h-6 stroke-current " + item.Logo}></i>
                                         <span className="ml-1 font-medium">{item.Title}</span>
                                     </span>
-                                    <ul id="dropdown-example" className={"group-hover:py-2 space-y-2 h-0 overflow-hidden group-hover:h-auto transition-all"}>
+                                    
+                                    <ul className={"group-hover:py-2 space-y-2 h-0 overflow-hidden group-hover:h-auto transition-all ml-2 pl-2"}>
                                         {
                                             item.List.map((iteml, j) => {
                                                 return (
-                                                    <li key={j} className="target:bg-red-200">
-                                                        <span className="block p-1 text-sm font-normal text-gray-900 transition duration-75 group hover:font-medium hover:text-blue-900 hover:scale-[1.02] ml-10 cursor-pointer active:translate-y-[2px]" onClick={() => { navigate(iteml.link); setMenu(!menu) }}>{iteml.l}</span>
+                                                    <li key={j} className="flex transition duration-75 group font-medium hover:text-blue-900 hover:scale-[1.02] cursor-pointer active:translate-y-[2px]">
+                                                        <i className="fa-sm fa-regular fa-circle-check stroke-current w-4 h-4 mr-1 pt-3"></i>
+                                                        <span className="block p-1 text-sm text-gray-700" onClick={() => { navigate(iteml.link); setMenu(!menu) }}>{iteml.l}</span>
                                                     </li>
                                                 )
                                             })
