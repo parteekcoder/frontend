@@ -48,7 +48,8 @@ const AppRouter = () => {
     "math":"Mathematics",
     "phy":"Physics",
     "tt":"Textile Technology",
-    "hum":"Humaniyies"
+    "hum":"Humanities",
+    "cy":"chemistry"
   }
   // const ProtectorRoute=({children})=>{
   //   const dept=useLocation().pathname.split('/')[2];

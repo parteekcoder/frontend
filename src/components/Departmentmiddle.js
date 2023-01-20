@@ -9,7 +9,7 @@ const Departmentmiddle = () => {
     const [url, setUrl] = useState(useLocation());
     const dept = useLocation().pathname.split('/')[2];
     const Activity = useFetch(`/dept/${dept}/Activity`).data;
-    const News = useFetch(`/dept/${dept}/News`).data;
+    const News = useFetch(`/news`).data;
     return (
         <>
             <div className='flex flex-col overflow-hidden md:flex-row max-w-[100%-240px]'>

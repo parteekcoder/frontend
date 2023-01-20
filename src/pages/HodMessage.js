@@ -1,9 +1,15 @@
 import React from 'react'
+import { useState } from 'react';
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
 function HodMessage() {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+  const [url,setUrl]=useState(useLocation());
+  const dept=url.pathname.split('/')[2];
+  const {data,loading,error,reFetch}=useFetch(`/dept/${dept}/messageofHOD`);
   return (
     <div class="main-body flex flex-col gap-8 lg:gap-12 mt-28 mb-24" style={{fontFamily:"Poppins"}}>
       <div class="flex flex-col sm:flex-row px-4 md:px-[11%] gap-[32px] md:gap-[64px]">
@@ -12,7 +18,7 @@ function HodMessage() {
         </div>
         <div class="sm:basis-2/3">
           <div class="flex flex-col items-start">
-            <p class="font2 font-semibold text-[26px] lg:text-[40px] leading-[1.3] uppercase mb-2">Dr. Geeta Sikha</p>
+            <p class="font2 font-semibold text-[26px] lg:text-[40px] leading-[1.3] uppercase mb-2">{data?.name}</p>
             <p class="text-gray-400 text-[12px] lg:text-[16px]">HOD, Dr. B R Ambedkar National Institute of
               Technology, Jalandhar</p>
             <div class="bg-accent bg-teal-600 w-[100%] h-[3px] mb-4 mt-2"></div>
@@ -20,12 +26,12 @@ function HodMessage() {
               <div class="flex flex-row">
                 <p class="basis-3/12 md:basis-[15%] text-justify font-semibold">Email</p>
                 <p class="">: &nbsp; &nbsp;</p>
-                <p>director@nitj.ac.in</p>
+                <p>{data?.email}</p>
               </div>
               <div class="flex flex-row">
                 <p class="basis-3/12 md:basis-[15%] font-semibold">Tel No.</p>
                 <p class="">: &nbsp; &nbsp;</p>
-                <p>+91-181-2690802 (O)</p>
+                <p>{data?.phone} (O)</p>
               </div>
               <div class="flex flex-row">
                 <p class="basis-3/12 md:basis-[15%] font-semibold text-justify">EPABX</p>
@@ -56,16 +62,11 @@ function HodMessage() {
           <div class="bg-accent bg-teal-600 w-full lg:w-[111px] h-[1px] lg:h-[5px]"></div>
         </div>
         <p class="text-gray-800 lg:text-lg lg:leading-[30px] text-justify">
-              It is a privilege to lead Dr. B. R. Ambedkar National Institute of Technology (NIT) Jalandhar,
-              one of the national accolades and an outstanding institution of higher learning. NIT Jalandhar
-              is ranked 49th in the National Institutional Ranking Framework (NIRF), Band-Excellent in the
-              Atal   Ranking of Institutions on Innovation Achievements (ARIIA), and was recently ranked in
-              the 401-500 range  in the Times Higher Education (THE) Emerging Economies University
-              Rankings 2022.
+              {data?.message}
           <br /> <br />
           Wish you all the best.
           <br /> <br />
-          <span class="font-semibold">Prof. Geeta Sikha</span>
+          <span class="font-semibold">{data?.name}</span>
         </p>
       </div>
 
