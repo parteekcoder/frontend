@@ -47,7 +47,6 @@ function Programme() {
         setProgram(id);
         var element = document.getElementById(str);
         element.scrollIntoView({ behavior: "smooth", block: "start" });
-        console.log(id, program)
     }
     useEffect(() => {
         window.scroll(0, 0);

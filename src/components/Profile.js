@@ -16,6 +16,8 @@ function Profile() {
     // const { data, loading, error, reFetch } = useFetch(url.pathname);
     const data=[
         {
+            photo:'https://www.nitj.ac.in/images/faculty/20071962443.jpg',
+            name:'Geeta Sikha',
             photo:'',
             name:'',
             position:'Assistant Professor'
