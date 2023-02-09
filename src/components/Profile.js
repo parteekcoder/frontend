@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import BaseTable from '../pages/BaseTable';
-import { useLocation } from 'react-router-dom';
 import useFetch from '../hooks/useFetch'
-
+import { useLocation, useNavigate } from 'react-router-dom'
 function Profile() {
+    let navigate = useNavigate()
+    const dept= useLocation().pathname.split('/')[2];
     var id = window.location.pathname;
     let i = id.length - 1;
     let str = "";
@@ -14,13 +15,15 @@ function Profile() {
     id = parseInt(str);
     // const [url, setUrl] = useState(useLocation());
     // const { data, loading, error, reFetch } = useFetch(url.pathname);
-    const data=[
+    const data = [
         {
+
             photo:'https://www.nitj.ac.in/images/faculty/20071962443.jpg',
             name:'Geeta Sikha',
             photo:'',
             name:'',
             position:'Assistant Professor'
+
         }
     ]
     const Link = [
@@ -57,22 +60,29 @@ function Profile() {
             {
                 data.map((item, i) => {
                     return (
-                        i===id&&<div className="mt-16 py-4 w-[98%] mx-auto">
-                            <div class="relative flex flex-col flex-auto w-full min-w-0 p-4 pb-0 sm:pb-4 overflow-hidden break-words border shadow-md rounded-2xl bg-white/80 bg-clip-border mb-4 draggable mx-auto"
+                        i === id && <div className="mt-16 py-4 w-[98%] mx-auto">
+                            <div class="relative flex flex-col flex-auto w-full min-w-0 p-4 overflow-hidden break-words border shadow-md rounded-2xl bg-white/80 bg-clip-border mb-4 draggable mx-auto"
                                 draggable="true">
-                                <div class="flex flex-wrap -mx-3">
-                                    <div class="flex-none w-auto max-w-full px-3">
-                                        <div className="w-20 h-20 xl:w-24 xl:h-24 flex-grow-0 flex-shrink-0">
-                                            <img src={item.photo} className="w-full h-full object-cover object-left-top rounded-xl shadow-xl flex-grow-0 flex-shrink-0" alt='...' />
+                                <div class="flex flex-wrap items-center justify-between -mx-3">
+                                    <div className='flex'>
+                                        <div class="flex-none w-auto max-w-full px-3">
+                                            <div className="w-20 h-20 xl:w-24 xl:h-24 flex-grow-0 flex-shrink-0">
+                                                <img src={item.photo} className="w-full h-full object-cover object-left-top rounded-xl shadow-xl flex-grow-0 flex-shrink-0" alt='...' />
+                                            </div>
+                                        </div>
+                                        <div class="flex-none w-auto max-w-full px-3 my-auto">
+                                            <div class="h-full">
+                                                <h5 class="mb-1 text-gray-700 text-xl font-semibold">{item.name}</h5>
+                                                <p class="ml-2 text-zinc-500 mb-0 font-medium leading-normal">{item.position}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="flex-none w-auto max-w-full px-3 my-auto">
-                                        <div class="h-full">
-                                            <h5 class="mb-1 text-gray-700 text-xl font-semibold">{item.name}</h5>
-                                            <p class="ml-2 text-zinc-500 mb-0 font-medium leading-normal">{item.position}</p>
-                                        </div>
-                                    </div>
-                                    <div class="w-full max-w-full px-3 mx-auto mt-4 sm:my-auto sm:mr-0 md:w-1/2 md:flex-none lg:w-4/12">
+                                    <div class=" mx-2">
+                                        <button onClick={()=>navigate(`/dept/${dept}/login`)} class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200">
+                                            <span class="relative px-4 py-2 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+                                                Login
+                                            </span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>

@@ -150,7 +150,7 @@ function Menu({ fixedmenu,scrollupmenu }) {
                                                 return (
                                                     <li key={j} className="flex transition duration-75 group font-medium hover:text-blue-900 hover:scale-[1.02] cursor-pointer active:translate-y-[2px]">
                                                         <i className="fa-sm fa-regular fa-circle-check stroke-current w-4 h-4 mr-1 pt-3"></i>
-                                                        <span className="block p-1 text-sm text-gray-700" onClick={() => { navigate(iteml.link); setMenu(!menu) }}>{iteml.l}</span>
+                                                        <span className="block p-1 text-sm text-gray-700 hover:text-blue-900" onClick={() => { navigate(iteml.link); setMenu(!menu) }}>{iteml.l}</span>
                                                     </li>
                                                 )
                                             })
