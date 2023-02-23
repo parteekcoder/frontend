@@ -1,10 +1,10 @@
 import React from 'react'
 
-function BaseTable({ edit }) {
+function Otherprofilelink({edit}) {
     return (
-        <div className=''>
+        <div className='overflow-x-auto'>
             {
-                edit ? <div className="mx-4">
+                edit ? <div className="m-4">
                     <form className="w-full max-w-lg shadow p-3">
                         <div className="flex flex-wrap -mx-3 mb-6">
                             <div className="w-full px-3">
@@ -29,7 +29,7 @@ function BaseTable({ edit }) {
                         </div>
                     </form>
                 </div> : 
-                <div className="overflow-x-auto relative my-2 scrollbar">
+                <div className="overflow-x-auto relative my-2 scrollbar min-w-[570px]">
                     <div className="flex max-w-full justify-between items-center p-4 shadow-md">
                         <table>
                             <tr>
@@ -50,4 +50,4 @@ function BaseTable({ edit }) {
     )
 }
 
-export default BaseTable
+export default Otherprofilelink

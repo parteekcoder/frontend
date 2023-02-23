@@ -22,6 +22,7 @@ import Alumni from './pages/Alumni';
 import PhdScholar from './pages/PhdScholar';
 import Profile from './components/Profile';
 import FacultyLogin from './pages/FacultyLogin';
+import Otherprofilelink from './forms/facultyprofile/Otherprofilelink'
 const AppRouter = () => {
   const footref = useRef();
   const isInViewport1 = useIsInViewport(footref);
@@ -99,10 +100,14 @@ const AppRouter = () => {
                 <Route path='/dept/:dept/Alumni' element={ <Alumni/> } />
                 <Route path='/dept/:dept/PhdScholar' element={ <PhdScholar/> } />
                 <Route path='/dept/:dept/login' element={ <FacultyLogin/> } />
+
+                {/* forms */}
+
+                <Route path='/dept/:dept/editprofile' element={ <Otherprofilelink/> } />
               </Routes>
             </div>
           </div>
-          <div ref={footref} className='w-full h-full pt-8'>
+          <div ref={footref} className='w-full h-full pt-2'>
             <Footer />
           </div>
         </Router>
