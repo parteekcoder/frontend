@@ -9,17 +9,18 @@ function Infrastructure() {
 
   return (
     <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[90px] pt-[54px] place-items-center'>
-      <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[400] text-[#fff] shadow-lg rounded-3xl text-2xl'>Infrastructure</div>
+      <div className='absolute uppercase font-semibold leading-tight truncate -mt-[76px] p-2 px-4 bg-[rgba(0,105,140,1)] text-[#fff] shadow-lg rounded-2xl text-2xl'>Infrastructure</div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 m-4 p-2 place-items-center gap-4 antialiased text-gray-900">
         {
          data? data.map((item, i) => {
             return (
-              <div key={i} className='m-4 p-2'>
-                <img src={item?.img} alt=" random imgee" class="w-full border-2 object-cover object-center rounded-lg shadow-md" />
-
-                <div class="relative px-4 -mt-12  ">
-                  <div class="max-w-fit mx-auto bg-white flex items-center justify-center p-6 rounded-lg shadow-lg">
+              <div key={i} className='my-4 sm:mx-4 p-2'>
+                <div className="w-full border-2 object-cover object-center rounded-lg shadow-md overflow-hidden">
+                <img src={item?.img} alt=" random imgee" class="w-full object-cover object-center rounded-lg shadow-md hover:scale-110 duration-500" />
+                </div>
+                <div class="relative px-4 -mt-8 md:-mt-12">
+                  <div class="max-w-fit mx-auto bg-white flex items-center justify-center py-3 px-4 md:px-6 md:py-6 rounded-lg shadow-lg">
                     <h4 class="mt-1 text-xl font-semibold uppercase leading-tight truncate">{item?.title}</h4>
                   </div>
                 </div>
