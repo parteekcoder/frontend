@@ -4,7 +4,6 @@ import useFetch from '../hooks/useFetch'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Otherprofilelink from '../forms/facultyprofile/Otherprofilelink';
 import ResearchProfile from '../forms/facultyprofile/ResearchProfile';
-import JournalPub from '../forms/facultyprofile/JournalPub';
 function Profile() {
     let navigate = useNavigate()
     const dept = useLocation().pathname.split('/')[2];
@@ -20,36 +19,43 @@ function Profile() {
     // const { data, loading, error, reFetch } = useFetch(url.pathname);
     const data = [
         {
-
             photo:'https://www.nitj.ac.in/images/faculty/20071962443.jpg',
             name:'Geeta Sikha',
-            photo:'',
-            name:'',
             position:'Assistant Professor'
-
         }
     ]
+
     const Link = [
-        { Title: 'Personal details', show: false, search: false, thead: false, data: [{}, {}, {}, {}, {}] },
-        { Title: 'Other profile links', show: false, search: false, thead: false, data: [{}, {}, {}, {}, {}] },
-        { Title: 'Research Profile', show: true, search: true, thead: true, data: [{}, {}, {}, {}, {}] },
-        { Title: 'Journal Publications', show: true, search: true, thead: true, data: [{}, {}, {}, {}, {}] },
-        { Title: 'Conference Publications', show: true, search: true, thead: true, data: [{}, {}, {}, {}, {}] },
-        { Title: 'Book/Chapter Publications', show: true, search: true, thead: true, data: [{}, {}, {}, {}, {}] },
-        { Title: 'Research Projects', show: true, search: true, thead: true, data: [{}, {}, {}, {}, {}] },
-        { Title: 'Events Organized', show: true, search: true, thead: true, data: [{}, {}, {}, {}, {}] },
-        { Title: 'Professional Affiliations', show: true, search: true, thead: true, data: [{}, {}, {}, {}, {}] },
-        { Title: 'PhD Supervised', show: true, search: true, thead: true, data: [{}, {}, {}, {}, {}] },
-        { Title: 'PG Dissertation Guided', show: true, search: true, thead: true, data: [{}, {}, {}, {}, {}] },
-        { Title: 'Patents', show: true, search: true, thead: true, data: [{}, {}, {}, {}, {}] },
-        { Title: 'Admin. Responsiblities', show: true, search: true, thead: true, data: [{}, {}, {}, {}, {}] },
-        { Title: 'Award and Honours', show: true, search: true, thead: true, data: [{}, {}, {}, {}, {}] },
-        { Title: 'Download Profile as PDF', show: true, search: true, thead: true, data: [{}, {}, {}, {}, {}] },
+        { Title: 'Personal Details', show: false, search: false, thead: [], data: [{}, {}, {}, {}, {}] },
+        { Title: 'Profile Links', show: false, search: false, thead: [], data: [{}, {}, {}, {}, {}] },
+        { Title: 'Research Profile', show: true, search: true, thead: [], data: [{}, {}, {}, {}, {}] },
+        { Title: 'Journal Publications', show: true, search: true, thead: ['Year','Journal','Publications'], data: [{1:'2022',2:'ACM Computing Surveys (SCI IF=14.324)',3:'Raj Mohan Singh, Lalit Kumar Awasthi, Geeta Sikka, "Towards Metaheuristic Scheduling Techniques in Cloud and Fog: An Extensive Taxonomic Review". (Online)'}] },
+        { Title: 'Conference Publications', show: true, search: true, thead: ['Year','Conference','Publications'], data: [{1:'2021',2:'2nd International Conference on Secure Cyber Computing and Communications (ICSCCC). IEEE',3:'harma, P., & Sangal, A. L., Extensive Software Fault Prediction: An Ensemble based comparison, pp. 432-436.'}] },
+        { Title: 'Book/Chapter Publications', show: true, search: true, thead: ['Type','Title','Publisher','Authors','ISBN/ISSN/ No.','Year'], data: [{ 1: '', 2: '“Artificial intelligence technologies for computational biology”', 3: 'CRC Press (1st Edition Nov 2022)', 4: 'Rout Ranjeet Kumar,Umer Saiyed,Sheikh Sabhaa, Amrit Lal Sangal', 5: '978-100077868-7, 978-103216000-9', 6: '2022'}] },
+        { Title: 'Research Projects', show: true, search: true, thead: ['Role', 'Project Type', 'Title', 'Funding Agency', 'From', 'To', 'Amount', 'Status', 'Co-Investigator'], data: [] },
+        { Title: 'Events Organized', show: true, search: true, thead:  ['Category', 'Type', 'Title', 'Venue', 'From', 'To', 'Designation'], data: [{ 1: 'Conference', 2: 'International', 3: '1st International Conference on Secure Cyber Computing and Communications (ICSCCC). IEEE', 4: 'Dr B R Ambedkar National Institute of Technology, Jalandhar', 5: '', 6: '', 7: '' }] },
+        { Title: 'Professional Affiliations', show: true, search: true, thead: ['Designation', 'Organization'], data: [{ 1: 'Member', 2: 'Indian Society for technical Education (ISTE)'}] },
+        { Title: 'PhD Supervised', show: true, search: true, thead: ['Scholar Name', 'Research Topic','Status','Year','Co-Supervisor'], data: [{ 1: 'Mr Himanshu Pattanayak', 2: 'An algorithm for detection of shared communities in social network',3:'Defended',4:'2022',5:'Dr A L Sangal' }] },
+        { Title: 'PG Dissertation Guided', show: true, search: true, thead: ['Student Name', 'Dissertation Title', 'Status', 'Year', 'Co-Supervisor'], data: [{ 1: 'Ananya Sharma', 2: 'IGT:Tools for testing and maintaining GPU Drivers.', 3: 'Completed', 4: '2022', 5: '' }] },
+        { Title: 'Patents', show: true, search: true, thead: ['Name', 'Reg./Ref. No.', 'Date of Award/Filling', 'Organization', 'Status']
+        , data: [{ 1: 'A system of smartphone security using machine learning', 2: '202111040145', 3: '', 4: 'Patent Office India', 5: 'Filed' }] },
+        { Title: 'Admin. Responsiblities', show: true, search: true, thead: ['Position held','Organization','From','to'], data: [{ 1: 'Head, Computer Science & Engineering', 2: 'Dr B R Ambedkar National Institute of Technology, Jalandhar', 3: 'September 1992', 4: 'September 2006'}] },
+        { Title: 'Award and Honours', show: true, search: true, thead: ['Title','Activity','Given by','Year'], data: [] },
+        { Title: 'Download Profile as PDF', show: true, search: true, thead: [], data: [] },
     ]
+
     const [active, setActive] = useState(0);
     const [edit, setEdit] = useState(false)
-    const setedit = () => setEdit(true)
-    const setview = () => setEdit(false)
+    const setedit = () => {setEdit(true);SetEditfeild(-1);}
+    const setview = () => {setEdit(false);SetEditfeild(-1);}
+    const [Editfeild, setEditfeild] = useState(-1);
+
+    // Handle the Edit functions in the table
+    const SetEditfeild = (i)=> { setEditfeild(i);}
+    const HandleEdit = (i)=>{
+        setedit();
+        SetEditfeild(i);
+    }
     const scrollNextPage = () => {
         const gallery = document.querySelector('#scrollcontrol');
         const gallery_scroller = gallery.querySelector('.cards');
@@ -61,12 +67,13 @@ function Profile() {
         // const gallery_item_size = gallery_scroller.querySelector('div').clientWidth;
         gallery_scroller.scrollBy(-200, 0);
     }
+    
     return (
         <div className='w-full'>
             {
-                data.map((item, i) => {
+                data.map((item, j) => {
                     return (
-                        i === id && <div className="mt-16 py-4 w-[98%] mx-auto">
+                        j === id && <div key={j} className="mt-16 py-4 w-[98%] mx-auto">
                             <div className="relative flex flex-col flex-auto w-full min-w-0 p-4 overflow-hidden break-words border shadow-md rounded-2xl bg-white/80 bg-clip-border mb-4 draggable mx-auto"
                                 draggable="true">
                                 <div className="flex flex-wrap items-center justify-between -mx-3">
@@ -98,9 +105,9 @@ function Profile() {
                                         <div id='scrollcontrol' className='m-2 relative shadowp'>
                                             <div className='cards scrollhide flex items-center snap-x h-14 border-t border-b m-2 overflow-x-auto overflow-y-hidden'>
                                                 {
-                                                    Link.map((item, i) => {
+                                                    Link.map((Item, i) => {
                                                         return (
-                                                            <div key={i} className={"border snap-center shrink-0 w-max rounded-xl px-3 py-1.5 m-1 cursor-pointer hover:text-purple-600 active:scale-95 duration-150 " + (active === i ? 'border-slate-800 text-purple-700 font-semibold' : '')} onClick={() => setActive(i)}>{item.Title}</div>
+                                                            <div key={{j,i}} className={"border snap-center shrink-0 w-max rounded-xl px-3 py-1.5 m-1 cursor-pointer hover:text-purple-600 active:scale-95 duration-150 " + (active === i ? 'border-slate-800 text-purple-700 font-semibold' : '')} onClick={() => {setActive(i); setview()}}>{Item.Title}</div>
                                                         )
                                                     })
                                                 }
@@ -124,10 +131,9 @@ function Profile() {
                                             </div>
                                         </div>
                                         <div className='p-2 mt-4'>
-                                            {active==0&&<></>}
-                                            {active==1 && <Otherprofilelink edit={edit}/>}
-                                            {active==2 && <ResearchProfile edit={edit}/>}
-                                            {active==3 && <JournalPub edit={edit}/>}
+                                            {active===1 && <Otherprofilelink edit={edit}/>}
+                                            {active===2 && <ResearchProfile edit={edit}/>}
+                                            {active>2 && <BaseTable edit={edit} tablehead = {Link[active].thead} data={Link[active].data} Editfeild={Editfeild} HandleEdit={HandleEdit}/>}
                                             {/* <BaseTable edit={edit} /> */}
                                         </div>
                                     </div>
