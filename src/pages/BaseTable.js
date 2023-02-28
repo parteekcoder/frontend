@@ -1,7 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-function BaseTable({ edit, tablehead, data,Editfeild,HandleEdit }) {
-    const [changedata, setChangedata] = useState(data);
+function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
+    const [changedata, setChangedata] = useState(data[0]);
+
+    const Setdata = () => {
+        var val = Editfeild < 0 ? 0 : Editfeild;
+        setChangedata(data[val])
+    }
+    useEffect(() => {
+        Setdata()
+    }, [changedata])
+
+    //console.log(changedata[2],data[0][2],Editfeild)
     return (
         <div>
             {edit ?
@@ -22,7 +32,7 @@ function BaseTable({ edit, tablehead, data,Editfeild,HandleEdit }) {
                                                             </div> :
                                                             <div key={i} className="col-span-6 sm:col-span-3">
                                                                 <label htmlFor="last-name" className="block text-sm font-medium text-gray-700 px-1">{item}</label>
-                                                                <input type="text" name="last-name" onChange={(e)=>setChangedata(changedata[Editfeild][i+1]=e.target.value)} value={changedata[Editfeild][i+1]} className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm" />
+                                                                <input type="text" name="last-name" onChange={(e) => setChangedata(changedata[i + 1] = e.target.value)} value={changedata[i + 1]} className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm" />
                                                             </div>
                                                     )
                                                 })
@@ -42,7 +52,7 @@ function BaseTable({ edit, tablehead, data,Editfeild,HandleEdit }) {
                     </div>
                 </div> :
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table className="w-full text-sm text-left text-gray-800">
+                    <table className="min-w-[800px] w-full text-sm text-left text-gray-800 scroll-auto">
                         <thead className="text-gray-700 uppercase bg-gray-100 shadow-md">
                             <tr>
                                 {
@@ -74,7 +84,7 @@ function BaseTable({ edit, tablehead, data,Editfeild,HandleEdit }) {
                                                 })
                                             }
                                             {data.length > 0 &&
-                                                <td className="text-blue-700 font-bold px-6 py-4 active:scale-[0.98] cursor-pointer" onClick={()=>HandleEdit(i)}>
+                                                <td className="text-blue-700 font-bold px-6 py-4 active:scale-[0.98] cursor-pointer" onClick={() => {HandleEdit(i);Setdata()}}>
                                                     Edit
                                                 </td>}
                                         </tr>
