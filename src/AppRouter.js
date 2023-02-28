@@ -101,9 +101,6 @@ const AppRouter = () => {
                 <Route path='/dept/:dept/PhdScholar' element={ <PhdScholar/> } />
                 <Route path='/dept/:dept/login' element={ <FacultyLogin/> } />
 
-                {/* forms */}
-
-                <Route path='/dept/:dept/editprofile' element={ <Otherprofilelink/> } />
               </Routes>
             </div>
           </div>

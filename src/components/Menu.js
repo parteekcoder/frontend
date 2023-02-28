@@ -12,15 +12,15 @@ function Menu({ fixedmenu,scrollupmenu }) {
                 {
                     l: 'Vision and Mission',
                     link: `/dept/${dept}/MissionandVision`
-                }, {
-                    l: 'Infrastructure: At a glance',
-                    link: `/dept/${dept}/Infrastructure`
-                }, {
+                },{
                     l: "HOD's Message",
                     link: `/dept/${dept}/messageofHOD`
                 }, {
                     l: 'Achievements',
                     link: `/dept/${dept}/Achievement`
+                }, {
+                    l: 'Infrastructure: At a glance',
+                    link: `/dept/${dept}/Infrastructure`
                 }, {
                     l: 'Contact Us',
                     link: `/dept/${dept}/contactus`

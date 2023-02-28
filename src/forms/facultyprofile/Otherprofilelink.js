@@ -1,21 +1,21 @@
 import React from 'react'
 
-function Otherprofilelink({edit}) {
+function Otherprofilelink({ edit }) {
     return (
         <div className='overflow-x-auto'>
             {
                 edit ? <div className="m-4">
-                    <form className="w-full max-w-lg shadow p-3">
+                    <form className="w-full max-w-lg shadow-md border rounded p-3">
                         <div className="flex flex-wrap -mx-3 mb-6">
                             <div className="w-full px-3">
                                 <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlFor="grid-password">
-                                    Other Profile Link Title
+                                    Personal Link
                                 </label>
                                 <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 shadow-inner leading-tight focus:outline-none focus:border-gray-50" id="title" type="text" placeholder="Title" />
                             </div>
                             <div className="w-full px-3">
                                 <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlFor="grid-password">
-                                    Profile Link
+                                    Google Scholar Link
                                 </label>
                                 <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-50 shadow-inner" id="link" type="text" placeholder="" />
                             </div>
@@ -28,23 +28,23 @@ function Otherprofilelink({edit}) {
                             </button>
                         </div>
                     </form>
-                </div> : 
-                <div className="overflow-x-auto relative my-2 scrollbar min-w-[570px]">
-                    <div className="flex max-w-full justify-between items-center p-4 shadow-md">
-                        <table>
-                            <tr>
-                                <td className="font-bold pr-4 pl-2 py-2">Personal Link</td>
-                                <td className="text-sm font-bold pr-4 pl-2 py-2">:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td className="font-bold pr-4 pl-2 py-2">Google Scholar Link</td>
-                                <td className="text-sm font-bold pr-4 pl-2 py-2">:</td>
-                                <td></td>
-                            </tr>
-                        </table>
+                </div> :
+                    <div className="overflow-x-auto relative my-2 scrollbar min-w-[570px]">
+                        <div className="flex max-w-full justify-between items-center p-4 shadow-md">
+                            <table>
+                                <tr>
+                                    <td className="font-bold pr-4 pl-2 py-2">Personal Link</td>
+                                    <td className="text-sm font-bold pr-4 pl-2 py-2">:</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td className="font-bold pr-4 pl-2 py-2">Google Scholar Link</td>
+                                    <td className="text-sm font-bold pr-4 pl-2 py-2">:</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                </div>
             }
         </div>
     )
