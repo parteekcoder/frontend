@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom';
 
 function ContactUs() {
+
+  const [url,setUrl]=useState(useLocation());
+  const dept=url.pathname.split('/')[2];
   return (
     <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-3 my-[90px] pt-[54px] place-items-center'>
       <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[400] text-[#fff] shadow-lg rounded-3xl text-2xl'>Contact Us</div>
@@ -14,7 +18,7 @@ function ContactUs() {
             </div>
             <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
-              <span className="text-indigo-500 leading-relaxed">abc@nitj.ac.in</span>
+              <span className="text-indigo-500 leading-relaxed">{dept}@nitj.ac.in</span>
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
               <p className="leading-relaxed">111-444-7890</p>
             </div>

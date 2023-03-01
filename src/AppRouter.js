@@ -47,10 +47,10 @@ const AppRouter = () => {
     "ice":"Instrumentation And Control Engineering",
     "me":"Mechanical Engineering",
     "ipe":"Industrial And Production Enginnering",
-    "math":"Mathematics",
-    "phy":"Physics",
+    "ma":"Mathematics",
+    "ph":"Physics",
     "tt":"Textile Technology",
-    "hum":"Humanities",
+    "hm":"Humanities",
     "cy":"chemistry"
   }
   // const ProtectorRoute=({children})=>{
