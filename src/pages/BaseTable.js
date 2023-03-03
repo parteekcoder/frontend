@@ -11,7 +11,6 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
         Setdata()
     }, [changedata])
 
-    //console.log(changedata[2],data[0][2],Editfeild)
     return (
         <div>
             {edit ?

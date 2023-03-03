@@ -12,9 +12,9 @@ function HodMessage() {
   const {data,loading,error,reFetch}=useFetch(`/dept/${dept}/messageofHOD`);
   return (
     <div class="main-body flex flex-col gap-8 lg:gap-12 mt-28 mb-24" style={{fontFamily:"Poppins"}}>
-      <div class="flex flex-col sm:flex-row px-4 md:px-[11%] gap-[32px] md:gap-[64px]">
+      <div class="flex flex-col sm:flex-row px-[4%] lg:px-[9%] gap-[32px] md:gap-[64px]">
         <div class="sm:basis-1/3 flex items-center">
-          <img src={data?.img} alt="" className='rounded-tl-3xl rounded-br-3xl border-2 border-gray-300 shadow-lg shadow-slate-400 max-h-56 sm:max-h-full'/>
+          <img src={data?.img} alt="" className='rounded-tl-3xl rounded-br-3xl border-2 border-gray-300 shadow-lg shadow-slate-400 max-h-56 sm:max-h-full h-full'/>
         </div>
         <div class="sm:basis-2/3">
           <div class="flex flex-col items-start">

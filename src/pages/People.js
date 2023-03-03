@@ -14,7 +14,7 @@ function People({ Title, Data }) {
                 {
                     Data?Data.map((item, i) => {
                         return (
-                            <Link to={{pathname:`/dept/${dept}/Profile/${i}`,state:i}}>
+                            <Link to={{pathname:`/dept/${dept}/Faculty/${item._id}`,state:i}}>
                                 <div key={i} className="flex flex-col flex-grow content-center mt-0 text-inherit shadow border-l-[3px] border-l-blue-900 rounded-lg my-4">
                                     <div className="flex flex-col sm:flex-row border-t-0 text-[rgba(0,105,140,1)] py-8 text-left text-base items-center content-center px-[14px] xl:px-[18px]">
                                         <div className="w-32 h-32 xl:w-36 xl:h-36 flex-grow-0 flex-shrink-0">

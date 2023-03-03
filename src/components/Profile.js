@@ -9,16 +9,7 @@ import Exceldownloadpdf from './Img/Exceldownload.png'
 function Profile() {
     let navigate = useNavigate()
     const dept = useLocation().pathname.split('/')[2];
-    var id = window.location.pathname;
-    let i = id.length - 1;
-    let str = "";
-    while (id[i] !== '/') {
-        str += id[i];
-        i--;
-    }
-    id = parseInt(str);
-    // const [url, setUrl] = useState(useLocation());
-    // const { data, loading, error, reFetch } = useFetch(url.pathname);
+    var id = useLocation().pathname.split('/').at(-1);
     const data = [
         {
             photo: 'https://www.nitj.ac.in/images/faculty/20071962443.jpg',
@@ -30,22 +21,21 @@ function Profile() {
     const Link = [
         { Title: 'Personal Details', show: false, search: false, thead: [], data: [{}, {}, {}, {}, {}] },
         { Title: 'Profile Links', show: false, search: false, thead: [], data: [{}, {}, {}, {}, {}] },
-        { Title: 'Research Profile', show: true, search: true, thead: [], data: [{}, {}, {}, {}, {}] },
-        { Title: 'Journal Publications', show: true, search: true, thead: ['Year', 'Journal', 'Publications'], data: [{ 1: '2022', 2: 'ACM Computing Surveys (SCI IF=14.324)', 3: 'Raj Mohan Singh, Lalit Kumar Awasthi, Geeta Sikka, "Towards Metaheuristic Scheduling Techniques in Cloud and Fog: An Extensive Taxonomic Review". (Online)' }] },
-        { Title: 'Conference Publications', show: true, search: true, thead: ['Year', 'Conference', 'Publications'], data: [{ 1: '2021', 2: '2nd International Conference on Secure Cyber Computing and Communications (ICSCCC). IEEE', 3: 'harma, P., & Sangal, A. L., Extensive Software Fault Prediction: An Ensemble based comparison, pp. 432-436.' }] },
-        { Title: 'Book/Chapter Publications', show: true, search: true, thead: ['Type', 'Title', 'Publisher', 'Authors', 'ISBN/ISSN/ No.', 'Year'], data: [{ 1: '', 2: '“Artificial intelligence technologies for computational biology”', 3: 'CRC Press (1st Edition Nov 2022)', 4: 'Rout Ranjeet Kumar,Umer Saiyed,Sheikh Sabhaa, Amrit Lal Sangal', 5: '978-100077868-7, 978-103216000-9', 6: '2022' }] },
-        { Title: 'Research Projects', show: true, search: true, thead: ['Role', 'Project Type', 'Title', 'Funding Agency', 'From', 'To', 'Amount', 'Status', 'Co-Investigator'], data: [] },
-        { Title: 'Events Organized', show: true, search: true, thead: ['Category', 'Type', 'Title', 'Venue', 'From', 'To', 'Designation'], data: [{ 1: 'Conference', 2: 'International', 3: '1st International Conference on Secure Cyber Computing and Communications (ICSCCC). IEEE', 4: 'Dr B R Ambedkar National Institute of Technology, Jalandhar', 5: '', 6: '', 7: '' }] },
-        { Title: 'Professional Affiliations', show: true, search: true, thead: ['Designation', 'Organization'], data: [{ 1: 'Member', 2: 'Indian Society for technical Education (ISTE)' }] },
-        { Title: 'PhD Supervised', show: true, search: true, thead: ['Scholar Name', 'Research Topic', 'Status', 'Year', 'Co-Supervisor'], data: [{ 1: 'Mr Himanshu Pattanayak', 2: 'An algorithm for detection of shared communities in social network', 3: 'Defended', 4: '2022', 5: 'Dr A L Sangal' }] },
-        { Title: 'PG Dissertation Guided', show: true, search: true, thead: ['Student Name', 'Dissertation Title', 'Status', 'Year', 'Co-Supervisor'], data: [{ 1: 'Ananya Sharma', 2: 'IGT:Tools for testing and maintaining GPU Drivers.', 3: 'Completed', 4: '2022', 5: '' }] },
+        { Title: 'Research Profile', thead: [], data: [{}, {}, {}, {}, {}] },
+        { Title: 'Journal Publications', thead: ['Year', 'Journal', 'Publications'], data: [{ 1: '2022', 2: 'ACM Computing Surveys (SCI IF=14.324)', 3: 'Raj Mohan Singh, Lalit Kumar Awasthi, Geeta Sikka, "Towards Metaheuristic Scheduling Techniques in Cloud and Fog: An Extensive Taxonomic Review". (Online)' }] },
+        { Title: 'Conference Publications', thead: ['Year', 'Conference', 'Publications'], data: [{ 1: '2021', 2: '2nd International Conference on Secure Cyber Computing and Communications (ICSCCC). IEEE', 3: 'harma, P., & Sangal, A. L., Extensive Software Fault Prediction: An Ensemble based comparison, pp. 432-436.' }] },
+        { Title: 'Book/Chapter Publications', thead: ['Type', 'Title', 'Publisher', 'Authors', 'ISBN/ISSN/ No.', 'Year'], data: [{ 1: '', 2: '“Artificial intelligence technologies for computational biology”', 3: 'CRC Press (1st Edition Nov 2022)', 4: 'Rout Ranjeet Kumar,Umer Saiyed,Sheikh Sabhaa, Amrit Lal Sangal', 5: '978-100077868-7, 978-103216000-9', 6: '2022' }] },
+        { Title: 'Research Projects', thead: ['Role', 'Project Type', 'Title', 'Funding Agency', 'From', 'To', 'Amount', 'Status', 'Co-Investigator'], data: [] },
+        { Title: 'Events Organized', thead: ['Category', 'Type', 'Title', 'Venue', 'From', 'To', 'Designation'], data: [{ 1: 'Conference', 2: 'International', 3: '1st International Conference on Secure Cyber Computing and Communications (ICSCCC). IEEE', 4: 'Dr B R Ambedkar National Institute of Technology, Jalandhar', 5: '', 6: '', 7: '' }] },
+        { Title: 'Professional Affiliations', thead: ['Designation', 'Organization'], data: [{ 1: 'Member', 2: 'Indian Society for technical Education (ISTE)' }] },
+        { Title: 'PhD Supervised', thead: ['Scholar Name', 'Research Topic', 'Status', 'Year', 'Co-Supervisor'], data: [{ 1: 'Mr Himanshu Pattanayak', 2: 'An algorithm for detection of shared communities in social network', 3: 'Defended', 4: '2022', 5: 'Dr A L Sangal' }] },
+        { Title: 'PG Dissertation Guided', thead: ['Student Name', 'Dissertation Title', 'Status', 'Year', 'Co-Supervisor'], data: [{ 1: 'Ananya Sharma', 2: 'IGT:Tools for testing and maintaining GPU Drivers.', 3: 'Completed', 4: '2022', 5: '' }] },
         {
-            Title: 'Patents', show: true, search: true, thead: ['Name', 'Reg./Ref. No.', 'Date of Award/Filling', 'Organization', 'Status']
+            Title: 'Patents', thead: ['Name', 'Reg./Ref. No.', 'Date of Award/Filling', 'Organization', 'Status']
             , data: [{ 1: 'A system of smartphone security using machine learning', 2: '202111040145', 3: '', 4: 'Patent Office India', 5: 'Filed' }]
         },
-        { Title: 'Admin. Responsiblities', show: true, search: true, thead: ['Position held', 'Organization', 'From', 'to'], data: [{ 1: 'Head, Computer Science & Engineering', 2: 'Dr B R Ambedkar National Institute of Technology, Jalandhar', 3: 'September 1992', 4: 'September 2006' }] },
-        { Title: 'Award and Honours', show: true, search: true, thead: ['Title', 'Activity', 'Given by', 'Year'], data: [] },
-        { Title: 'Download Profile as PDF', show: true, search: true, thead: [], data: [] },
+        { Title: 'Admin. Responsiblities', thead: ['Position held', 'Organization', 'From', 'to'], data: [{ 1: 'Head, Computer Science & Engineering', 2: 'Dr B R Ambedkar National Institute of Technology, Jalandhar', 3: 'September 1992', 4: 'September 2006' }] },
+        { Title: 'Award and Honours', thead: ['Title', 'Activity', 'Given by', 'Year'], data: [] },
     ]
 
     const [active, setActive] = useState(0);
@@ -81,7 +71,7 @@ function Profile() {
             {
                 data.map((item, j) => {
                     return (
-                        j === id && <div key={j} className="mt-16 py-4 w-[98%] mx-auto">
+                         <div key={j} className="mt-16 py-4 w-[98%] mx-auto">
                             <div className="relative flex flex-col flex-auto w-full min-w-0 p-4 overflow-hidden break-words border shadow-md rounded-2xl bg-white/80 bg-clip-border mb-4 draggable mx-auto"
                                 draggable="true">
                                 <div className="flex flex-wrap items-center justify-between -mx-3">
@@ -139,8 +129,8 @@ function Profile() {
                                                     <img src={Exceldownloadpdf} alt="Excel download" />
                                                 </span>
                                                 <span className={"cursor-pointer px-3 " + (edit ? 'hidden' : '')}><i className="fa-solid fa-eye"></i></span>
-                                                <span className={"cursor-pointer px-3 " + (edit ? '' : 'hidden')} onClick={() => setview()}><i className="fa-solid fa-eye-slash"></i></span>
-                                                <span className='cursor-pointer px-3' onClick={() => setedit()}><i className="fa-solid fa-pen-to-square"></i></span>
+                                                <span title='View as Table' className={"cursor-pointer px-3 " + (edit ? '' : 'hidden')} onClick={() => setview()}><i className="fa-solid fa-eye-slash"></i></span>
+                                                <span title='Add new data' className='cursor-pointer px-3' onClick={() => setedit()}><i className="fa-solid fa-pen-to-square"></i></span>
                                             </div>
                                         </div>
                                         <div className='p-2 mt-4'>
