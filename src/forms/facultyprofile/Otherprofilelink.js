@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 function Otherprofilelink({ edit }) {
+    const [link, setLink] = useState('');
+    const [googlelink, setGooglelink] = useState('');
     return (
         <div className='overflow-x-auto'>
             {
@@ -11,10 +13,10 @@ function Otherprofilelink({ edit }) {
                                 <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlFor="grid-password">
                                     Personal Link
                                 </label>
-                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 shadow-inner leading-tight focus:outline-none focus:border-gray-50" id="title" type="text" placeholder="Title" />
+                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 shadow-inner leading-tight focus:outline-none focus:border-gray-50" id="title" onChange={(e)=>setLink(e.target.value)} value={link} type="text" placeholder="Title" />
                             </div>
                             <div className="w-full px-3">
-                                <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlFor="grid-password">
+                                <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlFor="grid-password" onChange={(e)=>setGooglelink(e.target.value)} value={googlelink}>
                                     Google Scholar Link
                                 </label>
                                 <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-50 shadow-inner" id="link" type="text" placeholder="" />
