@@ -22,7 +22,7 @@ function Test() {
         "bt":"Bio Technology",
         "ce":"Civil Engineering",
         "ch":"Chemical Engineering",
-        "ec":"Electronics And Communication Engineering",
+        "ece":"Electronics And Communication Engineering",
         "ee":"Electrical And Electronics Engineering",
         "ice":"Instrumentation And Control Engineering",
         "me":"Mechanical Engineering",
