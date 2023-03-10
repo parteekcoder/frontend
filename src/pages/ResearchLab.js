@@ -1,15 +1,10 @@
-import {React,useState} from "react";
-import People from './People'
-import { useLocation } from 'react-router-dom';
-import useFetch from "../hooks/useFetch";
+import React from 'react'
 
-function Infrastructure() {
-  const [url,setUrl]=useState(useLocation());
-  const {data,error,loading,reFetch}=useFetch(url.pathname);
-
-  return (
-    <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[90px] pt-[54px] place-items-center'>
-      <div className='absolute uppercase font-semibold leading-wider truncate -mt-[76px] p-2 px-4 bg-[rgba(0,105,140,1)] text-[#fff] shadow-lg rounded-2xl text-2xl'>Infrastructure</div>
+function ResearchLab() {
+    const data = [{img:'https://www.nitj.ac.in/nitj_files/links/cc_lab2_05_92038.jpg',title:'Research Lab'}]
+    return (
+        <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[90px] pt-[54px] place-items-center'>
+      <div className='absolute uppercase font-semibold leading-wider truncate -mt-[76px] p-2 px-4 bg-[rgba(0,105,140,1)] text-[#fff] shadow-lg rounded-2xl text-2xl'>Research Labs</div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 m-4 p-2 place-items-center gap-4 antialiased text-gray-900">
         {
@@ -31,15 +26,7 @@ function Infrastructure() {
         }
       </div>
     </div>
-  )
-
-
-
+    )
 }
 
-
-
-
-
-export default Infrastructure
-
+export default ResearchLab

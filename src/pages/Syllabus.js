@@ -76,7 +76,7 @@ function Syllabus({heading,syllabus}) {
 
                             <div className='flex flex-col justify-center items-center m-2 w-52 h-52'>
                               <div className='block m-2'>
-                                <button className="flex hover:shadow-lg hover:-translate-y-1 hover:shadow-cyan-500/50 mx-2 my-2 font-bold text-lg py-3 duration-500 bg-[#2d2546] text-white px-4 rounded items-center justify-center active:translate-y-[2px] italic">Download <svg class="fill-current w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" /></svg></button>
+                                <button className="flex hover:shadow-lg hover:-translate-y-1 hover:shadow-cyan-500/50 mx-2 my-2 font-bold text-lg py-3 duration-500 bg-[#2d2546] text-white px-4 rounded items-center justify-center active:translate-y-[2px] italic">Download <svg className="fill-current w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" /></svg></button>
                               </div>
                               <div className='block'>
                                 <a href={syllabuspdf} target='_blank' rel='noreferrer'>
@@ -99,7 +99,7 @@ function Syllabus({heading,syllabus}) {
                             </div>
                             <div className='flex flex-col justify-center items-center m-2 w-52 h-52'>
                               <div className='block m-2'>
-                                <button className="flex hover:shadow-lg hover:-translate-y-1 hover:shadow-cyan-500/50 mx-2 my-2 font-bold text-lg py-3 duration-500 bg-[#2d2546] text-white px-4 rounded items-center justify-center active:translate-y-[2px] italic">Download <svg class="fill-current w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" /></svg></button>
+                                <button className="flex hover:shadow-lg hover:-translate-y-1 hover:shadow-cyan-500/50 mx-2 my-2 font-bold text-lg py-3 duration-500 bg-[#2d2546] text-white px-4 rounded items-center justify-center active:translate-y-[2px] italic">Download <svg className="fill-current w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" /></svg></button>
                               </div>
                               <div className='block'>
                                 <a href={syllabuspdf} target='_blank' rel='noreferrer'>

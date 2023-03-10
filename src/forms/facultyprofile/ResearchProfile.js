@@ -10,13 +10,13 @@ function ResearchProfile({ edit }) {
                     <form className="w-full max-w-lg shadow p-3">
                         <div className="flex flex-wrap -mx-3 mb-6">
                             <div className="w-full px-3">
-                                <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlFor="grid-password">
+                                <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlhtmlFor="grid-password">
                                     Research Interests
                                 </label>
                                 <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 shadow-inner leading-tight focus:outline-none focus:border-gray-50" onChange={(e) => setInterset(e.target.value)} id="title" type="text" placeholder="Title" value={interset} />
                             </div>
                             <div className="w-full px-3">
-                                <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlFor="grid-password">
+                                <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlhtmlFor="grid-password">
                                     Profile Link
                                 </label>
                                 <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-50 shadow-inner" onChange={(e)=>setResearchlink(e.target.value)} value={researchlink}  id="link" type="text" placeholder="" />
