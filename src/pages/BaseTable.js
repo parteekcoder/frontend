@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
-    const [changedata, setChangedata] = useState(data[0]);
-
+    const [changedata, setChangedata] = useState(data);
     const Setdata = () => {
         var val = Editfeild < 0 ? 0 : Editfeild;
         setChangedata(data[val])
@@ -22,7 +21,7 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                                     <div className="bg-white px-4 py-5 sm:p-6">
                                         <div className="grid grid-cols-6 gap-6">
                                             {
-                                                tablehead.map((item, i) => {
+                                                tablehead?.map((item, i) => {
                                                     return (
                                                         Editfeild < 0 ?
                                                             <div key={i} className="col-span-6 sm:col-span-3">
@@ -70,14 +69,15 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                         </thead>
                         <tbody>
                             {
-                                data.map((Item, i) => {
+                                data?.map((Item, i) => {
+                                    const entries = Object.values(Item);
                                     return (
                                         <tr className="border-b">
                                             {
                                                 tablehead.map((item, j) => {
                                                     return (
                                                         <td key={{ i, j }} className="align-top px-6 py-4 text-gray-900 border-r">
-                                                            <span>{Item[j + 1]}</span>
+                                                            <span>{entries[j]}</span>
                                                         </td>
                                                     )
                                                 })
@@ -92,7 +92,7 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                             }
                         </tbody>
                     </table>
-                    {data.length === 0 && <h1 className='w-full font-medium px-6 py-4 text-lg'>No data available</h1>}
+                    {data?.length === 0 && <h1 className='w-full font-medium px-6 py-4 text-lg'>No data available</h1>}
 
                 </div>
             }
