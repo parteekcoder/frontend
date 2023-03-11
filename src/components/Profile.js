@@ -14,13 +14,13 @@ function Profile() {
     
     const map = {
         'Journal Publications':'journal',
-        'Profile Links':'',
-        'Personal Details':'',
-        'Conference Publications':'',
-        'Research Profile':'',
-        'Book/Chapter Publications':'',
-        'Events Organized':'',
-        'Professional Affiliations':'',
+        'Profile Links':'personal_link',
+        'Personal Details':'publications',
+        'Conference Publications':'publications',
+        'Research Profile':'research_profile',
+        'Book/Chapter Publications':'publications',
+        'Events Organized':'event',
+        'Professional Affiliations':'affiliations',
         'PhD Supervised':'',
         'PG Dissertation Guided':''
     };
@@ -143,7 +143,7 @@ function Profile() {
                                         <div className='p-2 mt-4'>
                                             {active === 1 && <Otherprofilelink edit={edit} />}
                                             {active === 2 && <ResearchProfile edit={edit} />}
-                                            {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} data={data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} />}
+                                            {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} faculty={data} data={data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feildTitle={map[Link[active].Title]} />}
                                             {/* <BaseTable edit={edit} /> */}
                                         </div>
                                     </div>
