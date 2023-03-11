@@ -10,18 +10,25 @@ function Profile() {
     let navigate = useNavigate()
     const dept = useLocation().pathname.split('/')[2];
     var id = useLocation().pathname.split('/').at(-1);
-    const data = [
-        {
-            photo: 'https://www.nitj.ac.in/images/faculty/20071962443.jpg',
-            name: 'Geeta Sikha',
-            position: 'Assistant Professor'
-        }
-    ]
+    const {data,loading,error,reFetch} = useFetch(`/dept/${dept}/Faculty/${id}`);
+
+    const map = {
+        'Journal Publications':'journal',
+        'Profile Links':'personal_link',
+        'Personal Details':'publications',
+        'Conference Publications':'publications',
+        'Research Profile':'research_profile',
+        'Book/Chapter Publications':'publications',
+        'Events Organized':'event',
+        'Professional Affiliations':'affiliations',
+        'PhD Supervised':'',
+        'PG Dissertation Guided':''
+    };
 
     const Link = [
-        { Title: 'Personal Details', show: false, search: false, thead: [], data: [{}, {}, {}, {}, {}] },
-        { Title: 'Profile Links', show: false, search: false, thead: [], data: [{}, {}, {}, {}, {}] },
-        { Title: 'Research Profile', thead: [], data: [{}, {}, {}, {}, {}] },
+        { Title: 'Personal Details', show: false, search: false, thead: [] },
+        { Title: 'Profile Links', show: false, search: false, thead: [] },
+        { Title: 'Research Profile', thead: [] },
         { Title: 'Journal Publications', thead: ['Year', 'Journal', 'Publications'], data: [{ 1: '2022', 2: 'ACM Computing Surveys (SCI IF=14.324)', 3: 'Raj Mohan Singh, Lalit Kumar Awasthi, Geeta Sikka, "Towards Metaheuristic Scheduling Techniques in Cloud and Fog: An Extensive Taxonomic Review". (Online)' }] },
         { Title: 'Conference Publications', thead: ['Year', 'Conference', 'Publications'], data: [{ 1: '2021', 2: '2nd International Conference on Secure Cyber Computing and Communications (ICSCCC). IEEE', 3: 'harma, P., & Sangal, A. L., Extensive Software Fault Prediction: An Ensemble based comparison, pp. 432-436.' }] },
         { Title: 'Book/Chapter Publications', thead: ['Type', 'Title', 'Publisher', 'Authors', 'ISBN/ISSN/ No.', 'Year'], data: [{ 1: '', 2: '“Artificial intelligence technologies for computational biology”', 3: 'CRC Press (1st Edition Nov 2022)', 4: 'Rout Ranjeet Kumar,Umer Saiyed,Sheikh Sabhaa, Amrit Lal Sangal', 5: '978-100077868-7, 978-103216000-9', 6: '2022' }] },
@@ -35,7 +42,7 @@ function Profile() {
             , data: [{ 1: 'A system of smartphone security using machine learning', 2: '202111040145', 3: '', 4: 'Patent Office India', 5: 'Filed' }]
         },
         { Title: 'Admin. Responsiblities', thead: ['Position held', 'Organization', 'From', 'to'], data: [{ 1: 'Head, Computer Science & Engineering', 2: 'Dr B R Ambedkar National Institute of Technology, Jalandhar', 3: 'September 1992', 4: 'September 2006' }] },
-        { Title: 'Award and Honours', thead: ['Title', 'Activity', 'Given by', 'Year'], data: [] },
+        { Title: 'Award and Honours', thead: ['Title', 'Activity', 'Given by', 'Year']},
     ]
 
     const [active, setActive] = useState(0);
@@ -71,20 +78,20 @@ function Profile() {
             {
                 data.map((item, j) => {
                     return (
-                         <div key={j} className="mt-16 py-4 w-[98%] mx-auto">
+                         <div key={item._id} className="mt-16 py-4 w-[98%] mx-auto">
                             <div className="relative flex flex-col flex-auto w-full min-w-0 p-4 overflow-hidden break-words border shadow-md rounded-2xl bg-white/80 bg-clip-border mb-4 draggable mx-auto"
                                 draggable="true">
                                 <div className="flex flex-wrap items-center justify-between -mx-3">
                                     <div className='flex'>
                                         <div className="flex-none w-auto max-w-full px-3">
                                             <div className="w-20 h-20 xl:w-24 xl:h-24 flex-grow-0 flex-shrink-0">
-                                                <img src={item.photo} className="w-full h-full object-cover object-left-top rounded-xl shadow-xl flex-grow-0 flex-shrink-0" alt='...' />
+                                                <img src={item?.img} className="w-full h-full object-cover object-left-top rounded-xl shadow-xl flex-grow-0 flex-shrink-0" alt='...' />
                                             </div>
                                         </div>
                                         <div className="flex-none w-auto max-w-full px-3 my-auto">
                                             <div className="h-full">
-                                                <h5 className="mb-1 text-gray-700 text-xl font-semibold">{item.name}</h5>
-                                                <p className="ml-2 text-zinc-500 mb-0 font-medium leading-normal">{item.position}</p>
+                                                <h5 className="mb-1 text-gray-700 text-xl font-semibold">{item?.name}</h5>
+                                                <p className="ml-2 text-zinc-500 mb-0 font-medium leading-normal">{item?.position}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -136,7 +143,7 @@ function Profile() {
                                         <div className='p-2 mt-4'>
                                             {active === 1 && <Otherprofilelink edit={edit} />}
                                             {active === 2 && <ResearchProfile edit={edit} />}
-                                            {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} data={Link[active].data} Editfeild={Editfeild} HandleEdit={HandleEdit} />}
+                                            {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} faculty={data} data={data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feildTitle={map[Link[active].Title]} />}
                                             {/* <BaseTable edit={edit} /> */}
                                         </div>
                                     </div>

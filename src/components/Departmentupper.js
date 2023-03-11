@@ -1,5 +1,10 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
+import useFetch from '../hooks/useFetch';
 const Departmentupper = (props) => {
+    const dept = useLocation().pathname.split('/')[2];
+    const {data,error,loading,refetch} = useFetch(`/dept/${dept}/messageOfHOD`);
+    console.log(data);
     return (
 
         <div className='m-3 mt-5 flex flex-col md:flex-row justify-center items-center overflow-y-hidden'>
@@ -30,7 +35,7 @@ const Departmentupper = (props) => {
 
                 <div className="p-5">
                     <h1 className='underline text-center text-2xl m-2'> <b>Mission and Vision</b></h1>
-                    <p className="mb-3 font-normal text-justify text-gray-700 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati tempora distinctio quas nesciunt consectetur possimus, illum, temporibus accusamus qui molestiae accusantium ab nisi dolorum ut perferendis aperiam. Quam, accusamus vel explicabo quaerat quia reprehenderit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem quia nobis ab nihil perferendis voluptate omnis, quas facilis facere</p>
+                    <p className="mb-3 font-normal text-justify text-gray-700 ">{data.mission} {data.vision}</p>
                     <div className='block m-4 p-2'>
                         <button className=' float-right text-green-700 hover:font-semibold hover:text-blue-700 '>Read More  &rarr;</button>
                     </div>

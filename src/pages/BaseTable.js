@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 
 function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
-    const [changedata, setChangedata] = useState(data[0]);
-
+    const [changedata, setChangedata] = useState(data);
     const Setdata = () => {
         var val = Editfeild < 0 ? 0 : Editfeild;
         setChangedata(data[val])
     }
-    useEffect(() => {
-        Setdata()
-    }, [changedata])
     const [row, setrow] = useState(4); //row per page
     const totalrow = 10;
     const totalPage = Math.ceil(totalrow / row);
     const [page, setPage] = useState(1)
+    useEffect(() => {
+        Setdata()
+    }, [changedata])
+
     return (
         <div>
             {edit ?
@@ -25,7 +25,7 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                                     <div className="bg-white px-4 py-5 sm:p-6">
                                         <div className="grid grid-cols-6 gap-6">
                                             {
-                                                tablehead.map((item, i) => {
+                                                tablehead?.map((item, i) => {
                                                     return (
                                                         Editfeild < 0 ?
                                                             <div key={i} className="col-span-6 sm:col-span-3">
@@ -67,34 +67,35 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                         </div>
                         <div className='my-1'><input className='mx-w-full border outline-none p-2 rounded' placeholder='Search' /></div>
                     </div>
-                    <div className="relative overflow-x-auto border sm:rounded">
+                    <div className="relative overflow-x-auto rounded w-full border">
                         <table className="min-w-[800px] w-full text-sm text-left text-gray-800 scroll-auto">
-                            <thead className="text-gray-700 uppercase bg-gray-100 shadow-md">
+                            <thead className="text-gray-700 uppercase bg-gray-100 shadow">
                                 <tr>
                                     {
                                         tablehead.map((item, i) => {
                                             return (
-                                                <th key={i} scope="col" className="px-6 py-3 border">
+                                                <th key={i} scope="col" className="px-6 py-3 border border-gray-300">
                                                     {item}
                                                 </th>
                                             )
                                         })
                                     }
-                                    <th scope="col" className="px-6 py-3 border">
+                                    <th scope="col" className="px-6 py-3 border border-gray-300">
                                         <span className="sr-only">Edit</span>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
-                                    data.map((Item, i) => {
+                                    data?.map((Item, i) => {
+                                        const entries = Object.values(Item);
                                         return (
-                                            <tr className="border-b">
+                                            <tr key={i} className="border-b">
                                                 {
                                                     tablehead.map((item, j) => {
                                                         return (
                                                             <td key={{ i, j }} className="align-top px-6 py-4 text-gray-900 border-r">
-                                                                <span>{Item[j + 1]}</span>
+                                                                <span>{entries[j]}</span>
                                                             </td>
                                                         )
                                                     })
@@ -109,34 +110,33 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                                 }
                             </tbody>
                         </table>
-                        {data.length === 0 && <h1 className='w-full font-medium px-6 py-4 text-lg'>No data available</h1>}
+                        {data?.length === 0 && <h1 className='w-full font-medium px-6 py-4 text-lg border border-t-0'>No data available</h1>}
+                        <div className="w-full my-2 px-2 flex flex-1 items-center justify-between">
+                            <div>
+                                <p className="text-sm text-gray-700">
+                                    Showing
+                                    <span className="font-medium mx-1">1</span>
+                                    to
+                                    <span className="font-medium mx-1">{row > totalrow ? totalrow : row}</span>
+                                    of
+                                    <span className="font-medium mx-1">{totalrow}</span>
+                                    results
+                                </p>
+                            </div>
+                            <div>
+                                <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+                                    <button onClick={() => setPage(page > 1 ? page - 1 : 1)} className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 active:scale-95">
+                                        <i className="fa-solid fa-arrow-left"></i>
+                                    </button>
 
+                                    <span className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white">{page}</span>
+                                    <button onClick={() => setPage(page < totalPage ? page + 1 : totalPage)} className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 active:scale-95">
+                                        <i className="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
-                    <div className="w-full my-2 px-2 flex flex-1 items-center justify-between">
-                    <div>
-                        <p className="text-sm text-gray-700">
-                            Showing
-                            <span className="font-medium mx-1">1</span>
-                            to
-                            <span className="font-medium mx-1">{row > totalrow ? totalrow : row}</span>
-                            of
-                            <span className="font-medium mx-1">{totalrow}</span>
-                            results
-                        </p>
-                    </div>
-                    <div>
-                        <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-                            <button onClick={() => setPage(page > 1 ? page - 1 : 1)} className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 active:scale-95">
-                                <i className="fa-solid fa-arrow-left"></i>
-                            </button>
-
-                            <span className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white">{page}</span>
-                            <button onClick={() => setPage(page < totalPage ? page + 1 : totalPage)} className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 active:scale-95">
-                                <i className="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </nav>
-                    </div>
-                </div>
                 </div>
             }
         </div>
