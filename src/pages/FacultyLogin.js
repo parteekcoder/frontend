@@ -22,13 +22,7 @@ function FacultyLogin() {
                                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                                 <input type="password" name="password" id="password" className="border border-blue-300 text-gray-900 rounded block w-full p-2.5 focus:border-blue-300 bg-blue-500 shadow-inner focus:ring-blue-500" required="" />
                             </div>
-                            <div className="flex items-center justify-between">
-                                <div className="flex items-start">
-                                    <div className="flex items-center h-5">
-                                        <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 border border-blue-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required="" />
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <button type="submit" className="w-[80%] block text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none shadow font-medium rounded-lg text-sm px-5 py-2.5 text-center mx-auto">Sign in</button>
                         </form>
                     </div>
