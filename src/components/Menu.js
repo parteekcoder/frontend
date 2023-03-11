@@ -74,22 +74,22 @@ function Menu({ fixedmenu,scrollupmenu }) {
             List: [
                 {
                     l: 'Research Areas',
-                    link: `/dept/${dept}/Home`
+                    link: `/dept/${dept}/ResearchArea`
                 }, {
                     l: 'Department Labs',
-                    link: `/dept/${dept}/Home`
+                    link: `/dept/${dept}/DepartmentLab`
                 }, {
                     l: 'Publications(Year-Wise)',
-                    link: `/dept/${dept}/Home`
+                    link: `/dept/${dept}/Publications`
                 }, {
                     l: 'Projects',
-                    link: `/dept/${dept}/Home`
+                    link: `/dept/${dept}/Projects`
                 }, {
                     l: 'Consultancy',
-                    link: `/dept/${dept}/Home`
+                    link: `/dept/${dept}/Consultancy`
                 }, {
                     l: 'Research Labs',
-                    link: `/dept/${dept}/Home`
+                    link: `/dept/${dept}/ResearchLab`
                 }
             ]
         }, {

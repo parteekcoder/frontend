@@ -1,6 +1,6 @@
 import Footer from './components/Footer';
 import { useEffect, useState,useMemo } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AllPlacement from './components/AllPlacement';
 import Error from './pages/Errorpage';
 import Homepage from './pages/Homepage';
@@ -22,7 +22,10 @@ import Alumni from './pages/Alumni';
 import PhdScholar from './pages/PhdScholar';
 import Profile from './components/Profile';
 import FacultyLogin from './pages/FacultyLogin';
-import Otherprofilelink from './forms/facultyprofile/Otherprofilelink'
+import ResearchArea from './pages/ResearchArea';
+import ResearchLab from './pages/ResearchLab';
+import DepartmentLab from './pages/DepartmentLab';
+import Publications from './pages/Publications';
 const AppRouter = () => {
   const footref = useRef();
   const isInViewport1 = useIsInViewport(footref);
@@ -35,24 +38,24 @@ const AppRouter = () => {
   const SetScrollupmenu = (val)=>{
     setScrollupmenu(val);
   }
-  const departments={
+  // const departments={
 
-    "it":"Information Technology",
-    "cse":"Computer Science and Engineering",
-    "bt":"Bio Technology",
-    "ce":"Civil Engineering",
-    "ch":"Chemical Engineering",
-    "ec":"Electronics And Communication Engineering",
-    "ee":"Electrical And Electronics Engineering",
-    "ice":"Instrumentation And Control Engineering",
-    "me":"Mechanical Engineering",
-    "ipe":"Industrial And Production Enginnering",
-    "ma":"Mathematics",
-    "ph":"Physics",
-    "tt":"Textile Technology",
-    "hm":"Humanities",
-    "cy":"chemistry"
-  }
+  //   "it":"Information Technology",
+  //   "cse":"Computer Science and Engineering",
+  //   "bt":"Bio Technology",
+  //   "ce":"Civil Engineering",
+  //   "ch":"Chemical Engineering",
+  //   "ec":"Electronics And Communication Engineering",
+  //   "ee":"Electrical And Electronics Engineering",
+  //   "ice":"Instrumentation And Control Engineering",
+  //   "me":"Mechanical Engineering",
+  //   "ipe":"Industrial And Production Enginnering",
+  //   "ma":"Mathematics",
+  //   "ph":"Physics",
+  //   "tt":"Textile Technology",
+  //   "hm":"Humanities",
+  //   "cy":"chemistry"
+  // }
   // const ProtectorRoute=({children})=>{
   //   const dept=useLocation().pathname.split('/')[2];
    
@@ -92,7 +95,7 @@ const AppRouter = () => {
                 <Route path='/dept/:dept/Programme' element={ <Programme /> } />
                 <Route path='/dept/:dept/contactus' element={ <ContactUs /> } />
                 <Route path='/dept/:dept/Achievement' element={ <Achievements /> } />
-                {/* Faculty */}
+                {/* Person */}
                 <Route path='/dept/:dept/Faculty' element={ <Faculty/> } />
                 <Route path='/dept/:dept/Faculty/:id' element={ <Profile/> } />
                 <Route path='/dept/:dept/Staff' element={ <Staff/> } />
@@ -100,7 +103,11 @@ const AppRouter = () => {
                 <Route path='/dept/:dept/Alumni' element={ <Alumni/> } />
                 <Route path='/dept/:dept/PhdScholar' element={ <PhdScholar/> } />
                 <Route path='/dept/:dept/login' element={ <FacultyLogin/> } />
-
+                {/* ResearchArea */}
+                <Route path='/dept/:dept/ResearchArea' element={ <ResearchArea/> } />
+                <Route path='/dept/:dept/ResearchLab' element={ <ResearchLab/> } />
+                <Route path='/dept/:dept/DepartmentLab' element={ <DepartmentLab/> } />
+                <Route path='/dept/:dept/Publications' element={ <Publications/> } />
               </Routes>
             </div>
           </div>

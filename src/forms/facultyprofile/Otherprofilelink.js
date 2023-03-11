@@ -10,13 +10,13 @@ function Otherprofilelink({ edit }) {
                     <form className="w-full max-w-lg shadow-md border rounded p-3">
                         <div className="flex flex-wrap -mx-3 mb-6">
                             <div className="w-full px-3">
-                                <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlFor="grid-password">
+                                <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlhtmlFor="grid-password">
                                     Personal Link
                                 </label>
                                 <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 shadow-inner leading-tight focus:outline-none focus:border-gray-50" id="title" onChange={(e)=>setLink(e.target.value)} value={link} type="text" placeholder="Title" />
                             </div>
                             <div className="w-full px-3">
-                                <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlFor="grid-password" onChange={(e)=>setGooglelink(e.target.value)} value={googlelink}>
+                                <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlhtmlFor="grid-password" onChange={(e)=>setGooglelink(e.target.value)} value={googlelink}>
                                     Google Scholar Link
                                 </label>
                                 <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-50 shadow-inner" id="link" type="text" placeholder="" />

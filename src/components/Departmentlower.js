@@ -14,8 +14,8 @@ const Departmentlower = (props) => {
       {/* HOD */}
 
       <div className="max-w-md w-full py-4 px-7 mx-1 border bg-white shadow-lg rounded-lg mt-16 mb-6" onClick={() => navigate(`/dept/${dept}/messageofHOD`)}>
-        <div class="w-32 h-32 flex-grow-0 flex-shrink-0 flex justify-center md:justify-end -mt-20 mb-1 ml-auto mr-0">
-          <img src={props?.img} class="w-full h-full object-cover object-left-top rounded-full shadow-xl flex-grow-0 flex-shrink-0" alt='' />
+        <div className="w-32 h-32 flex-grow-0 flex-shrink-0 flex justify-center md:justify-end -mt-20 mb-1 ml-auto mr-0">
+          <img src={props?.img} className="w-full h-full object-cover object-left-top rounded-full shadow-xl flex-grow-0 flex-shrink-0" alt='' />
         </div>
         <span className='w-full inline-block h-[140px] overflow-hidden overflow-ellipsis'>
           <h2 className="text-blue-800 text-2xl font-semibold">{props?.name}</h2>
