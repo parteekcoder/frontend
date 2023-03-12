@@ -95,7 +95,7 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                                                     tablehead.map((item, j) => {
                                                         return (
                                                             <td key={{ i, j }} className="align-top px-6 py-4 text-gray-900 border-r">
-                                                                <span>{entries[j]}</span>
+                                                                <span>{data[0][item]}</span>
                                                             </td>
                                                         )
                                                     })
