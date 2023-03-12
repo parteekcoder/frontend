@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
-function Publications() {
-    const tablehead = ['Document title', "Authors", "Year", "Source", "Cited  by"]
+function Projects() {
+    const tablehead = ['Sr. No', "Project Title", "Year of sanction", "Funding Agency", "Sanction Amount(Rs. In lac)"]
     const data = [{
-        1:'Pretreatments of natural fibers and their application as reinforcing material in polymer composites-a review',
-        2:'Kalia, S., Kaith, B.S., Kaur, I.',
-        3:'2009',
-        4:'Polymer Engineering and Science 49(7), pp. 1253-1272',
-        5:'999'
+        1:'1',
+        2:'Information Security Education and Awareness Project-II',
+        3:'2015-16',
+        4:'PMU C-DAC Hyderabad',
+        5:'36.00'
     }]
     const [row, setrow] = useState(4); //row per page
     const totalrow = 10;
@@ -15,7 +15,7 @@ function Publications() {
     const [page, setPage] = useState(1)
     return (
         <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[90px] pt-[54px] place-items-center'>
-            <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[400] text-[#fff] tracking-wider shadow-lg rounded-3xl text-2xl'>Publications</div>
+            <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[400] text-[#fff] tracking-wider shadow-lg rounded-3xl text-2xl'>Projects</div>
             
             <div className="flex flex-col items-center justify-between border-t border-gray-200 bg-white shadow-md sm:rounded-lg w-full overflow-auto">
                 <div className='flex w-full items-center justify-around'>
@@ -99,4 +99,4 @@ function Publications() {
     )
 }
 
-export default Publications
+export default Projects

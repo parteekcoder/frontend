@@ -92,6 +92,13 @@ function Menu({ fixedmenu,scrollupmenu }) {
                     link: `/dept/${dept}/ResearchLab`
                 }
             ]
+        },{
+            Title: 'Societies and Teams',
+            Logo: 'fa fa-user-group',
+            List: [
+
+            ],
+            link: `/dept/${dept}/Home`
         }, {
             Title: 'Join Us',
             Logo: 'fa fa-address-book',
@@ -121,13 +128,13 @@ function Menu({ fixedmenu,scrollupmenu }) {
     const [menu, setMenu] = useState(false);
     return (
         <>
-            <div className={"flex flex-col bg-white z-50 lg:z-10 items-center ml-2 max-h-[78vh] lg:h-[80vh] max-w-full lg:max-w-[260px] overflow-hidden text-gray-700 rounded lg:" + (fixedmenu ? 'absolute bottom-1' : scrollupmenu?'fixed top-[80px]':'fixed top-[140px]')}>
+            <div className={"z-20 overflow-y-auto bg-white scrolling-touch max-w-xs lg:max-h-[calc(100vh-8rem)] lg:block lg:sticky lg:mr-0 scrollbar lg:" + (scrollupmenu?'top-[80px]':'top-[140px]')}>
                 <span className="flex items-center border-b border-gray-300 w-full px-2 mt-2 active:translate-y-[2px]" onClick={() => { setMenu(!menu) }}>
                     <span className='w-8 lg:w-10 pb-1'><img src={logo} alt="logo"/></span>
                     <span className="ml-2 text font-bold py-2">{departments[dept]}</span>
                 </span>
 
-                <div className={"mr-1 lg:flex flex-col items-center w-[98%] h-full overflow-y-auto scrollbar mt-1 mb-3 py-1 " + (menu ? 'flex' : 'hidden')}>
+                <div className={"mr-1 lg:flex flex-col items-center w-[98%] h-full overflow-y-auto mt-1 mb-3 py-1 " + (menu ? 'flex' : 'hidden')}>
                     <div className='w-full'>
                         <span className="flex items-center w-full h-10 px-3 mt-2 rounded hover:bg-gray-200 cursor-pointer active:translate-y-[2px] shadow-sm border border-gray-200/75" onClick={() => { navigate(`/dept/${dept}/Home`); setMenu(!menu); }}>
                             <i className="pl-1 pt-[2px] w-6 h-6 stroke-current fa fa-home"></i>

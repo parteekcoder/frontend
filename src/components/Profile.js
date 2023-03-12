@@ -11,7 +11,7 @@ function Profile() {
     const dept = useLocation().pathname.split('/')[2];
     var id = useLocation().pathname.split('/').at(-1);
     const {data,loading,error,reFetch} = useFetch(`/dept/${dept}/Faculty/${id}`);
-    
+
     const map = {
         'Journal Publications':'journal',
         'Profile Links':'personal_link',
@@ -78,7 +78,7 @@ function Profile() {
             {
                 data.map((item, j) => {
                     return (
-                         <div key={j} className="mt-16 py-4 w-[98%] mx-auto">
+                         <div key={item._id} className="mt-16 py-4 w-[98%] mx-auto">
                             <div className="relative flex flex-col flex-auto w-full min-w-0 p-4 overflow-hidden break-words border shadow-md rounded-2xl bg-white/80 bg-clip-border mb-4 draggable mx-auto"
                                 draggable="true">
                                 <div className="flex flex-wrap items-center justify-between -mx-3">
