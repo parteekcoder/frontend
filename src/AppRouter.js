@@ -28,6 +28,8 @@ import DepartmentLab from './pages/DepartmentLab';
 import Publications from './pages/Publications';
 import Projects from './pages/Projects';
 import Consultancy from './pages/Consultancy';
+import AfterForgotPass from './pages/AfterForgotPass';
+import ChangePass from './pages/ChangePass';
 const AppRouter = () => {
   const footref = useRef();
   const isInViewport1 = useIsInViewport(footref);
@@ -105,6 +107,8 @@ const AppRouter = () => {
                     <Route path='/dept/:dept/Alumni' element={<Alumni />} />
                     <Route path='/dept/:dept/PhdScholar' element={<PhdScholar />} />
                     <Route path='/dept/:dept/login' element={<FacultyLogin />} />
+                    <Route path='/dept/:dept/onClickForgotPass' element={<AfterForgotPass />} />
+                    <Route path='/dept/:dept/ChangePass' element={<ChangePass />} />
                     {/* ResearchArea */}
                     <Route path='/dept/:dept/ResearchArea' element={<ResearchArea />} />
                     <Route path='/dept/:dept/ResearchLab' element={<ResearchLab />} />

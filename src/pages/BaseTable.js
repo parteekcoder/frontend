@@ -34,7 +34,7 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                                                             </div> :
                                                             <div key={i} className="col-span-6 sm:col-span-3">
                                                                 <label htmlhtmlFor="last-name" className="block text-sm font-medium text-gray-700 px-1">{item}</label>
-                                                                <input type="text" name="last-name" onChange={(e) => setChangedata(changedata[i + 1] = e.target.value)} value={changedata[i + 1]} className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm" />
+                                                                <input type="text" name="last-name" onChange={(e) => setChangedata(changedata[item] = e.target.value)} value={changedata[item]} className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm" />
                                                             </div>
                                                     )
                                                 })
