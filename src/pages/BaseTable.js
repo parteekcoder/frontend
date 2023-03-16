@@ -88,7 +88,7 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                             <tbody>
                                 {
                                     data?.map((Item, i) => {
-                                        const entries = Object.values(Item);
+
                                         return (
                                             <tr key={i} className="border-b">
                                                 {

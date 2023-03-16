@@ -11,7 +11,9 @@ const [error,setError]=React.useState(false);
       // https://wdmc.onrender.com
       setLoading(true);
      try {
-      const res=await axios.get("https://wdmc.onrender.com"+url);
+      const res=await axios.get("http://localhost:8000"+url,{
+        withCredentials:true
+      });
 
       setData(res.data);
      } catch (error) {

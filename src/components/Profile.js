@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import BaseTable from '../pages/BaseTable';
 import useFetch from '../hooks/useFetch'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -6,12 +6,14 @@ import Otherprofilelink from '../forms/facultyprofile/Otherprofilelink';
 import ResearchProfile from '../forms/facultyprofile/ResearchProfile';
 import downloadpdf from './Img/download.png'
 import Exceldownloadpdf from './Img/Exceldownload.png'
-function Profile() {
+function Profile({peopleType}) {
     let navigate = useNavigate()
     const dept = useLocation().pathname.split('/')[2];
     var id = useLocation().pathname.split('/').at(-1);
-    const {data,loading,error,reFetch} = useFetch(`/dept/${dept}/Faculty/${id}`);
-
+    const {data,loading,error,reFetch} = useFetch(`/dept/${dept}/${peopleType}/${id}`);
+    useEffect(()=>{
+        
+    })
     const map = {
         'Journal Publications':'journal',
         'Profile Links':'personal_link',
@@ -46,6 +48,7 @@ function Profile() {
     ]
 
     const [active, setActive] = useState(0);
+    console.log(data?.validation);
     const [edit, setEdit] = useState(false);
     const [update, setUpdate] = useState(false)
     const [Editfeild, setEditfeild] = useState(-1);
@@ -76,9 +79,9 @@ function Profile() {
     return (
         <div className='w-full'>
             {
-                data.map((item, j) => {
+                data?.data?.map((item, j) => {
                     return (
-                         <div key={item._id} className="mt-16 py-4 w-[98%] mx-auto">
+                         <div key={item?._id} className="mt-16 py-4 w-[98%] mx-auto">
                             <div className="relative flex flex-col flex-auto w-full min-w-0 p-4 overflow-hidden break-words border shadow-md rounded-2xl bg-white/80 bg-clip-border mb-4 draggable mx-auto"
                                 draggable="true">
                                 <div className="flex flex-wrap items-center justify-between -mx-3">
@@ -99,11 +102,11 @@ function Profile() {
                                         <a title="Download Profile as PDF" href='#' className='w-8 sm:w-12 mx-2 active:translate-y-[2px]'>
                                             <img src={downloadpdf} alt="download pdf" className='w-full' />
                                         </a>
-                                        <button onClick={() => navigate(`/dept/${dept}/login`)} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200">
+                                       {!data?.validation?.status?.login &&  <button onClick={() => navigate(`/dept/${dept}/login`)} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200">
                                             <span className="relative text-sm sm:text-base px-3 sm:px-4 py-2 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
                                                 Login
                                             </span>
-                                        </button>
+                                        </button>}
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +118,7 @@ function Profile() {
                                                 {
                                                     Link.map((Item, i) => {
                                                         return (
-                                                            <div key={{ j, i }} className={"border snap-center shrink-0 w-max rounded-xl px-3 py-1.5 m-1 cursor-pointer hover:text-purple-600 active:scale-95 duration-150 " + (active === i ? 'border-slate-800 text-purple-700 font-semibold' : '')} onClick={() => { setActive(i); setview() }}>{Item.Title}</div>
+                                                            <div key={{ j, i }} className={"border snap-center shrink-0 w-max rounded-xl px-3 py-1.5 m-1 cursor-pointer hover:text-purple-600 active:scale-95 duration-150 " + (active === i ? 'border-slate-800 text-purple-700 font-semibold' : '')} onClick={() => { setActive(i); setview() }}>{Item?.Title}</div>
                                                         )
                                                     })
                                                 }
@@ -130,7 +133,7 @@ function Profile() {
                                     </div>
                                     <div className='w-[98%] my-2 duration-200 shadow-md'>
                                         <div className="flex justify-between items-center my-2 shadow-lg py-2 rounded-t border">
-                                            <div className="text-lg font-medium px-3 py-1">{Link[active].Title}</div>
+                                            <div className="text-lg font-medium px-3 py-1">{Link[active]?.Title}</div>
                                             <div className='flex items-center justify-center mx-2'>
                                                 <span title='Download Table in Excel Format' className={"w-12 cursor-pointer px-3 "}>
                                                     <img src={Exceldownloadpdf} alt="Excel download" />
@@ -143,7 +146,7 @@ function Profile() {
                                         <div className='p-2 mt-4'>
                                             {active === 1 && <Otherprofilelink edit={edit} />}
                                             {active === 2 && <ResearchProfile edit={edit} />}
-                                            {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} faculty={data} data={data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feildTitle={map[Link[active].Title]} />}
+                                            {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} faculty={data?.data} data={data?.data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feildTitle={map[Link[active].Title]} />}
                                             {/* <BaseTable edit={edit} /> */}
                                         </div>
                                     </div>

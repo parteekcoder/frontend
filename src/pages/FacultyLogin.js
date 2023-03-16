@@ -1,6 +1,8 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 function FacultyLogin() {
+    const dept = useLocation().pathname.split('/')[2];
     return (
         <section className="bg-blue-50 w-full">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -13,10 +15,10 @@ function FacultyLogin() {
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                             Sign in to your account
                         </h1>
-                        <form className="space-y-4 md:space-y-6" action="#">
+                        <form className="space-y-4 md:space-y-6" method='POST' action={`http://localhost:8000/dept/${dept}/login`}>
                             <div>
                                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Username</label>
-                                <input type="text" name="username" id="username" className="border border-blue-300 text-gray-900 rounded block w-full p-2.5 focus:border-blue-300 bg-blue-500 shadow-inner focus:ring-blue-500" placeholder="" required="" />
+                                <input type="text" name="email" id="username" className="border border-blue-300 text-gray-900 rounded block w-full p-2.5 focus:border-blue-300 bg-blue-500 shadow-inner focus:ring-blue-500" placeholder="" required="" />
                             </div>
                             <div>
                                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
