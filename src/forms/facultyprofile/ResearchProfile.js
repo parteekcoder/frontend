@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-function ResearchProfile({ edit }) {
-    const [interset, setInterset] = useState("Software Systems, Numerical Computing, Computer Networks and Information Security");
-    const [researchlink, setResearchlink] = useState('')
+function ResearchProfile({ edit,research_profile }) {
+    const [interset, setInterset] = useState(research_profile?research_profile['Research Interests']:'');
+    const [researchlink, setResearchlink] = useState(research_profile?research_profile['Brief Research Profile']:'')
     return (
         <div className='overflow-x-auto'>
             {
@@ -37,12 +37,12 @@ function ResearchProfile({ edit }) {
                                 <tr>
                                     <td className="align-top font-bold pr-4 pl-2 py-2">Research Interests</td>
                                     <td className="align-top font-bold pr-4 pl-2 py-2">:</td>
-                                    <td className='align-top pr-4 pl-2 py-2'>Software Systems, Numerical Computing, Computer Networks and Information Security</td>
+                                    <td className='align-top pr-4 pl-2 py-2'>{interset}</td>
                                 </tr>
                                 <tr>
                                     <td className="font-bold pr-4 pl-2 py-2">Brief Research Profile</td>
                                     <td className="text-sm font-bold pr-4 pl-2 py-2">:</td>
-                                    <td></td>
+                                    <td>{researchlink}</td>
                                 </tr>
                             </table>
                         </div>

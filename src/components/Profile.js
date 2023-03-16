@@ -18,32 +18,36 @@ function Profile({peopleType}) {
         'Journal Publications':'journal',
         'Profile Links':'personal_link',
         'Personal Details':'publications',
-        'Conference Publications':'publications',
+        'Conference Publications':'conference_publicaions',
         'Research Profile':'research_profile',
-        'Book/Chapter Publications':'publications',
+        'Research Projects':'research_project',
+        'Book/Chapter Publications':'book_publicaions',
         'Events Organized':'event',
-        'Professional Affiliations':'affiliations',
-        'PhD Supervised':'',
-        'PG Dissertation Guided':''
+        'Professional Affiliations':'affilation',
+        'PhD Supervised':'phd_supervised',
+        'PG Dissertation Guided':'phd_dissertion',
+        'Patents':'patent',
+        'Admin. Responsiblities':'admin_responsiblity',
+        'Award and Honours':'awards'
     };
 
     const Link = [
         { Title: 'Personal Details', show: false, search: false, thead: [] },
         { Title: 'Profile Links', show: false, search: false, thead: [] },
         { Title: 'Research Profile', thead: [] },
-        { Title: 'Journal Publications', thead: ['Year', 'Journal', 'Publications'], data: [{ 1: '2022', 2: 'ACM Computing Surveys (SCI IF=14.324)', 3: 'Raj Mohan Singh, Lalit Kumar Awasthi, Geeta Sikka, "Towards Metaheuristic Scheduling Techniques in Cloud and Fog: An Extensive Taxonomic Review". (Online)' }] },
-        { Title: 'Conference Publications', thead: ['Year', 'Conference', 'Publications'], data: [{ 1: '2021', 2: '2nd International Conference on Secure Cyber Computing and Communications (ICSCCC). IEEE', 3: 'harma, P., & Sangal, A. L., Extensive Software Fault Prediction: An Ensemble based comparison, pp. 432-436.' }] },
-        { Title: 'Book/Chapter Publications', thead: ['Type', 'Title', 'Publisher', 'Authors', 'ISBN/ISSN/ No.', 'Year'], data: [{ 1: '', 2: '“Artificial intelligence technologies for computational biology”', 3: 'CRC Press (1st Edition Nov 2022)', 4: 'Rout Ranjeet Kumar,Umer Saiyed,Sheikh Sabhaa, Amrit Lal Sangal', 5: '978-100077868-7, 978-103216000-9', 6: '2022' }] },
-        { Title: 'Research Projects', thead: ['Role', 'Project Type', 'Title', 'Funding Agency', 'From', 'To', 'Amount', 'Status', 'Co-Investigator'], data: [] },
-        { Title: 'Events Organized', thead: ['Category', 'Type', 'Title', 'Venue', 'From', 'To', 'Designation'], data: [{ 1: 'Conference', 2: 'International', 3: '1st International Conference on Secure Cyber Computing and Communications (ICSCCC). IEEE', 4: 'Dr B R Ambedkar National Institute of Technology, Jalandhar', 5: '', 6: '', 7: '' }] },
-        { Title: 'Professional Affiliations', thead: ['Designation', 'Organization'], data: [{ 1: 'Member', 2: 'Indian Society for technical Education (ISTE)' }] },
-        { Title: 'PhD Supervised', thead: ['Scholar Name', 'Research Topic', 'Status', 'Year', 'Co-Supervisor'], data: [{ 1: 'Mr Himanshu Pattanayak', 2: 'An algorithm for detection of shared communities in social network', 3: 'Defended', 4: '2022', 5: 'Dr A L Sangal' }] },
-        { Title: 'PG Dissertation Guided', thead: ['Student Name', 'Dissertation Title', 'Status', 'Year', 'Co-Supervisor'], data: [{ 1: 'Ananya Sharma', 2: 'IGT:Tools for testing and maintaining GPU Drivers.', 3: 'Completed', 4: '2022', 5: '' }] },
+        { Title: 'Journal Publications', thead: ['Year', 'Journal', 'Publications'] },
+        { Title: 'Conference Publications', thead: ['Year', 'Title', 'Publisher']},
+        { Title: 'Book/Chapter Publications', thead: ['Type', 'Title', 'Publisher', 'Authors', 'ISBN/ISSN', 'Year'] },
+        { Title: 'Research Projects', thead: ['Role', 'Project Type', 'Title', 'Funding Agency', 'From', 'To', 'Amount', 'Status', 'Co-Investigator']},
+        { Title: 'Events Organized', thead: ['Category', 'Type', 'Title', 'Venue', 'From', 'To', 'Designation'] },
+        { Title: 'Professional Affiliations', thead: ['Designation', 'Organisation'] },
+        { Title: 'PhD Supervised', thead: ['Scholar Name', 'Research Topic', 'Status', 'Year', 'Co-Supervisor']},
+        { Title: 'PG Dissertation Guided', thead: ['Student Name', 'Dissertation Title', 'Status', 'Year', 'Co-Supervisor']},
         {
             Title: 'Patents', thead: ['Name', 'Reg./Ref. No.', 'Date of Award/Filling', 'Organization', 'Status']
-            , data: [{ 1: 'A system of smartphone security using machine learning', 2: '202111040145', 3: '', 4: 'Patent Office India', 5: 'Filed' }]
+            
         },
-        { Title: 'Admin. Responsiblities', thead: ['Position held', 'Organization', 'From', 'to'], data: [{ 1: 'Head, Computer Science & Engineering', 2: 'Dr B R Ambedkar National Institute of Technology, Jalandhar', 3: 'September 1992', 4: 'September 2006' }] },
+        { Title: 'Admin. Responsiblities', thead: ['Position Held', 'Organization', 'From', 'To']},
         { Title: 'Award and Honours', thead: ['Title', 'Activity', 'Given by', 'Year']},
     ]
 
@@ -144,7 +148,7 @@ function Profile({peopleType}) {
                                             </div>
                                         </div>
                                         <div className='p-2 mt-4'>
-                                            {active === 1 && <Otherprofilelink edit={edit} />}
+                                            {active === 1 && <Otherprofilelink edit={edit} personal_link={data?.data?.personal_link} />}
                                             {active === 2 && <ResearchProfile edit={edit} />}
                                             {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} faculty={data?.data} data={data?.data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feildTitle={map[Link[active].Title]} />}
                                             {/* <BaseTable edit={edit} /> */}
