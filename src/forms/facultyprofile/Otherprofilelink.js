@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function Otherprofilelink({ edit }) {
+function Otherprofilelink({ edit ,personal_link}) {
     const [link, setLink] = useState('');
     const [googlelink, setGooglelink] = useState('');
     return (
@@ -37,7 +37,7 @@ function Otherprofilelink({ edit }) {
                                 <tr>
                                     <td className="font-bold pr-4 pl-2 py-2">Personal Link</td>
                                     <td className="text-sm font-bold pr-4 pl-2 py-2">:</td>
-                                    <td></td>
+                                    <td>{personal_link}</td>
                                 </tr>
                                 <tr>
                                     <td className="font-bold pr-4 pl-2 py-2">Google Scholar Link</td>

@@ -16,14 +16,14 @@ function FacultyLogin() {
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                             Sign in to your account
                         </h1>
-                        <form className="space-y-4 md:space-y-6" action="#">
+                        <form className="space-y-4 md:space-y-6" method='POST' action={`http://localhost:8000/dept/${dept}/login`}>
                             <div>
                                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Username</label>
-                                <input type="text" name="username" id="username" className="border shadow-inner outline-none p-2.5 w-full focus:ring-blue-500" placeholder="" required="" />
+                                <input type="text" name="email" id="username" className="border shadow-inner outline-none p-2.5 w-full focus:ring-blue-500" placeholder="" required="" />
                             </div>
                             <div>
                                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                                <input type="text" name="username" id="username" className="border shadow-inner outline-none p-2.5 w-full focus:ring-blue-500" placeholder="" required="" />
+                                <input type="text" name="password" id="username" className="border shadow-inner outline-none p-2.5 w-full focus:ring-blue-500" placeholder="" required="" />
                             </div>
                             <div onClick={()=>navigate(`/dept/${dept}/onClickForgotPass`)} className='text-sm cursor-pointer hover:underline'>Forgot Password?</div>
                             <button type="submit" className="w-[80%] block text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none shadow font-medium rounded-lg text-sm px-5 py-2.5 text-center mx-auto">Sign in</button>

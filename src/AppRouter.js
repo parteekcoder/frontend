@@ -101,11 +101,12 @@ const AppRouter = () => {
                     <Route path='/dept/:dept/Achievement' element={<Achievements />} />
                     {/* Person */}
                     <Route path='/dept/:dept/Faculty' element={<Faculty />} />
-                    <Route path='/dept/:dept/Faculty/:id' element={<Profile />} />
+                    <Route path='/dept/:dept/Faculty/:id' element={<Profile peopleType="Faculty" />} />
                     <Route path='/dept/:dept/Staff' element={<Staff />} />
                     <Route path='/dept/:dept/Student' element={<Students />} />
                     <Route path='/dept/:dept/Alumni' element={<Alumni />} />
                     <Route path='/dept/:dept/PhdScholar' element={<PhdScholar />} />
+                    <Route path='/dept/:dept/PhdScholar/:id' element={<Profile peopleType="PhdScholar" />} />
                     <Route path='/dept/:dept/login' element={<FacultyLogin />} />
                     <Route path='/dept/:dept/onClickForgotPass' element={<AfterForgotPass />} />
                     <Route path='/dept/:dept/ChangePass' element={<ChangePass />} />
