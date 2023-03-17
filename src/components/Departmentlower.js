@@ -17,7 +17,7 @@ const Departmentlower = (props) => {
         <div className="w-32 h-32 flex-grow-0 flex-shrink-0 flex justify-center md:justify-end -mt-20 mb-1 ml-auto mr-0">
           <img src={props?.img} className="w-full h-full object-cover object-left-top rounded-full shadow-xl flex-grow-0 flex-shrink-0" alt='' />
         </div>
-        <span className='w-full inline-block h-[140px] overflow-hidden overflow-ellipsis'>
+        <span className='w-full inline-block h-[140px] overflow-hidden text-justify text-ellipsis'>
           <h2 className="text-blue-800 text-2xl font-semibold">{props?.name}</h2>
           <h2 className='font-medium'>(Head Of Department)</h2>
           <p className="mt-2 text-gray-600 flex-wrap">{props?.message}</p>
