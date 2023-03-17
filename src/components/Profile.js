@@ -11,17 +11,20 @@ function Profile({peopleType}) {
     const dept = useLocation().pathname.split('/')[2];
     var id = useLocation().pathname.split('/').at(-1);
     const {data,loading,error,reFetch} = useFetch(`/dept/${dept}/${peopleType}/${id}`);
+    const [isLogin,setIsLogin] = useState(false); 
+    
     useEffect(()=>{
-        
-    })
+
+        setIsLogin(data?.validation?.status?.isFaculty);
+    },[data])
     const map = {
         'Journal Publications':'journal',
         'Profile Links':'personal_link',
         'Personal Details':'publications',
-        'Conference Publications':'conference_publicaions',
+        'Conference Publications':'conference_publications',
         'Research Profile':'research_profile',
         'Research Projects':'research_project',
-        'Book/Chapter Publications':'book_publicaions',
+        'Book/Chapter Publications':'book_publications',
         'Events Organized':'event',
         'Professional Affiliations':'affilation',
         'PhD Supervised':'phd_supervised',
@@ -52,7 +55,6 @@ function Profile({peopleType}) {
     ]
 
     const [active, setActive] = useState(0);
-    console.log(data?.validation);
     const [edit, setEdit] = useState(false);
     const [update, setUpdate] = useState(false)
     const [Editfeild, setEditfeild] = useState(-1);
@@ -142,15 +144,17 @@ function Profile({peopleType}) {
                                                 <span title='Download Table in Excel Format' className={"w-12 cursor-pointer px-3 "}>
                                                     <img src={Exceldownloadpdf} alt="Excel download" />
                                                 </span>
-                                                <span className={"cursor-pointer px-3 " + (edit ? 'hidden' : '')}><i className="fa-solid fa-eye"></i></span>
-                                                <span title='View as Table' className={"cursor-pointer px-3 " + (edit ? '' : 'hidden')} onClick={() => setview()}><i className="fa-solid fa-eye-slash"></i></span>
-                                                <span title='Add new data' className='cursor-pointer px-3' onClick={() => setedit()}><i className="fa-solid fa-pen-to-square"></i></span>
+                                                {isLogin &&<>
+                                                    <span className={"cursor-pointer px-3 " + (edit ? 'hidden ' : '')+(isLogin?'':'hidden')}><i className="fa-solid fa-eye"></i></span>
+                                                    <span title='View as Table' className={"cursor-pointer px-3 " + (edit ? '' : 'hidden ')} onClick={() => setview()}><i className="fa-solid fa-eye-slash"></i></span>
+                                                    <span title='Add new data' className={'cursor-pointer px-3'} onClick={() => setedit()}><i className="fa-solid fa-pen-to-square"></i></span>
+                                                </>}
                                             </div>
                                         </div>
                                         <div className='p-2 mt-4'>
-                                            {active === 1 && <Otherprofilelink edit={edit} personal_link={data?.data?.personal_link} />}
-                                            {active === 2 && <ResearchProfile edit={edit} />}
-                                            {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} faculty={data?.data} data={data?.data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feildTitle={map[Link[active].Title]} />}
+                                            {active === 1 && <Otherprofilelink edit={edit} personal_link={data?.data?.personal_link} isLogin={isLogin}/>}
+                                            {active === 2 && <ResearchProfile edit={edit} isLogin={isLogin} research_profile={data?.data?.research_profile}/>}
+                                            {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} faculty={data?.data[0]} data={data?.data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feildTitle={map[Link[active].Title]} isLogin={isLogin}/>}
                                             {/* <BaseTable edit={edit} /> */}
                                         </div>
                                     </div>

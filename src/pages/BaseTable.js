@@ -1,7 +1,12 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom';
 
-function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
+function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit ,isLogin,faculty,feildTitle}) {
+    const dept = useLocation().pathname.split('/')[2];
     const [changedata, setChangedata] = useState(data);
+    console.log(typeof data)
+    console.log(feildTitle);
     const Setdata = () => {
         var val = Editfeild < 0 ? 0 : Editfeild;
         setChangedata(data[val])
@@ -14,13 +19,30 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
         Setdata()
     }, [changedata])
 
+    const handleSubmit=async(e)=>{
+        
+        let newRow = {};
+        const formdata = new FormData(e.target);
+        for (let [key, value] of formdata.entries()) {
+            newRow ={
+                ...newRow,
+                [key]:[value]
+            }
+        }
+        data.push(newRow);
+        try {
+            await axios.put(`http://localhost:8000/dept/${dept}/Faculty/${faculty._id}?q=${feildTitle}`,data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <div>
             {edit ?
                 <div className="mt-10 sm:mt-0 shadow-md border-2 rounded">
                     <div className="">
                         <div className="mt-5 md:mt-0">
-                            <form action="#" method="POST">
+                            <form  onSubmit={handleSubmit}>
                                 <div className="overflow-hidden sm:rounded-md">
                                     <div className="bg-white px-4 py-5 sm:p-6">
                                         <div className="grid grid-cols-6 gap-6">
@@ -30,11 +52,11 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                                                         Editfeild < 0 ?
                                                             <div key={i} className="col-span-6 sm:col-span-3">
                                                                 <label htmlhtmlFor="last-name" className="block text-sm font-medium text-gray-700 px-1">{item}</label>
-                                                                <input type="text" name="last-name" className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm" />
+                                                                <input type="text" name={item} className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm" />
                                                             </div> :
                                                             <div key={i} className="col-span-6 sm:col-span-3">
                                                                 <label htmlhtmlFor="last-name" className="block text-sm font-medium text-gray-700 px-1">{item}</label>
-                                                                <input type="text" name="last-name" onChange={(e) => setChangedata(changedata[item] = e.target.value)} value={changedata[item]} className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm" />
+                                                                <input type="text" name={item} onChange={(e) => setChangedata(changedata[item] = e.target.value)} value={changedata[item]} className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm" />
                                                             </div>
                                                     )
                                                 })
@@ -100,7 +122,7 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                                                         )
                                                     })
                                                 }
-                                                {data.length > 0 &&
+                                                {data.length > 0 && isLogin &&
                                                     <td className="text-blue-700 font-bold px-6 py-4 active:scale-[0.98] cursor-pointer" onClick={() => { HandleEdit(i); Setdata() }}>
                                                         Edit
                                                     </td>}
