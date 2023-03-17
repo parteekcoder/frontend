@@ -152,8 +152,8 @@ function Profile({peopleType}) {
                                             </div>
                                         </div>
                                         <div className='p-2 mt-4'>
-                                            {active === 1 && <Otherprofilelink edit={edit} personal_link={data?.data?.personal_link} isLogin={isLogin}/>}
-                                            {active === 2 && <ResearchProfile edit={edit} isLogin={isLogin} research_profile={data?.data?.research_profile}/>}
+                                            {active === 1 && <Otherprofilelink edit={edit} personal_link={data?.data[0]?.personal_link} isLogin={isLogin} faculty={data?.data[0]}/>}
+                                            {active === 2 && <ResearchProfile edit={edit} isLogin={isLogin} research_profile={data?.data[0]?.research_profile} faculty={data?.data[0]}/>}
                                             {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} faculty={data?.data[0]} data={data?.data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feildTitle={map[Link[active].Title]} isLogin={isLogin}/>}
                                             {/* <BaseTable edit={edit} /> */}
                                         </div>

@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit ,isLogin,faculty,feildTitle}) {
     const dept = useLocation().pathname.split('/')[2];
     const [changedata, setChangedata] = useState(data);
+    console.log(data)
     const Setdata = () => {
         var val = Editfeild < 0 ? 0 : Editfeild;
         setChangedata(data[val])
@@ -27,7 +28,9 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit ,isLogin,facul
                 [key]:[value]
             }
         }
+        if(Editfeild<0)
         data.push(newRow);
+        else data[Editfeild] = newRow;
         try {
             await axios.put(`http://localhost:8000/dept/${dept}/Faculty/${faculty._id}?q=${feildTitle}`,data);
         } catch (error) {

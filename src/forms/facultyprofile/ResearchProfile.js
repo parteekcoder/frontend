@@ -1,25 +1,46 @@
+import axios from 'axios';
 import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom';
 
-function ResearchProfile({ edit,research_profile }) {
-    const [interset, setInterset] = useState(research_profile?research_profile['Research Interests']:'');
-    const [researchlink, setResearchlink] = useState(research_profile?research_profile['Brief Research Profile']:'')
+function ResearchProfile({ edit,research_profile ,faculty}) {
+    const dept = useLocation().pathname.split('/')[2];
+    const [interset, setInterset] = useState(research_profile?research_profile[0]['Research Interests']:'');
+    const [researchlink, setResearchlink] = useState(research_profile?research_profile[0]['Brief Research Profile']:'')
+
+    const handleSubmit=async(e)=>{
+        
+        let newRow = {};
+        const formdata = new FormData(e.target);
+        for (let [key, value] of formdata.entries()) {
+            newRow ={
+                ...newRow,
+                [key]:[value]
+            }
+        }
+
+        try {
+            await axios.put(`http://localhost:8000/dept/${dept}/Faculty/${faculty._id}?q=research_profile`,newRow);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <div className='overflow-x-auto'>
             {
                 edit ? <div className="m-4 flex justify-center items-center">
-                    <form className="w-full max-w-lg shadow p-3">
+                    <form className="w-full max-w-lg shadow p-3" onSubmit={handleSubmit}>
                         <div className="flex flex-wrap -mx-3 mb-6">
                             <div className="w-full px-3">
                                 <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlhtmlFor="grid-password">
                                     Research Interests
                                 </label>
-                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 shadow-inner leading-tight focus:outline-none focus:border-gray-50" onChange={(e) => setInterset(e.target.value)} id="title" type="text" placeholder="Title" value={interset} />
+                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 shadow-inner leading-tight focus:outline-none focus:border-gray-50" name='Research Interests' onChange={(e) => setInterset(e.target.value)} id="title" type="text" placeholder="Title" value={interset} />
                             </div>
                             <div className="w-full px-3">
                                 <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlhtmlFor="grid-password">
                                     Profile Link
                                 </label>
-                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-50 shadow-inner" onChange={(e)=>setResearchlink(e.target.value)} value={researchlink}  id="link" type="text" placeholder="" />
+                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-50 shadow-inner" name='Brief Research Profile' onChange={(e)=>setResearchlink(e.target.value)} value={researchlink}  id="link" type="text" placeholder="" />
                             </div>
                         </div>
                         <div className="flex px-3 w-full justify-end">
