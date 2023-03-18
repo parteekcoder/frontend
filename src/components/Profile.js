@@ -6,6 +6,8 @@ import Otherprofilelink from '../forms/facultyprofile/Otherprofilelink';
 import ResearchProfile from '../forms/facultyprofile/ResearchProfile';
 import downloadpdf from './Img/download.png'
 import Exceldownloadpdf from './Img/Exceldownload.png'
+import axios from 'axios';
+import { SERVER_URL } from '../config/server';
 function Profile({peopleType}) {
     let navigate = useNavigate()
     const dept = useLocation().pathname.split('/')[2];
@@ -70,6 +72,14 @@ function Profile({peopleType}) {
         setedit();
         SetEditfeild(i);
     }
+    const logout = async(e)=>{
+        try {
+            
+           const response = await axios.post(`${SERVER_URL}/dept/${dept}/logout`,{},{withCredentials:true});
+        } catch (error) {
+            console.log(error);
+        }
+    }
     const scrollNextPage = () => {
         const gallery = document.querySelector('#scrollcontrol');
         const gallery_scroller = gallery.querySelector('.cards');
@@ -108,11 +118,11 @@ function Profile({peopleType}) {
                                         <a title="Download Profile as PDF" href='#' className='w-8 sm:w-12 mx-2 active:translate-y-[2px]'>
                                             <img src={downloadpdf} alt="download pdf" className='w-full' />
                                         </a>
-                                       {!data?.validation?.status?.login &&  <button onClick={() => navigate(`/dept/${dept}/login`)} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200">
+                                       <button onClick={() => {!data?.validation?.status?.login?navigate(`/dept/${dept}/login`):logout()}} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-blue focus:ring-4 focus:outline-none focus:ring-cyan-200">
                                             <span className="relative text-sm sm:text-base px-3 sm:px-4 py-2 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
-                                                Login
+                                                {!data?.validation?.status?.login ?"Login":'Logout'}
                                             </span>
-                                        </button>}
+                                        </button>
                                     </div>
                                 </div>
                             </div>

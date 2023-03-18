@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { SERVER_URL } from '../config/server';
 
 function FacultyLogin() {
     let navigate = useNavigate();
@@ -16,7 +17,7 @@ function FacultyLogin() {
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                             Sign in to your account
                         </h1>
-                        <form className="space-y-4 md:space-y-6" method='POST' action={`http://localhost:8000/dept/${dept}/login`}>
+                        <form className="space-y-4 md:space-y-6" method='POST' action={`${SERVER_URL}/dept/${dept}/login`}>
                             <div>
                                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Username</label>
                                 <input type="text" name="email" id="username" className="border shadow-inner outline-none p-2.5 w-full focus:ring-blue-500" placeholder="" required="" />
