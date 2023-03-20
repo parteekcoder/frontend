@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-function ResearchProfile({ edit,research_profile }) {
-    const [interset, setInterset] = useState(research_profile?research_profile['Research Interests']:'');
-    const [researchlink, setResearchlink] = useState(research_profile?research_profile['Brief Research Profile']:'')
+function ResearchProfile({ edit,data }) {
+    const [interset, setInterset] = useState(data[0]['Research Interests']);
+    const [researchlink, setResearchlink] = useState(data[0]['Brief Research Profile'])
     return (
         <div className='overflow-x-auto'>
             {
@@ -13,13 +13,13 @@ function ResearchProfile({ edit,research_profile }) {
                                 <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlhtmlFor="grid-password">
                                     Research Interests
                                 </label>
-                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 shadow-inner leading-tight focus:outline-none focus:border-gray-50" onChange={(e) => setInterset(e.target.value)} id="title" type="text" placeholder="Title" value={interset} />
+                                <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 shadow-inner leading-tight focus:outline-none focus:border-gray-50" onChange={(e) => setInterset(e.target.value)} id="title" type="text" placeholder="Title" value={interset}></textarea>
                             </div>
                             <div className="w-full px-3">
                                 <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlhtmlFor="grid-password">
                                     Profile Link
                                 </label>
-                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-50 shadow-inner" onChange={(e)=>setResearchlink(e.target.value)} value={researchlink}  id="link" type="text" placeholder="" />
+                                <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-50 shadow-inner" onChange={(e)=>setResearchlink(e.target.value)} value={researchlink}  id="link" type="text" placeholder="" />
                             </div>
                         </div>
                         <div className="flex px-3 w-full justify-end">
@@ -35,14 +35,14 @@ function ResearchProfile({ edit,research_profile }) {
                         <div className="flex max-w-full justify-between items-center p-4 shadow-md">
                             <table>
                                 <tr>
-                                    <td className="align-top font-bold pr-4 pl-2 py-2">Research Interests</td>
+                                    <td className="w-48 align-top font-bold pr-4 pl-2 py-2">Research Interests</td>
                                     <td className="align-top font-bold pr-4 pl-2 py-2">:</td>
                                     <td className='align-top pr-4 pl-2 py-2'>{interset}</td>
                                 </tr>
                                 <tr>
-                                    <td className="font-bold pr-4 pl-2 py-2">Brief Research Profile</td>
-                                    <td className="text-sm font-bold pr-4 pl-2 py-2">:</td>
-                                    <td>{researchlink}</td>
+                                    <td className="w-48 align-top font-bold pr-4 pl-2 py-2">Brief Research Profile</td>
+                                    <td className="align-top text-sm font-bold pr-4 pl-2 py-2">:</td>
+                                    <td className='align-top pr-4 pl-2 py-2'>{researchlink}</td>
                                 </tr>
                             </table>
                         </div>

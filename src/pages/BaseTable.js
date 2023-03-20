@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react'
 
-function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
+function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild }) {
     const [changedata, setChangedata] = useState(data);
     const Setdata = () => {
         var val = Editfeild < 0 ? 0 : Editfeild;
         setChangedata(data[val])
     }
-    const [row, setrow] = useState(4); //row per page
-    const totalrow = 10;
+    // console.log(changedata)
+    const [row, setrow] = useState(8); //row per page
+    const totalrow = data.length;
     const totalPage = Math.ceil(totalrow / row);
     const [page, setPage] = useState(1)
     useEffect(() => {
         Setdata()
-    }, [changedata])
+    }, [changedata,row])
 
     return (
         <div>
@@ -25,16 +26,16 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                                     <div className="bg-white px-4 py-5 sm:p-6">
                                         <div className="grid grid-cols-6 gap-6">
                                             {
-                                                tablehead?.map((item, i) => {
+                                                feild?.map((item, i) => {
                                                     return (
                                                         Editfeild < 0 ?
                                                             <div key={i} className="col-span-6 sm:col-span-3">
                                                                 <label htmlhtmlFor="last-name" className="block text-sm font-medium text-gray-700 px-1">{item}</label>
-                                                                <input type="text" name="last-name" className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm" />
+                                                                <textarea type="text" name="last-name" className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm"></textarea>
                                                             </div> :
                                                             <div key={i} className="col-span-6 sm:col-span-3">
                                                                 <label htmlhtmlFor="last-name" className="block text-sm font-medium text-gray-700 px-1">{item}</label>
-                                                                <input type="text" name="last-name" onChange={(e) => setChangedata(changedata[item] = e.target.value)} value={changedata[item]} className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm" />
+                                                                <textarea type="text" name="last-name" onChange={(e) => setChangedata(changedata[item] = e.target.value)} value={changedata[item]} className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm" ></textarea>
                                                             </div>
                                                     )
                                                 })
@@ -88,11 +89,10 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                             <tbody>
                                 {
                                     data?.map((Item, i) => {
-
                                         return (
-                                            <tr key={i} className="border-b">
+                                            (i>=row*(page-1) && i<row*(page)) && <tr key={i} className="border-b">
                                                 {
-                                                    tablehead.map((item, j) => {
+                                                    feild.map((item, j) => {
                                                         return (
                                                             <td key={{ i, j }} className="align-top px-6 py-4 text-gray-900 border-r">
                                                                 <span>{Item[item]}</span>
@@ -115,9 +115,9 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                             <div>
                                 <p className="text-sm text-gray-700">
                                     Showing
-                                    <span className="font-medium mx-1">1</span>
+                                    <span className="font-medium mx-1">{row*(page-1)+1}</span>
                                     to
-                                    <span className="font-medium mx-1">{row > totalrow ? totalrow : row}</span>
+                                    <span className="font-medium mx-1">{row*(page) > totalrow ? totalrow : row*(page)}</span>
                                     of
                                     <span className="font-medium mx-1">{totalrow}</span>
                                     results
@@ -130,6 +130,8 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit }) {
                                     </button>
 
                                     <span className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white">{page}</span>
+                                    <span className="relative z-10 inline-flex items-center bg-indigo-300 px-4 py-2 text-sm font-semibold text-white">...</span>
+                                    <span className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white">{totalPage}</span>
                                     <button onClick={() => setPage(page < totalPage ? page + 1 : totalPage)} className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 active:scale-95">
                                         <i className="fa-solid fa-arrow-right"></i>
                                     </button>
