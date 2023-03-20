@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 
-function Otherprofilelink({ edit ,personal_link}) {
+function Otherprofilelink({ edit,data}) {
     const [link, setLink] = useState('');
-    const [googlelink, setGooglelink] = useState('');
+    const [googlelink, setGooglelink] = useState(data['personal_link']);
     return (
         <div className='overflow-x-auto'>
             {
@@ -37,12 +37,12 @@ function Otherprofilelink({ edit ,personal_link}) {
                                 <tr>
                                     <td className="font-bold pr-4 pl-2 py-2">Personal Link</td>
                                     <td className="text-sm font-bold pr-4 pl-2 py-2">:</td>
-                                    <td>{personal_link}</td>
+                                    <td>{link}</td>
                                 </tr>
                                 <tr>
                                     <td className="font-bold pr-4 pl-2 py-2">Google Scholar Link</td>
                                     <td className="text-sm font-bold pr-4 pl-2 py-2">:</td>
-                                    <td></td>
+                                    <td> <a target='_blank' href={googlelink} className='text-orange-400 hover:underline'>{googlelink && data['name']}</a> </td>
                                 </tr>
                             </table>
                         </div>

@@ -17,9 +17,9 @@ const Departmentupper = (props) => {
                     </a>
                 </div>
 
-                <div className="p-5">
+                <div className="p-5 h-[300px]">
                     <h1 className='underline text-center text-2xl m-2'> <b>Department of {props.name}</b></h1>
-                    <p className="mb-3 font-normal text-justify text-gray-700 ">{props.introduction}</p>
+                    <p className="mb-3 font-normal text-justify overflow-hidden text-gray-700 h-[170px]">{props.introduction}</p>
                     <div className='block m-4 p-2'>
                         <button className=' float-right text-green-700 hover:font-semibold hover:text-blue-700 '>Read More  &rarr;</button>
                     </div>
@@ -32,14 +32,20 @@ const Departmentupper = (props) => {
                         src="https://www.youtube.com/embed/fd2hUOmm8kA?controls=0&amp;start=280&mute=1" title="NITJ" >
                     </iframe>
                 </div>
-
-                <div className="p-5">
+                <div className="p-5 h-[300px]">
                     <h1 className='underline text-center text-2xl m-2'> <b>Mission and Vision</b></h1>
-                    <p className="mb-3 font-normal text-justify text-gray-700 ">{data.mission} {data.vision}</p>
+                    <p className="mb-3 font-normal text-justify text-gray-700 h-[170px] overflow-hidden">{data.mission}<br/>{data.vision}</p>
                     <div className='block m-4 p-2'>
                         <button className=' float-right text-green-700 hover:font-semibold hover:text-blue-700 '>Read More  &rarr;</button>
                     </div>
                 </div>
+                {/* <div className="p-5 rounded-lg h-[200px]">
+                    <h1 className='underline text-center text-2xl m-2'> <b>Mission and Vision</b></h1>
+                    <p className="w-full inline-block h-[180px] text-justify overflow-hidden text-ellipsis">{data.mission} {data.vision}</p>
+                    <div className='block m-4 p-2'>
+                        <button className=' float-right text-green-700 hover:font-semibold hover:text-blue-700 '>Read More  &rarr;</button>
+                    </div>
+                </div> */}
             </div>
 
         </div>

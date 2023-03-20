@@ -28,11 +28,11 @@ function Profile({peopleType}) {
         'Research Projects':'research_project',
         'Book/Chapter Publications':'book_publications',
         'Events Organized':'event',
-        'Professional Affiliations':'affilation',
+        'Professional Affiliations':'affiliations',
         'PhD Supervised':'phd_supervised',
         'PG Dissertation Guided':'phd_dissertion',
         'Patents':'patent',
-        'Admin. Responsiblities':'admin_responsiblity',
+        'Admin. Responsiblities':'admin_responsibility',
         'Award and Honours':'awards'
     };
 
@@ -40,20 +40,17 @@ function Profile({peopleType}) {
         { Title: 'Personal Details', show: false, search: false, thead: [] },
         { Title: 'Profile Links', show: false, search: false, thead: [] },
         { Title: 'Research Profile', thead: [] },
-        { Title: 'Journal Publications', thead: ['Year', 'Journal', 'Publications'] },
-        { Title: 'Conference Publications', thead: ['Year', 'Title', 'Publisher']},
-        { Title: 'Book/Chapter Publications', thead: ['Type', 'Title', 'Publisher', 'Authors', 'ISBN/ISSN', 'Year'] },
-        { Title: 'Research Projects', thead: ['Role', 'Project Type', 'Title', 'Funding Agency', 'From', 'To', 'Amount', 'Status', 'Co-Investigator']},
-        { Title: 'Events Organized', thead: ['Category', 'Type', 'Title', 'Venue', 'From', 'To', 'Designation'] },
-        { Title: 'Professional Affiliations', thead: ['Designation', 'Organisation'] },
-        { Title: 'PhD Supervised', thead: ['Scholar Name', 'Research Topic', 'Status', 'Year', 'Co-Supervisor']},
-        { Title: 'PG Dissertation Guided', thead: ['Student Name', 'Dissertation Title', 'Status', 'Year', 'Co-Supervisor']},
-        {
-            Title: 'Patents', thead: ['Name', 'Reg./Ref. No.', 'Date of Award/Filling', 'Organization', 'Status']
-            
-        },
-        { Title: 'Admin. Responsiblities', thead: ['Position Held', 'Organization', 'From', 'To']},
-        { Title: 'Award and Honours', thead: ['Title', 'Activity', 'Given by', 'Year']},
+        { Title: 'Journal Publications', thead: ['Year', 'Journal', 'Publications'],feild:['Year', 'Journal', 'Jouranal Title'] },
+        { Title: 'Conference Publications', thead: ['Year', 'Title', 'Publisher'],feild:['Year', 'Title', 'Publisher']},
+        { Title: 'Book/Chapter Publications', thead: ['Type', 'Title', 'Publisher', 'Authors', 'ISBN/ISSN', 'Year'],feild:['Type', 'Title', 'Publisher', 'Authors', 'ISBN/ISSN', 'Year'] },
+        { Title: 'Research Projects', thead: ['Role', 'Project Type', 'Title', 'Funding Agency', 'From', 'To', 'Amount', 'Status', 'Co-Investigator'],feild: ['Role', 'Project Type', 'Title', 'Funding Agency', 'From', 'To', 'Amount', 'Status', 'Co-investigator']},
+        { Title: 'Events Organized', thead: ['Category', 'Type', 'Title', 'Venue', 'From', 'To', 'Designation'],feild:['Category', 'Type', 'Title', 'Venue', 'From', 'To', 'Designation'] },
+        { Title: 'Professional Affiliations', thead: ['Designation', 'Organisation'],feild:['Designation', 'Organisation'] },
+        { Title: 'PhD Supervised', thead: ['Scholar Name', 'Research Topic', 'Status', 'Year', 'Co-Supervisor'], feild:['Scholar Name', 'Research Topic', 'Status', 'Year', 'Co-Supervisor']},
+        { Title: 'PG Dissertation Guided', thead: ['Student Name', 'Dissertation Title', 'Status', 'Year', 'Co-Supervisor'],feild:['Student Name', 'Dissertation Title', 'Status', 'Year', 'Co-Supervisor']},
+        {Title: 'Patents', thead: ['Name', 'Reg./Ref. No.', 'Date of Award/Filling', 'Organization', 'Status'],feild:['Name', 'Reg./Ref. No.', 'Date of Award/Filling', 'Organization', 'Status']},
+        { Title: 'Admin. Responsiblities', thead: ['Position Held', 'Organization', 'From', 'To'],feild:['Position Held', 'Organization', 'From', 'To']},
+        { Title: 'Award and Honours', thead: ['Title', 'Activity', 'Given by', 'Year'],feild:['Title', 'Activity', 'Given by', 'Year']},
     ]
 
     const [active, setActive] = useState(0);
@@ -62,13 +59,10 @@ function Profile({peopleType}) {
     const [Editfeild, setEditfeild] = useState(-1);
     const setedit = () => { setEdit(true); SetEditfeild(-1); }
     const setview = () => { setEdit(false); SetEditfeild(-1); }
-
-
     // Handle the Edit functions in the table
     const SetEditfeild = (i) => { setEditfeild(i); }
     const HandleEdit = (i) => {
-        setUpdate(true)
-        console.log(i)
+        setUpdate(true);
         setedit();
         SetEditfeild(i);
     }
@@ -162,9 +156,9 @@ function Profile({peopleType}) {
                                             </div>
                                         </div>
                                         <div className='p-2 mt-4'>
-                                            {active === 1 && <Otherprofilelink edit={edit} personal_link={data?.data[0]?.personal_link} isLogin={isLogin} faculty={data?.data[0]}/>}
-                                            {active === 2 && <ResearchProfile edit={edit} isLogin={isLogin} research_profile={data?.data[0]?.research_profile} faculty={data?.data[0]}/>}
-                                            {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} faculty={data?.data[0]} data={data?.data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feildTitle={map[Link[active].Title]} isLogin={isLogin}/>}
+                                            {active === 1 && <Otherprofilelink edit={edit} data={data?.data[0]} />}
+                                            {active === 2 && <ResearchProfile edit={edit} data={data?.data[0]['research_profile']}/>}
+                                            {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} data={data?.data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feild={Link[active].feild} />}
                                             {/* <BaseTable edit={edit} /> */}
                                         </div>
                                     </div>

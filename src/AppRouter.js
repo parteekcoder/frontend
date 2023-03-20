@@ -30,6 +30,7 @@ import Projects from './pages/Projects';
 import Consultancy from './pages/Consultancy';
 import AfterForgotPass from './pages/AfterForgotPass';
 import ChangePass from './pages/ChangePass';
+import Society_Clubs_Tems from './pages/Society_Clubs_Teams';
 const AppRouter = () => {
   const footref = useRef();
   const isInViewport1 = useIsInViewport(footref);
@@ -79,7 +80,7 @@ const AppRouter = () => {
 
           <div className="w-full mx-auto max-w-8xl">
             <div className='lg:flex'>
-              <aside className='fixed inset-0 z-20 flex-none hidden h-full w-72 lg:static lg:h-auto lg:overflow-y-visible lg:pt-0 lg:w-72 lg:block shadow ml-2'>
+              <aside className='inset-0 z-20 top-[7rem] sm:top-[9rem] lg:top-0 flex-none relative h-full w-full lg:static lg:h-auto lg:overflow-y-visible lg:pt-0 lg:w-72 lg:block shadow ml-2'>
                 <Menu fixedmenu={fixedmenu} scrollupmenu={scrollupmenu} />
               </aside>
               <main className='flex-auto w-full min-w-0 lg:static lg:max-h-full lg:overflow-visible min-h-screen'>
@@ -117,6 +118,7 @@ const AppRouter = () => {
                     <Route path='/dept/:dept/Publications' element={<Publications />} />
                     <Route path='/dept/:dept/Projects' element={<Projects />} />
                     <Route path='/dept/:dept/Consultancy' element={<Consultancy />} />
+                    <Route path='/dept/:dept/SocietyClubs' element={<Society_Clubs_Tems />} />
                   </Routes>
                 </div>
               </main>

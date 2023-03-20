@@ -93,18 +93,14 @@ function Menu({ fixedmenu,scrollupmenu }) {
                 }
             ]
         },{
-            Title: 'Societies and Teams',
+            Title: 'Societies/Clubs/Teams',
             Logo: 'fa fa-user-group',
-            List: [
-
-            ],
-            link: `/dept/${dept}/Home`
+            List: [],
+            link: `/dept/${dept}/SocietyClubs`
         }, {
             Title: 'Join Us',
             Logo: 'fa fa-address-book',
-            List: [
-
-            ],
+            List: [],
             link: `/dept/${dept}/Home`
         },
     ]
@@ -128,7 +124,7 @@ function Menu({ fixedmenu,scrollupmenu }) {
     const [menu, setMenu] = useState(false);
     return (
         <>
-            <div className={"z-20 overflow-y-auto bg-white scrolling-touch max-w-xs lg:max-h-[calc(100vh-8rem)] lg:block lg:sticky lg:mr-0 scrollbar lg:" + (scrollupmenu?'top-[80px]':'top-[140px]')}>
+            <div className={"z-20 overflow-y-auto bg-white scrolling-touch max-w-full lg:max-w-xs lg:max-h-[calc(100vh-8rem)] lg:block lg:sticky lg:mr-0 scrollbar lg:" + (scrollupmenu?'top-[80px]':'top-[140px]')}>
                 <span className="flex items-center border-b border-gray-300 w-full px-2 mt-2 active:translate-y-[2px]" onClick={() => { setMenu(!menu) }}>
                     <span className='w-8 lg:w-10 pb-1'><img src={logo} alt="logo"/></span>
                     <span className="ml-2 text font-bold py-2">{departments[dept]}</span>
@@ -146,23 +142,23 @@ function Menu({ fixedmenu,scrollupmenu }) {
 
                             return (
                                 <div key={i} className='w-full group'>
-                                    <span className="flex items-center w-full h-10 px-3 mt-2 rounded hover:bg-gray-200 shadow-sm border border-gray-200/75 cursor-pointer">
+                                    <span className="flex items-center w-full h-10 px-3 mt-2 rounded hover:bg-gray-200 shadow-sm border border-gray-200/75 cursor-pointer" onClick={() => { item.List.length===0 && navigate(item.link); item.List.length===0 && setMenu(!menu)}}>
                                         <i className={"pl-1 pt-[2px] w-6 h-6 stroke-current " + item.Logo}></i>
                                         <span className="ml-1 font-medium">{item.Title}</span>
                                     </span>
                                     
-                                    <ul className={"group-hover:py-2 space-y-2 h-0 overflow-hidden group-hover:h-auto transition-all ml-2 pl-2"}>
+                                    {item.List.length>0&&<ul className={"group-hover:py-2 space-y-2 h-0 overflow-hidden group-hover:h-auto transition-all ml-2 pl-2"}>
                                         {
-                                            item.List.map((iteml, j) => {
+                                            item.List?.map((iteml, j) => {
                                                 return (
-                                                    <li key={j} className="flex transition duration-75 group font-medium hover:text-blue-900 hover:scale-[1.02] cursor-pointer active:translate-y-[2px]">
+                                                    <li key={j} className="flex transition duration-75 group font-medium hover:text-blue-900 hover:scale-[1.02] cursor-pointer active:translate-y-[2px]" onClick={() => { navigate(iteml.link); setMenu(!menu) }}>
                                                         <i className="fa-sm fa-regular fa-circle-check stroke-current w-4 h-4 mr-1 pt-3"></i>
-                                                        <span className="block p-1 text-sm text-gray-700 hover:text-blue-900" onClick={() => { navigate(iteml.link); setMenu(!menu) }}>{iteml.l}</span>
+                                                        <span className="block p-1 text-sm text-gray-700 hover:text-blue-900" >{iteml.l}</span>
                                                     </li>
                                                 )
                                             })
                                         }
-                                    </ul>
+                                    </ul>}
                                 </div>
                             )
                         })
