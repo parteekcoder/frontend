@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { SERVER_URL } from '../config/server';
 const useFetch=(url)=>{
 
 const [data,setData]=React.useState([]);
@@ -8,10 +9,9 @@ const [error,setError]=React.useState(false);
 
   React.useEffect(()=>{
     const fetchData=async()=>{
-      // https://wdmc.onrender.com
       setLoading(true);
      try {
-      const res=await axios.get("http://localhost:8000"+url,{
+      const res=await axios.get(SERVER_URL+url,{
         withCredentials:true
       });
 

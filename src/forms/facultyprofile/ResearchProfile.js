@@ -1,4 +1,6 @@
+import axios from 'axios';
 import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom';
 
 function ResearchProfile({ edit,data }) {
     const [interset, setInterset] = useState(data[0]['Research Interests']);
@@ -7,7 +9,7 @@ function ResearchProfile({ edit,data }) {
         <div className='overflow-x-auto'>
             {
                 edit ? <div className="m-4 flex justify-center items-center">
-                    <form className="w-full max-w-lg shadow p-3">
+                    <form className="w-full max-w-lg shadow p-3" onSubmit={handleSubmit}>
                         <div className="flex flex-wrap -mx-3 mb-6">
                             <div className="w-full px-3">
                                 <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlhtmlFor="grid-password">

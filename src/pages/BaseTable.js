@@ -1,7 +1,10 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom';
 
 function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild }) {
     const [changedata, setChangedata] = useState(data);
+    console.log(data)
     const Setdata = () => {
         var val = Editfeild < 0 ? 0 : Editfeild;
         setChangedata(data[val])
@@ -15,13 +18,32 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild }) {
         Setdata()
     }, [changedata,row])
 
+    const handleSubmit=async(e)=>{
+        
+        let newRow = {};
+        const formdata = new FormData(e.target);
+        for (let [key, value] of formdata.entries()) {
+            newRow ={
+                ...newRow,
+                [key]:[value]
+            }
+        }
+        if(Editfeild<0)
+        data.push(newRow);
+        else data[Editfeild] = newRow;
+        try {
+            await axios.put(`http://localhost:8000/dept/${dept}/Faculty/${faculty._id}?q=${feildTitle}`,data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <div>
             {edit ?
                 <div className="mt-10 sm:mt-0 shadow-md border-2 rounded">
                     <div className="">
                         <div className="mt-5 md:mt-0">
-                            <form action="#" method="POST">
+                            <form  onSubmit={handleSubmit}>
                                 <div className="overflow-hidden sm:rounded-md">
                                     <div className="bg-white px-4 py-5 sm:p-6">
                                         <div className="grid grid-cols-6 gap-6">
@@ -100,7 +122,7 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild }) {
                                                         )
                                                     })
                                                 }
-                                                {data.length > 0 &&
+                                                {data.length > 0 && isLogin &&
                                                     <td className="text-blue-700 font-bold px-6 py-4 active:scale-[0.98] cursor-pointer" onClick={() => { HandleEdit(i); Setdata() }}>
                                                         Edit
                                                     </td>}
