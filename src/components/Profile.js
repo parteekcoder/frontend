@@ -70,6 +70,7 @@ function Profile({peopleType}) {
         try {
             
            const response = await axios.post(`${SERVER_URL}/dept/${dept}/logout`,{},{withCredentials:true});
+           navigate(`/dept/${dept}/Faculty`);
         } catch (error) {
             console.log(error);
         }
@@ -158,7 +159,7 @@ function Profile({peopleType}) {
                                         <div className='p-2 mt-4'>
                                             {active === 1 && <Otherprofilelink edit={edit} isLogin={isLogin} data={data?.data[0]} />}
                                             {active === 2 && <ResearchProfile edit={edit} isLogin={isLogin} data={data?.data[0]['research_profile']}/>}
-                                            {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} faculty={data?.data[0]} data={data?.data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feild={Link[active].feild} isLogin={isLogin} />}
+                                            {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} faculty={data?.data[0]} data={data?.data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feild={Link[active].feild} isLogin={isLogin} title={map[Link[active].Title]}/>}
                                             {/* <BaseTable edit={edit} /> */}
                                         </div>
                                     </div>
