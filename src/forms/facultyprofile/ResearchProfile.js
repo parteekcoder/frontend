@@ -2,9 +2,12 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 
-function ResearchProfile({ edit,data }) {
+function ResearchProfile({ edit, data }) {
     const [interset, setInterset] = useState(data[0]['Research Interests']);
     const [researchlink, setResearchlink] = useState(data[0]['Brief Research Profile'])
+    const handleSubmit = () => {
+        return;
+    }
     return (
         <div className='overflow-x-auto'>
             {
@@ -21,7 +24,7 @@ function ResearchProfile({ edit,data }) {
                                 <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlhtmlFor="grid-password">
                                     Profile Link
                                 </label>
-                                <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-50 shadow-inner" onChange={(e)=>setResearchlink(e.target.value)} value={researchlink}  id="link" type="text" placeholder="" />
+                                <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-50 shadow-inner" onChange={(e) => setResearchlink(e.target.value)} value={researchlink} id="link" type="text" placeholder="" />
                             </div>
                         </div>
                         <div className="flex px-3 w-full justify-end">
@@ -36,16 +39,18 @@ function ResearchProfile({ edit,data }) {
                     <div className="overflow-x-auto relative my-2 min-w-[570px] scrollbar">
                         <div className="flex max-w-full justify-between items-center p-4 shadow-md">
                             <table>
-                                <tr>
-                                    <td className="w-48 align-top font-bold pr-4 pl-2 py-2">Research Interests</td>
-                                    <td className="align-top font-bold pr-4 pl-2 py-2">:</td>
-                                    <td className='align-top pr-4 pl-2 py-2'>{interset}</td>
-                                </tr>
-                                <tr>
-                                    <td className="w-48 align-top font-bold pr-4 pl-2 py-2">Brief Research Profile</td>
-                                    <td className="align-top text-sm font-bold pr-4 pl-2 py-2">:</td>
-                                    <td className='align-top pr-4 pl-2 py-2'>{researchlink}</td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td className="w-48 align-top font-bold pr-4 pl-2 py-2">Research Interests</td>
+                                        <td className="align-top font-bold pr-4 pl-2 py-2">:</td>
+                                        <td className='align-top pr-4 pl-2 py-2'>{interset}</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="w-48 align-top font-bold pr-4 pl-2 py-2">Brief Research Profile</td>
+                                        <td className="align-top text-sm font-bold pr-4 pl-2 py-2">:</td>
+                                        <td className='align-top pr-4 pl-2 py-2'>{researchlink}</td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
