@@ -2,11 +2,26 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 
-function ResearchProfile({ edit, data }) {
+function ResearchProfile({ edit,data ,faculty}) {
+    const dept = useLocation().pathname.split('/')[2];
     const [interset, setInterset] = useState(data[0]['Research Interests']);
     const [researchlink, setResearchlink] = useState(data[0]['Brief Research Profile'])
-    const handleSubmit = () => {
-        return;
+    const handleSubmit=async(e)=>{
+
+        let newRow = {};
+        const formdata = new FormData(e.target);
+        for (let [key, value] of formdata.entries()) {
+            newRow ={
+                ...newRow,
+                [key]:[value]
+            }
+        }
+
+        try {
+            await axios.put(`http://localhost:8000/dept/${dept}/Faculty/${faculty._id}?q=research_profile`,newRow);
+        } catch (error) {
+            console.log(error);
+        }
     }
     return (
         <div className='overflow-x-auto'>

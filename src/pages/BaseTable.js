@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 
-function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild }) {
+function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild,isLogin ,faculty,title}) {
     const [changedata, setChangedata] = useState(data);
     console.log(data)
     const Setdata = () => {
@@ -10,6 +10,7 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild }) {
         setChangedata(data[val])
     }
     // console.log(changedata)
+    const dept = useLocation().pathname.split('/')[2];
     const [row, setrow] = useState(8); //row per page
     const totalrow = data.length;
     const totalPage = Math.ceil(totalrow / row);
@@ -17,7 +18,7 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild }) {
     useEffect(() => {
         Setdata()
     }, [changedata,row])
-
+    console.log(title);
     const handleSubmit=async(e)=>{
         
         let newRow = {};
@@ -32,11 +33,15 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild }) {
         data.push(newRow);
         else data[Editfeild] = newRow;
         try {
-            await axios.put(`http://localhost:8000/dept/${dept}/Faculty/${faculty._id}?q=${feildTitle}`,data);
+            console.log(newRow);
+            console.log(data);
+            await axios.put(`http://localhost:8000/dept/${dept}/Faculty/${faculty._id}?q=${title}`,data);
         } catch (error) {
             console.log(error);
         }
     }
+
+    console.log(feild);
     return (
         <div>
             {edit ?
@@ -53,11 +58,11 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild }) {
                                                         Editfeild < 0 ?
                                                             <div key={i} className="col-span-6 sm:col-span-3">
                                                                 <label htmlhtmlFor="last-name" className="block text-sm font-medium text-gray-700 px-1">{item}</label>
-                                                                <textarea type="text" name="last-name" className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm"></textarea>
+                                                                <textarea type="text" name={item} className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm"></textarea>
                                                             </div> :
                                                             <div key={i} className="col-span-6 sm:col-span-3">
                                                                 <label htmlhtmlFor="last-name" className="block text-sm font-medium text-gray-700 px-1">{item}</label>
-                                                                <textarea type="text" name="last-name" onChange={(e) => setChangedata(changedata[item] = e.target.value)} value={changedata[item]} className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm" ></textarea>
+                                                                <textarea type="text" name={item} onChange={(e) => setChangedata(changedata[item] = e.target.value)} value={changedata[item]} className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm" ></textarea>
                                                             </div>
                                                     )
                                                 })
@@ -123,8 +128,9 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild }) {
                                                     })
                                                 }
                                                 {data.length > 0 && isLogin &&
-                                                    <td className="text-blue-700 font-bold px-6 py-4 active:scale-[0.98] cursor-pointer" onClick={() => { HandleEdit(i); Setdata() }}>
-                                                        Edit
+                                                    <td className="text-blue-700 font-bold px-6 py-4 active:scale-[0.98] cursor-pointer" >
+                                                        <div onClick={() => { HandleEdit(i); Setdata() }}>Edit</div>
+                                                        <div className='mt-1 text-red-600'>Delete</div>
                                                     </td>}
                                             </tr>
                                         )
