@@ -108,7 +108,7 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild,isLogin 
                                             )
                                         })
                                     }
-                                    <th scope="col" className="px-6 py-3 border border-gray-300">
+                                    <th scope="col" className={"px-6 py-3 border border-gray-300 "+(isLogin?'':'hidden')}>
                                         <span className="sr-only">Edit</span>
                                     </th>
                                 </tr>

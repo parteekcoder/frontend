@@ -111,7 +111,7 @@ function Profile({peopleType}) {
                                         </div>
                                     </div>
                                     <div className="flex mx-2">
-                                        <a title="Download Profile as PDF" href='#' className='w-8 sm:w-12 mx-2 active:translate-y-[2px]'>
+                                        <a title="Download Profile as PDF" href='#' className='w-8 sm:w-10 mt-1 mx-2 active:translate-y-[2px]'>
                                             <img src={downloadpdf} alt="download pdf" className='w-full' />
                                         </a>
                                        <button onClick={() => {!data?.validation?.status?.login?navigate(`/dept/${dept}/login`):logout()}} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-blue focus:ring-4 focus:outline-none focus:ring-cyan-200">
