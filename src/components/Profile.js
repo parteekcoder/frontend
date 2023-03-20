@@ -8,6 +8,7 @@ import downloadpdf from './Img/download.png'
 import Exceldownloadpdf from './Img/Exceldownload.png'
 import axios from 'axios';
 import { SERVER_URL } from '../config/server';
+import PersonalDetails from '../forms/facultyprofile/PersonalDetails';
 function Profile({peopleType}) {
     let navigate = useNavigate()
     const dept = useLocation().pathname.split('/')[2];
@@ -86,7 +87,7 @@ function Profile({peopleType}) {
         // const gallery_item_size = gallery_scroller.querySelector('div').clientWidth;
         gallery_scroller.scrollBy(-200, 0);
     }
-
+    
     return (
         <div className='w-full'>
             {
@@ -157,6 +158,7 @@ function Profile({peopleType}) {
                                             </div>
                                         </div>
                                         <div className='p-2 mt-4'>
+                                            {active === 0 && <PersonalDetails edit={edit} data={data?.data[0]} />}
                                             {active === 1 && <Otherprofilelink edit={edit} isLogin={isLogin} data={data?.data[0]} />}
                                             {active === 2 && <ResearchProfile edit={edit} isLogin={isLogin} data={data?.data[0]['research_profile']}/>}
                                             {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} faculty={data?.data[0]} data={data?.data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feild={Link[active].feild} isLogin={isLogin} title={map[Link[active].Title]}/>}
