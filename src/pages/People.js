@@ -17,8 +17,8 @@ function People({ Title, Data }) {
                 {
                     Data?Data.map((item, i) => {
                         return (
-                            <Link to={{pathname:`/dept/${dept}/${url.pathname.split('/').pop()}/${item._id}`,state:i}}>
-                                <div key={i} className="flex flex-col flex-grow content-center mt-0 text-inherit shadow border-l-[3px] border-l-blue-900 rounded-lg my-4">
+                            <Link to={page === "Faculty" ? {pathname:`/dept/${dept}/${url.pathname.split('/').pop()}/${item._id}`,state:i}:{pathname:`/dept/${dept}/${url.pathname.split('/').pop()}`,state:i}}>
+                                <div key={i} className="flex flex-col flex-grow content-center mt-0 text-inherit shadow hover:shadow-lg hover:shadow-blue-500 shadow-blue-400 rounded-lg my-4">
                                     <div className="flex flex-col sm:flex-row border-t-0 text-[rgba(0,105,140,1)] py-8 text-left text-base items-center content-center px-[14px] xl:px-[18px]">
                                         <div className="w-32 h-32 xl:w-36 xl:h-36 flex-grow-0 flex-shrink-0">
                                             <img src={item?.img} className="w-full h-full object-cover object-left-top rounded-full shadow-xl border flex-grow-0 flex-shrink-0" alt='...' />
