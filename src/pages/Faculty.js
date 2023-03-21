@@ -10,7 +10,6 @@ function Faculty() {
     // const id =  (data[0].name);
     // const Pathname = url.pathname + "/" + id;
     // const {Data}=useFetch(Pathname);
-    console.log(data)
     return (
         <People Title="Faculty" Data={data}/>
     )
