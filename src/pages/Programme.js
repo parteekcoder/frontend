@@ -1,46 +1,23 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom';
 
 function Programme() {
-    // const Programs = [
-    //     {
-    //         Name: 'Btech',
-    //         Syallbus: [
-    //             { sem: 'I', link: '' },
-    //             { sem: 'II', link: '' },
-    //             { sem: 'III', link: '' },
-    //             { sem: 'IV', link: '' },
-    //             { sem: 'V', link: '' },
-    //             { sem: 'VI', link: '' },
-    //             { sem: 'VII', link: '' },
-    //             { sem: 'VIII', link: '' },
-    //         ]
-    //     }, {
-    //         Name: 'Mtech',
-    //         Syallbus: [
-    //             { sem: 'I', link: '' },
-    //             { sem: 'II', link: '' },
-    //             { sem: 'III', link: '' },
-    //             { sem: 'IV', link: '' },
-    //         ]
-    //     }, {
-    //         Name: 'PhD',
-    //         Syallbus: [
-    //             { sem: 'I', link: '' },
-    //             { sem: 'II', link: '' },
-    //             { sem: 'III', link: '' },
-    //             { sem: 'IV', link: '' },
-    //         ]
-    //     }, {
-    //         Name: 'PG Diploma',
-    //         Syallbus: [
-    //             { sem: 'I', link: '' },
-    //             { sem: 'II', link: '' },
-    //             { sem: 'III', link: '' },
-    //             { sem: 'IV', link: '' },
-    //         ]
-    //     }
-    // ]
+    const Programs = [
+        {
+            Name: 'BTech',
+            Seats: 250
+        }, {
+            Name: 'MTech',
+            Seats: 100
+        }, {
+            Name: 'PhD',
+            Seats: 80
+        }, {
+            Name: 'PG Diploma',
+            Seats: 50
+        }
+    ]
     const [program, setProgram] = useState('BTech');
     const handlescroll = (id) => {
         let str = "#" + id;
@@ -51,7 +28,24 @@ function Programme() {
     useEffect(() => {
         window.scroll(0, 0);
     }, [])
-
+    const dept = useLocation().pathname.split('/')[2];
+    const departments = {
+        "it": "Information Technology",
+        "cse": "Computer Science and Engineering",
+        "bt": "Bio Technology",
+        "ce": "Civil Engineering",
+        "ch": "Chemical Engineering",
+        "ec": "Electronics And Communication Engineering",
+        "ee": "Electrical And Electronics Engineering",
+        "ice": "Instrumentation And Control Engineering",
+        "me": "Mechanical Engineering",
+        "ipe": "Industrial And Production Enginnering",
+        "math": "Mathematics",
+        "phy": "Physics",
+        "tt": "Textile Technology",
+        "hum": "Humaniyies",
+        "cy": "Chemistry"
+    }
     return (
         <>
             <div className="text-gray-600 body-font w-full h-full">
@@ -61,34 +55,20 @@ function Programme() {
                         <p className="lg:w-2/3 mx-auto leading-relaxed text-base">The Institute offers following Undergraduate, Postgraduate and Research Programmes in <b>Computer Science and Engineering</b></p>
                     </div>
                     <div className="flex flex-auto overflow-x-auto -m-4 place-items-center text-center scrollbar">
-                        <div className="p-4 min-w-[250px] max-w-[300px] w-full">
-                            <div className={"border-2 border-gray-200 px-4 py-6 rounded-lg active:translate-y-[2px] cursor-pointer " + (program === 'BTech' ? 'shadow-lg bg-blue-100 shadow-blue-400' : '')} onClick={() => handlescroll('BTech')}>
-                                <i className="fa fa-graduation-cap text-blue-400 text-5xl m-3"></i>
-                                <h2 className="title-font font-medium text-2xl text-gray-900">BTech</h2>
-                                <p className="text-sm p-1 leading-relaxed">(Bachelor of Technology)</p>
-                            </div>
-                        </div>
-                        <div className="p-4 min-w-[250px] max-w-[300px] w-full">
-                            <div className={"border-2 border-gray-200 px-4 py-6 rounded-lg active:translate-y-[2px] cursor-pointer " + (program === 'MTech' ? 'shadow-lg bg-blue-100 shadow-blue-400' : '')} onClick={() => handlescroll('MTech')}>
-                                <i className="fa fa-graduation-cap text-blue-400 text-5xl m-3"></i>
-                                <h2 className="title-font font-medium text-2xl text-gray-900">MTech</h2>
-                                <p className="text-sm p-1 leading-relaxed">(Master of Technology)</p>
-                            </div>
-                        </div>
-                        <div className="p-4 min-w-[250px] max-w-[300px] w-full">
-                            <div className={"border-2 border-gray-200 px-4 py-6 rounded-lg active:translate-y-[2px] cursor-pointer " + (program === 'PhD' ? 'shadow-lg bg-blue-100 shadow-blue-400' : '')} onClick={() => handlescroll('PhD')}>
-                                <i className="fa fa-graduation-cap text-blue-400 text-5xl m-3"></i>
-                                <h2 className="title-font font-medium text-2xl text-gray-900">PhD</h2>
-                                <p className="text-sm p-1 leading-relaxed">(Doctor of Philosophy)</p>
-                            </div>
-                        </div>
-                        <div className="p-4 min-w-[250px] max-w-[300px] w-full">
-                            <div className={"border-2 border-gray-200 px-4 py-6 rounded-lg active:translate-y-[2px] cursor-pointer " + (program === 'PDip' ? 'shadow-lg bg-blue-100 shadow-blue-400' : '')} onClick={() => handlescroll('PDip')}>
-                                <i className="fa fa-graduation-cap text-blue-400 text-5xl m-3"></i>
-                                <h2 className="title-font font-medium text-2xl text-gray-900">PG Diploma</h2>
-                                <p className="text-sm p-1 leading-relaxed">(Postgraduate Diploma)</p>
-                            </div>
-                        </div>
+                        {
+                            Programs.map((item, i) => {
+                                return (
+                                    <div key={i} className="py-4 min-w-[250px] max-w-[350px] w-full mx-2">
+                                        <div className={"border-2 border-gray-200 py-6 rounded-lg active:translate-y-[2px] cursor-pointer " + (item.Name === program ? 'shadow-lg bg-blue-100 shadow-blue-400' : '')} onClick={() => handlescroll(item.Name)}>
+                                            <i className="fa fa-graduation-cap text-blue-400 text-5xl m-3"></i>
+                                            <h2 className="title-font font-medium text-2xl text-gray-900">{item.Name}</h2>
+                                            <p className="text-sm py-1 leading-relaxed">({departments[dept]})</p>
+                                            <p className="p-1 font-bold leading-relaxed">{item.Seats} Seats</p>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
                 <div id='#BTech'>

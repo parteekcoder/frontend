@@ -1,7 +1,6 @@
 import React from 'react'
 
 function PersonalDetails({edit,data}) {
-    console.log(data)
     const tablehead = ['Name', 'Designation', 'Department', 'Qualification', 'Address', 'Phone', 'Email ID', 'Fax'];
     const feild=['name','designation','department','education_qualification','address','phone','email','fax'];
     const departments={

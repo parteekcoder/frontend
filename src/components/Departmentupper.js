@@ -4,7 +4,7 @@ import useFetch from '../hooks/useFetch';
 const Departmentupper = (props) => {
     const dept = useLocation().pathname.split('/')[2];
     const {data,error,loading,refetch} = useFetch(`/dept/${dept}/messageOfHOD`);
-    console.log(data);
+    
     return (
 
         <div className='m-3 mt-5 flex flex-col md:flex-row justify-center items-center overflow-y-hidden'>

@@ -15,9 +15,8 @@ function Profile({peopleType}) {
     var id = useLocation().pathname.split('/').at(-1);
     const {data,loading,error,reFetch} = useFetch(`/dept/${dept}/${peopleType}/${id}`);
     const [isLogin,setIsLogin] = useState(false); 
-    
     useEffect(()=>{
-
+        window.scrollTo(0,0);
         setIsLogin(data?.validation?.status?.isFaculty);
     },[data])
     const map = {
@@ -37,22 +36,57 @@ function Profile({peopleType}) {
         'Award and Honours':'awards'
     };
 
-    const Link = [
-        { Title: 'Personal Details', show: false, search: false, thead: [] },
-        { Title: 'Profile Links', show: false, search: false, thead: [] },
-        { Title: 'Research Profile', thead: [] },
-        { Title: 'Journal Publications', thead: ['Year', 'Journal', 'Publications'],feild:['Year', 'Journal', 'Jouranal Title'] },
-        { Title: 'Conference Publications', thead: ['Year', 'Title', 'Publisher'],feild:['Year', 'Title', 'Publisher']},
-        { Title: 'Book/Chapter Publications', thead: ['Type', 'Title', 'Publisher', 'Authors', 'ISBN/ISSN', 'Year'],feild:['Type', 'Title', 'Publisher', 'Authors', 'ISBN/ISSN', 'Year'] },
-        { Title: 'Research Projects', thead: ['Role', 'Project Type', 'Title', 'Funding Agency', 'From', 'To', 'Amount', 'Status', 'Co-Investigator'],feild: ['Role', 'Project Type', 'Title', 'Funding Agency', 'From', 'To', 'Amount', 'Status', 'Co-investigator']},
-        { Title: 'Events Organized', thead: ['Category', 'Type', 'Title', 'Venue', 'From', 'To', 'Designation'],feild:['Category', 'Type', 'Title', 'Venue', 'From', 'To', 'Designation'] },
-        { Title: 'Professional Affiliations', thead: ['Designation', 'Organisation'],feild:['Designation', 'Organisation'] },
-        { Title: 'PhD Supervised', thead: ['Scholar Name', 'Research Topic', 'Status', 'Year', 'Co-Supervisor'], feild:['Scholar Name', 'Research Topic', 'Status', 'Year', 'Co-Supervisor']},
-        { Title: 'PG Dissertation Guided', thead: ['Student Name', 'Dissertation Title', 'Status', 'Year', 'Co-Supervisor'],feild:['Student Name', 'Dissertation Title', 'Status', 'Year', 'Co-Supervisor']},
-        {Title: 'Patents', thead: ['Name', 'Reg./Ref. No.', 'Date of Award/Filling', 'Organization', 'Status'],feild:['Name', 'Reg./Ref. No.', 'Date of Award/Filling', 'Organization', 'Status']},
-        { Title: 'Admin. Responsiblities', thead: ['Position Held', 'Organization', 'From', 'To'],feild:['Position Held', 'Organization', 'From', 'To']},
-        { Title: 'Award and Honours', thead: ['Title', 'Activity', 'Given by', 'Year'],feild:['Title', 'Activity', 'Given by', 'Year']},
-    ]
+    const Link = [{
+        Title: 'Personal Details'
+      }, {
+        Title: 'Profile Links'
+      }, {
+        Title: 'Research Profile'
+      }, {
+        Title: 'Journal Publications',
+        thead: ['Year', 'Journal', 'Publication'],
+        feild: ['Year', 'Journal', 'Jouranal Title']
+      }, {
+        Title: 'Conference Publications',
+        thead: ['Year', 'Conference', 'Publication'],
+        feild: ['Year', 'Publisher', 'Title']
+      }, {
+        Title: 'Book/Chapter Publications',
+        thead: ['Type', 'Title', 'Publisher', 'Authors', 'ISBN/ISSN', 'Year'],
+        feild: ['Type', 'Title', 'Publisher', 'Authors', 'ISBN/ISSN', 'Year']
+      }, {
+        Title: 'Research Projects',
+        thead: ['Role', 'Project Type', 'Title', 'Funding Agency', 'From', 'To', 'Amount', 'Status', 'Co-Investigator'],
+        feild: ['Role', 'Project Type', 'Title', 'Funding Agency', 'From', 'To', 'Amount', 'Status', 'Co-investigator']
+      }, {
+        Title: 'Events Organized',
+        thead: ['Category', 'Type', 'Title', 'Venue', 'From', 'To', 'Designation'],
+        feild: ['Category', 'Type', 'Title', 'Venue', 'From', 'To', 'Designation']
+      }, {
+        Title: 'Professional Affiliations',
+        thead: ['Designation', 'Organisation'],
+        feild: ['Designation', 'Organisation']
+      }, {
+        Title: 'PhD Supervised',
+        thead: ['Scholar Name', 'Research Topic', 'Status', 'Year', 'Co-Supervisor'],
+        feild: ['Scholar Name', 'Research Topic', 'Status', 'Year', 'Co-Supervisor']
+      }, {
+        Title: 'PG Dissertation Guided',
+        thead: ['Student Name', 'Dissertation Title', 'Status', 'Year', 'Co-Supervisor'],
+        feild: ['Student Name', 'Dissertation Title', 'Status', 'Year', 'Co-Supervisor']
+      }, {
+        Title: 'Patents',
+        thead: ['Name', 'Reg./Ref. No.', 'Date of Award/Filling', 'Organization', 'Status'],
+        feild: ['Name', 'Reg./Ref. No.', 'Date of Award/Filling', 'Organization', 'Status']
+      }, {
+        Title: 'Admin. Responsiblities',
+        thead: ['Position Held', 'Organization', 'From', 'To'],
+        feild: ['Position Held', 'Organization', 'From', 'To']
+      }, {
+        Title: 'Award and Honours',
+        thead: ['Title', 'Activity', 'Given by', 'Year'],
+        feild: ['Title', 'Activity', 'Given by', 'Year']
+      }];
 
     const [active, setActive] = useState(0);
     const [edit, setEdit] = useState(false);
@@ -87,7 +121,6 @@ function Profile({peopleType}) {
         // const gallery_item_size = gallery_scroller.querySelector('div').clientWidth;
         gallery_scroller.scrollBy(-200, 0);
     }
-    
     return (
         <div className='w-full'>
             {

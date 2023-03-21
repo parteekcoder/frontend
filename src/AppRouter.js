@@ -1,5 +1,5 @@
 import Footer from './components/Footer';
-import { useEffect, useState, useMemo } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AllPlacement from './components/AllPlacement';
 import Error from './pages/Errorpage';
@@ -13,7 +13,6 @@ import NewNavbar from './components/NewNavbar';
 import Menu from './components/Menu';
 import ContactUs from './pages/ContactUs';
 import Achievements from './pages/Achievements';
-import { useRef } from 'react';
 import Programme from './pages/Programme';
 import Faculty from './pages/Faculty';
 import Staff from './pages/Staff';
@@ -30,15 +29,9 @@ import Projects from './pages/Projects';
 import Consultancy from './pages/Consultancy';
 import AfterForgotPass from './pages/AfterForgotPass';
 import ChangePass from './pages/ChangePass';
-import Society_Clubs_Tems from './pages/Society_Clubs_Teams';
+import Society_Clubs_Teams from './pages/Society_Clubs_Teams';
+import AcademicCalender from './pages/AcademicCalender';
 const AppRouter = () => {
-  const footref = useRef();
-  const isInViewport1 = useIsInViewport(footref);
-  // console.log('isInViewport1: ', isInViewport1);
-  const [fixedmenu, setFixedmenu] = useState(isInViewport1);
-  useEffect(() => {
-    setFixedmenu(isInViewport1);
-  }, [isInViewport1]);
   const [scrollupmenu, setScrollupmenu] = useState(false);
   const SetScrollupmenu = (val) => {
     setScrollupmenu(val);
@@ -70,6 +63,7 @@ const AppRouter = () => {
   //       return <Navigate to={"/dept/errorpage"}/>
   //     }
   //   }
+
   return (
     <>
       <div>
@@ -81,8 +75,8 @@ const AppRouter = () => {
           <div className="w-full mx-auto max-w-8xl">
             <div className='lg:flex'>
               <aside className='inset-0 z-20 top-[7rem] sm:top-[9rem] lg:top-0 flex-none relative h-full w-full lg:static lg:h-auto lg:overflow-y-visible lg:pt-0 lg:w-72 lg:block shadow ml-2'>
-                <Menu fixedmenu={fixedmenu} scrollupmenu={scrollupmenu} />
-              </aside>
+                <Menu scrollupmenu={scrollupmenu} />
+              </aside> 
               <main className='flex-auto w-full min-w-0 lg:static lg:max-h-full lg:overflow-visible min-h-screen'>
                 <div className="w-full flex mt-24">
                   <Routes>
@@ -118,13 +112,14 @@ const AppRouter = () => {
                     <Route path='/dept/:dept/Publications' element={<Publications />} />
                     <Route path='/dept/:dept/Projects' element={<Projects />} />
                     <Route path='/dept/:dept/Consultancy' element={<Consultancy />} />
-                    <Route path='/dept/:dept/SocietyClubs' element={<Society_Clubs_Tems />} />
+                    <Route path='/dept/:dept/SocietyClubs' element={<Society_Clubs_Teams />} />
+                    <Route path='/dept/:dept/AcademicCalender' element={<AcademicCalender />} />
                   </Routes>
                 </div>
               </main>
             </div>
           </div>
-          <div ref={footref} className='w-full h-full pt-2'>
+          <div className='w-full h-full pt-2'>
             <Footer />
           </div>
         </Router>
@@ -135,25 +130,3 @@ const AppRouter = () => {
 
 
 export default AppRouter;
-
-function useIsInViewport(ref) {
-  const [isIntersecting, setIsIntersecting] = useState(false);
-
-  const observer = useMemo(
-    () =>
-      new IntersectionObserver(([entry]) =>
-        setIsIntersecting(entry.isIntersecting),
-      ),
-    [],
-  );
-
-  useEffect(() => {
-    observer.observe(ref.current);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [ref, observer]);
-
-  return isIntersecting;
-}

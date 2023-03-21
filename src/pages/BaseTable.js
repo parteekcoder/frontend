@@ -33,15 +33,14 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild,isLogin 
         data.push(newRow);
         else data[Editfeild] = newRow;
         try {
-            console.log(newRow);
-            console.log(data);
+            // console.log(newRow);
+            // console.log(data);
             await axios.put(`http://localhost:8000/dept/${dept}/Faculty/${faculty._id}?q=${title}`,data);
         } catch (error) {
             console.log(error);
         }
     }
 
-    console.log(feild);
     return (
         <div>
             {edit ?

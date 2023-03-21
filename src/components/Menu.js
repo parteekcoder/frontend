@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import logo from './Img/logo.png'
-function Menu({ fixedmenu,scrollupmenu }) {
+function Menu({ scrollupmenu }) {
     let navigate = useNavigate();
     const dept= useLocation().pathname.split('/')[2];
+    
     const Menu = [
         {
             Title: 'About',
@@ -34,7 +35,7 @@ function Menu({ fixedmenu,scrollupmenu }) {
                     l: 'Programmes',
                     link: `/dept/${dept}/Programme`
                 }, {
-                    l: 'Academic Coordinates',
+                    l: 'Academic Coordinator',
                     link: `/dept/${dept}/Acadcord`
                 }, {
                     l: 'Syllabus',
@@ -44,7 +45,7 @@ function Menu({ fixedmenu,scrollupmenu }) {
                     link: `/dept/${dept}/Timetable`
                 }, {
                     l: 'Department Activities Calendar',
-                    link: `/dept/${dept}/Home`
+                    link: `/dept/${dept}/AcademicCalender`
                 }
             ]
         }, {
