@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
+import { SERVER_URL } from '../../config/server';
 
 function ResearchProfile({ edit,data ,faculty}) {
     const dept = useLocation().pathname.split('/')[2];
@@ -13,12 +14,12 @@ function ResearchProfile({ edit,data ,faculty}) {
         for (let [key, value] of formdata.entries()) {
             newRow ={
                 ...newRow,
-                [key]:[value]
+                [key]:value
             }
         }
 
         try {
-            await axios.put(`http://localhost:8000/dept/${dept}/Faculty/${faculty._id}?q=research_profile`,newRow);
+            await axios.put(`${SERVER_URL}/dept/${dept}/Faculty/${faculty._id}?q=research_profile`,newRow);
         } catch (error) {
             console.log(error);
         }
@@ -33,13 +34,13 @@ function ResearchProfile({ edit,data ,faculty}) {
                                 <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlhtmlFor="grid-password">
                                     Research Interests
                                 </label>
-                                <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 shadow-inner leading-tight focus:outline-none focus:border-gray-50" onChange={(e) => setInterset(e.target.value)} id="title" type="text" placeholder="Title" value={interset}></textarea>
+                                <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 shadow-inner leading-tight focus:outline-none focus:border-gray-50" name='Research Interests' onChange={(e) => setInterset(e.target.value)} id="title" type="text" placeholder="Title" value={interset}></textarea>
                             </div>
                             <div className="w-full px-3">
                                 <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlhtmlFor="grid-password">
                                     Profile Link
                                 </label>
-                                <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-50 shadow-inner" onChange={(e) => setResearchlink(e.target.value)} value={researchlink} id="link" type="text" placeholder="" />
+                                <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-50 shadow-inner" name='Brief Research Profile' onChange={(e) => setResearchlink(e.target.value)} value={researchlink} id="link" type="text" placeholder="" />
                             </div>
                         </div>
                         <div className="flex px-3 w-full justify-end">

@@ -26,21 +26,28 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild,isLogin 
         for (let [key, value] of formdata.entries()) {
             newRow ={
                 ...newRow,
-                [key]:[value]
+                [key]:value
             }
         }
         if(Editfeild<0)
         data.push(newRow);
         else data[Editfeild] = newRow;
         try {
-            // console.log(newRow);
-            // console.log(data);
             await axios.put(`http://localhost:8000/dept/${dept}/Faculty/${faculty._id}?q=${title}`,data);
         } catch (error) {
             console.log(error);
         }
     }
 
+    const handleDelete =async(index)=>{
+
+        const newRow = data.filter((val,ind)=> ind!==index);
+        try {
+            await axios.put(`http://localhost:8000/dept/${dept}/Faculty/${faculty._id}?q=${title}`,newRow);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <div>
             {edit ?
@@ -129,7 +136,7 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild,isLogin 
                                                 {data.length > 0 && isLogin &&
                                                     <td className="text-blue-700 font-bold px-6 py-4 active:scale-[0.98] cursor-pointer" >
                                                         <div onClick={() => { HandleEdit(i); Setdata() }}>Edit</div>
-                                                        <div className='mt-1 text-red-600'>Delete</div>
+                                                        <div className='mt-1 text-red-600' onClick={()=>{handleDelete(i);Setdata();}}>Delete</div>
                                                     </td>}
                                             </tr>
                                         )
