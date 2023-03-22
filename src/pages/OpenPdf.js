@@ -3,7 +3,8 @@ import React from 'react'
 function OpenPdf({link}) {
   return (
     <div className='w-full flex items-center justify-center mx-auto mt-2'>
-      <iframe src={link} frameborder="0" height="1000px" width="99%"></iframe>
+      <a href={link+'?preview=1'} data-previewable="1">Link</a>
+      {/* <iframe src={link} frameborder="0" min-w width="99%"></iframe> */}
     </div>
   )
 }
