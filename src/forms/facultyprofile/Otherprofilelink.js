@@ -5,8 +5,9 @@ import { SERVER_URL } from '../../config/server';
 
 function Otherprofilelink({ edit,data}) {
     const dept = useLocation().pathname.split('/')[2];
-    const [link, setLink] = useState(data['personal_link'][0]?data['personal_link'][0]['Personal Link']:'');
-    const [googlelink, setGooglelink] = useState(data['personal_link'][0]?data['personal_link'][0]['Google Scholar Link']:'');
+    console.log(data)
+    const [link, setLink] = useState(data['personal_link']?data['personal_link'][0]['Personal Link']:'');
+    const [googlelink, setGooglelink] = useState(data['personal_link']?data['personal_link'][0]['Google Scholar Link']:'');
     const handleSubmit=async(e)=>{
 
         let newRow = {};

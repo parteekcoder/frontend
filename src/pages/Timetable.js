@@ -1,33 +1,16 @@
 import React from 'react'
-// import top3 from '../components/Img/top3.png'
+import OpenPdf from './OpenPdf'
+import Time from '../components/Pdf/TimeIT.pdf'
 function Timetable() {
+    const Data = ['Time Table 2023', Time]
     return (
-        <>
-            <div className='bgallplace w-full h-screen m-0 p-4'>
-                <div className='grid grid-cols-3 gap-2'>
-                    <div className='border w-full aspect-video rounded-lg flex'>
-                        <div className="card">
-                            {/* <div className="card-header flex items-center justify-center">
-                                <div className='w-24 h-24 rounded-full overflow-hidden'>
-                                    <img src={top3} alt='...'/>
-                                </div>
-                                <div className="card-header-slanted-edge">
-                                </div>
-                            </div>
-
-                            <div className="card-body">
-                                <h2 className="name">John Smith</h2>
-                                <h4 className="job-title">Product Designer</h4>
-                                <div className="bio">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, aperiam.</div>
-                            </div> */}
-                        </div>
-
-                    </div>
-                    <div className='border w-full aspect-video rounded-lg'></div>
-                    <div className='border w-full aspect-video rounded-lg'></div>
-                </div>
+        <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[90px] pt-[54px] place-items-center'>
+            <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-medium text-[#fff] tracking-wider shadow-lg rounded-3xl text-xl'>Time Table</div>
+            <div className='shadow shadow-blue-400 m-4 pb-2'>
+                <div className='w-full py-3 font-medium text-lg px-4 shadow-md shadow-blue-200'>{Data[0]}</div>
+                <OpenPdf link={Data[1]} />
             </div>
-        </>
+        </div>
     )
 }
 

@@ -31,6 +31,8 @@ import AfterForgotPass from './pages/AfterForgotPass';
 import ChangePass from './pages/ChangePass';
 import Society_Clubs_Teams from './pages/Society_Clubs_Teams';
 import AcademicCalender from './pages/AcademicCalender';
+import Timetable from './pages/Timetable';
+import Navbar from './components/Navbar';
 const AppRouter = () => {
   const [scrollupmenu, setScrollupmenu] = useState(false);
   const SetScrollupmenu = (val) => {
@@ -63,13 +65,15 @@ const AppRouter = () => {
   //       return <Navigate to={"/dept/errorpage"}/>
   //     }
   //   }
-
+  
+  
   return (
     <>
       <div>
         <Router>
           <div className='sticky top-0 z-40 flex-none w-full mx-auto bg-white'>
             <NewNavbar SetScrollupmenu={SetScrollupmenu} />
+            {/* <Navbar/> */}
           </div>
 
           <div className="w-full mx-auto max-w-8xl">
@@ -78,7 +82,7 @@ const AppRouter = () => {
                 <Menu scrollupmenu={scrollupmenu} />
               </aside> 
               <main className='flex-auto w-full min-w-0 lg:static lg:max-h-full lg:overflow-visible min-h-screen'>
-                <div className="w-full flex mt-24">
+                <div className="w-full flex mt-28">
                   <Routes>
                     <Route path='/dept/:dept/Home' element={<Homepage />} />
                     <Route path='/dept/:dept/Placement' element={<AllPlacement />} />
@@ -88,8 +92,8 @@ const AppRouter = () => {
                     <Route path='/dept/:dept/MissionandVision' element={<VisionandMission />} />
                     <Route path='/dept/:dept/Infrastructure' element={<Infrastructure />} />
                     {/* Academic */}
-                    <Route path='/dept/:dept/Syllabus' element={<Syllabus heading='Syallbus' syllabus={true} />} />
-                    <Route path='/dept/:dept/Timetable' element={<Syllabus heading='Time Table' syllabus={false} />} />
+                    <Route path='/dept/:dept/Syllabus' element={<Syllabus/>} />
+                    <Route path='/dept/:dept/Timetable' element={<Timetable/>} />
                     <Route path='/dept/:dept/Acadcord' element={<AcadCordinator />} />
                     <Route path='/dept/:dept/Programme' element={<Programme />} />
                     <Route path='/dept/:dept/contactus' element={<ContactUs />} />

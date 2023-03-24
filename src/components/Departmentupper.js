@@ -18,7 +18,7 @@ const Departmentupper = (props) => {
                 </div>
 
                 <div className="p-5 h-[300px]">
-                    <h1 className='underline text-center text-2xl m-2'> <b>Department of {props.name}</b></h1>
+                    <h1 className='text-center font-medium text-2xl m-2'>Department of {props.name}</h1>
                     <p className="mb-3 font-normal text-justify overflow-hidden text-gray-700 h-[170px]">{props.introduction}</p>
                     <div className='block m-4 p-2'>
                         <button className=' float-right text-green-700 hover:font-semibold hover:text-blue-700 '>Read More  &rarr;</button>
@@ -33,7 +33,7 @@ const Departmentupper = (props) => {
                     </iframe>
                 </div>
                 <div className="p-5 h-[300px]">
-                    <h1 className='underline text-center text-2xl m-2'> <b>Mission and Vision</b></h1>
+                    <h1 className='text-center text-2xl m-2 font-medium'> Mission and Vision</h1>
                     <p className="mb-3 font-normal text-justify text-gray-700 h-[170px] overflow-hidden">{data.mission}<br/>{data.vision}</p>
                     <div className='block m-4 p-2'>
                         <button className=' float-right text-green-700 hover:font-semibold hover:text-blue-700 '>Read More  &rarr;</button>
