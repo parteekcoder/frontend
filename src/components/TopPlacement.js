@@ -23,7 +23,7 @@ function TopPlacement() {
   return (
     <>
       <div className='w-[98%] rounded-[9px] border border-[rgba(0,105,140,0.2)] p-3 mx-3 my-[72px] pt-[54px]'>
-        <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[410] tracking-wide leading-8 text-[#fff] shadow-lg rounded-3xl text-2xl'>Top Placements</div>
+        <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] tracking-wide leading-8 text-[#fff] shadow-lg rounded-3xl text-2xl'>Top Placements</div>
         <div id='scrollcontrol' className='relative'>
           <div className='cards flex snap-x overflow-x-auto scrollhide delay-200 scroll-smooth'>
             <Placement search={""} />

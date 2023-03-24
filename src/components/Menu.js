@@ -111,7 +111,7 @@ function Menu({ scrollupmenu }) {
         "bt":"Bio Technology",
         "ce":"Civil Engineering",
         "ch":"Chemical Engineering",
-        "ec":"Electronics And Communication Engineering",
+        "ece":"Electronics And Communication Engineering",
         "ee":"Electrical And Electronics Engineering",
         "ice":"Instrumentation And Control Engineering",
         "me":"Mechanical Engineering",
@@ -127,8 +127,8 @@ function Menu({ scrollupmenu }) {
         <>
             <div className={"z-20 overflow-y-auto bg-white scrolling-touch max-w-full lg:max-w-xs lg:max-h-[calc(100vh-8rem)] lg:block lg:sticky lg:mr-0 scrollbar lg:" + (scrollupmenu?'top-[80px]':'top-[140px]')}>
                 <span className="flex items-center border-b border-gray-300 w-full px-2 mt-2 active:translate-y-[2px]" onClick={() => { setMenu(!menu) }}>
-                    <span className='w-8 lg:w-10 pb-1'><img src={logo} alt="logo"/></span>
-                    <span className="ml-2 text font-bold py-2">{departments[dept]}</span>
+                    {/* <span className='w-8 lg:w-10 pb-1'><img src={logo} alt="logo"/></span> */}
+                    <span className="ml-2 font-bold py-2">{departments[dept]}</span>
                 </span>
 
                 <div className={"mr-1 lg:flex flex-col items-center w-[98%] h-full overflow-y-auto mt-1 mb-3 py-1 " + (menu ? 'flex' : 'hidden')}>
