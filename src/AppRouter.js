@@ -78,7 +78,7 @@ const AppRouter = () => {
 
           <div className="w-full mx-auto max-w-8xl">
             <div className='lg:flex'>
-              <aside className='inset-0 z-20 top-[7rem] sm:top-[9rem] lg:top-0 flex-none relative h-full w-full lg:static lg:h-auto lg:overflow-y-visible lg:pt-0 lg:w-72 lg:block shadow ml-2'>
+              <aside className='inset-0 z-20 top-[7rem] sm:top-[9rem] lg:top-0 flex-none relative h-full w-full lg:static lg:h-auto lg:overflow-y-visible lg:pt-0 lg:w-[19rem] lg:block shadow lg:ml-2'>
                 <Menu scrollupmenu={scrollupmenu} />
               </aside> 
               <main className='flex-auto w-full min-w-0 lg:static lg:max-h-full lg:overflow-visible min-h-screen'>

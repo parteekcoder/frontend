@@ -20,8 +20,8 @@ function AcadCordinator() {
         }
     ]
     return (
-        <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[90px] pt-[54px] place-items-center'>
-            <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[400] text-[#fff] tracking-wider shadow-lg rounded-3xl text-xl'>Academic Cordinator</div>
+        <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[50px] md:my-[90px] pt-[54px] place-items-center'>
+            <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] text-[#fff] tracking-wider shadow-lg rounded-3xl text-lg md:text-2xl'>Academic Cordinator</div>
             <Table tablehead={tablehead} data={data}/>
         </div>
     )

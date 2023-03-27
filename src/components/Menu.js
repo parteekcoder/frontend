@@ -105,6 +105,7 @@ function Menu({ scrollupmenu }) {
             link: `/dept/${dept}/Home`
         },
     ]
+    const [linkOpen, setLinkOpen] = useState(-1);
     const departments={
         "it":"Information Technology",
         "cse":"Computer Science and Engineering",
@@ -127,13 +128,13 @@ function Menu({ scrollupmenu }) {
         <>
             <div className={"z-20 overflow-y-auto bg-white scrolling-touch max-w-full lg:max-w-xs lg:max-h-[calc(100vh-8rem)] lg:block lg:sticky lg:mr-0 scrollbar lg:" + (scrollupmenu?'top-[80px]':'top-[140px]')}>
                 <span className="flex items-center border-b border-gray-300 w-full px-2 mt-2 active:translate-y-[2px]" onClick={() => { setMenu(!menu) }}>
-                    {/* <span className='w-8 lg:w-10 pb-1'><img src={logo} alt="logo"/></span> */}
+                    <span className='w-8 lg:w-10 pb-1'><img src={logo} alt="logo"/></span>
                     <span className="ml-2 font-bold py-2">{departments[dept]}</span>
                 </span>
 
                 <div className={"mr-1 lg:flex flex-col items-center w-[98%] h-full overflow-y-auto mt-1 mb-3 py-1 " + (menu ? 'flex' : 'hidden')}>
-                    <div className='w-full'>
-                        <span className="flex items-center w-full h-10 px-3 mt-2 rounded hover:bg-gray-200 cursor-pointer active:translate-y-[2px] shadow-sm border border-gray-200/75" onClick={() => { navigate(`/dept/${dept}/Home`); setMenu(!menu); }}>
+                    <div className='w-full px-1'>
+                        <span className={"flex items-center w-full h-10 px-3 mt-2 rounded cursor-pointer active:translate-y-[2px] shadow-sm border border-gray-200/75 "+ (linkOpen===-1?'shadow-sky-600 shadow':'')} onClick={() => { navigate(`/dept/${dept}/Home`); setLinkOpen(-1); setMenu(!menu); }}>
                             <i className="pl-1 pt-[2px] w-6 h-6 stroke-current fa fa-home"></i>
                             <span className="ml-1 font-medium">Home</span>
                         </span>
@@ -142,13 +143,13 @@ function Menu({ scrollupmenu }) {
                         Menu.map((item, i) => {
 
                             return (
-                                <div key={i} className='w-full group'>
-                                    <span className="flex items-center w-full h-10 px-3 mt-2 rounded hover:bg-gray-200 shadow-sm border border-gray-200/75 cursor-pointer" onClick={() => { item.List.length===0 && navigate(item.link); item.List.length===0 && setMenu(!menu)}}>
+                                <div key={i} className={'w-[98%] mt-2 rounded '+(i+1 === linkOpen?'shadow-sky-600 shadow':'')}>
+                                    <span className="flex items-center w-full h-10 px-3 rounded shadow-sm border border-gray-200/75 cursor-pointer" onClick={() => { item.List.length===0 && navigate(item.link); item.List.length===0 && setMenu(!menu); (i+1===linkOpen)?setLinkOpen(-1):setLinkOpen(i+1)}}>
                                         <i className={"pl-1 pt-[2px] w-6 h-6 stroke-current " + item.Logo}></i>
                                         <span className="ml-1 font-medium">{item.Title}</span>
                                     </span>
                                     
-                                    {item.List.length>0&&<ul className={"group-hover:py-2 space-y-2 h-0 overflow-hidden group-hover:h-auto transition-all ml-2 pl-2"}>
+                                    {item.List.length>0&&(i+1===linkOpen)&&<ul className={"space-y-2 delay-200 overflow-hidden h-auto transition-all ml-2 p-1"}>
                                         {
                                             item.List?.map((iteml, j) => {
                                                 return (
