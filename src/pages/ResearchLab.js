@@ -14,7 +14,7 @@ function ResearchLab() {
         {
           data ? data.map((item, i) => {
             return (
-              <div key={i} className='my-4 sm:mx-4 p-2'>
+              item.type==="Research Labs" && <div key={i} className='my-4 sm:mx-4 p-2'>
                 <div className="w-full border-2 object-cover object-center rounded-lg shadow-md overflow-hidden">
                   <img src={item?.img} alt=" random imgee" className="w-full object-cover object-center rounded-lg shadow-md hover:scale-110 duration-500" />
                 </div>

@@ -27,30 +27,58 @@ function PersonalDetails({ edit, data }) {
     return (
         <div>
             {
-                edit ? <div className="m-4 flex justify-center items-center">
-                    <form className="w-full max-w-lg shadow p-3">
-                        <div className="flex flex-wrap -mx-3 mb-6">
-                            {
-                                tablehead.map((item, i) => {
-                                    return (
-                                        <div key={i} className="w-full px-3">
-                                            <label className="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" htmlhtmlFor="grid-password">
-                                                {item}
-                                            </label>
-                                            <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 shadow-inner leading-tight focus:outline-none focus:border-gray-50" name='Research Interests' type="text" placeholder="Title"></textarea>
+                edit ? <div className="mt-10 sm:mt-0 shadow-md border-2 rounded">
+                    <div className="">
+                        <div className="mt-5 md:mt-0">
+                            <form>
+                                <div className="overflow-hidden sm:rounded-md">
+                                    <div className="bg-white px-4 py-5 sm:p-6">
+                                        <div className="grid grid-cols-6 gap-6">
+                                            {
+                                                feild?.map((item, i) => {
+                                                    return (
+                                                        <div key={i} className="col-span-6 sm:col-span-3">
+                                                            <label htmlhtmlFor="last-name" className="block uppercase text-sm font-medium text-gray-700 px-1">{item}</label>
+                                                            <textarea type="text" name={item} className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm"></textarea>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
                                         </div>
-                                    )
-                                })
-                            }
+                                        <div className="grid grid-cols-6 gap-6 mt-4">
+                                            {
+                                                address?.map((item, i) => {
+                                                    return (
+                                                        <div key={i} className="col-span-6 sm:col-span-3">
+                                                            <label htmlhtmlFor="last-name" className="block uppercase text-sm font-medium text-gray-700 px-1">{item}</label>
+                                                            <textarea type="text" name={item} className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm"></textarea>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                        <div className='grid grid-cols-6 gap-6 mt-4'>
+                                            <div className="col-span-6 sm:col-span-3">
+                                                <label htmlhtmlFor="last-name" className="block uppercase text-sm font-medium text-gray-700 px-1">Phone</label>
+                                                <textarea type="text" className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm"></textarea>
+                                            </div>
+                                            <div className="col-span-6 sm:col-span-3">
+                                                <label htmlhtmlFor="last-name" className="block uppercase text-sm font-medium text-gray-700 px-1">Fax</label>
+                                                <textarea type="text" className="appearance-none bg-white py-2 px-3 mt-1 block border w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-2 sm:text-sm"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex px-3 w-full justify-end">
+                                    <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 active:translate-y-[2px] hover:shadow-xl">
+                                        <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md">
+                                            Submit
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                        <div className="flex px-3 w-full justify-end">
-                            <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 active:translate-y-[2px] hover:shadow-xl">
-                                <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md">
-                                    Submit
-                                </span>
-                            </button>
-                        </div>
-                    </form>
+                    </div>
                 </div> :
                     <div>
                         <table>

@@ -16,8 +16,9 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild,isLogin 
     const totalPage = Math.ceil(totalrow / row);
     const [page, setPage] = useState(1)
     useEffect(() => {
-        Setdata()
-    }, [changedata,row])
+        Setdata();
+        setPage(1)
+    }, [changedata,row,title])
     console.log(title);
     const handleSubmit=async(e)=>{
         
@@ -128,15 +129,17 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild,isLogin 
                                                     feild.map((item, j) => {
                                                         return (
                                                             <td key={{ i, j }} className="align-top px-6 py-4 text-gray-900 border-r">
-                                                                <span>{Item[item]}</span>
+                                                                {item==="Link"?
+                                                                <a target="_blank" href={Item[item]}><i class="fa-solid fa-link"></i></a>
+                                                                :<span>{Item[item]}</span>}
                                                             </td>
                                                         )
                                                     })
                                                 }
                                                 {data.length > 0 && isLogin &&
-                                                    <td className="text-blue-700 font-bold px-6 py-4 active:scale-[0.98] cursor-pointer" >
-                                                        <div onClick={() => { HandleEdit(i); Setdata() }}>Edit</div>
-                                                        <div className='mt-1 text-red-600' onClick={()=>{handleDelete(i);Setdata();}}>Delete</div>
+                                                    <td className="text-blue-700 font-bold px-6 py-4" >
+                                                        <div className='active:scale-[0.98] cursor-pointer' onClick={() => { HandleEdit(i); Setdata() }}>Edit</div>
+                                                        <div className='active:scale-[0.98] cursor-pointer mt-1 text-red-600' onClick={()=>{handleDelete(i);Setdata();}}>Delete</div>
                                                     </td>}
                                             </tr>
                                         )
