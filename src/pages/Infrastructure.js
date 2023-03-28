@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom';
 import useFetch from "../hooks/useFetch";
 
 function Infrastructure() {
-  const [url, setUrl] = useState(useLocation());
-  const { data, error, loading, reFetch } = useFetch(url.pathname);
+  const [url,setUrl]=useState(useLocation());
+  const {data,error,loading,reFetch}=useFetch(url.pathname+'?q=Infrastructure');
   return (
     <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[90px] pt-[54px] place-items-center'>
       <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] text-[#fff] tracking-wider shadow-lg rounded-3xl text-2xl'>Infrastructure</div>

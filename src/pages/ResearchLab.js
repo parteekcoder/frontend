@@ -1,7 +1,11 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
 
 function ResearchLab() {
-  const data = [{ img: 'https://www.nitj.ac.in/nitj_files/links/cc_lab2_05_92038.jpg', title: 'Research Lab' }]
+  const url=useLocation();
+  const dept= url.pathname.split('/')[2];
+  const {data,error,loading,reFetch}=useFetch(`/dept/${dept}/Infrastructure`+'?q=Research Labs');
   return (
     <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[90px] pt-[54px] place-items-center'>
       <div className='absolute leading-wider truncate -mt-[76px] p-2 px-4 bg-[rgba(0,105,140,1)] text-[#fff] shadow-lg rounded-3xl text-2xl'>Research Labs</div>

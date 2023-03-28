@@ -1,7 +1,10 @@
 import React from 'react'
-
-function Society_Clubs_Tems() {
+import useFetch from '../hooks/useFetch';
+import { useLocation } from 'react-router-dom';
+const Society_Clubs_Tems=()=> {
   const Society = [2, 3, 4, 5, 6, 7];
+  const url = useLocation();
+  const {data,error,loading} = useFetch(url.pathname);
   const scrollNextPage = (id) => {
     const gallery = document.querySelector(id);
     const gallery_scroller = gallery.querySelector('.cards');
