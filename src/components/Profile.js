@@ -14,6 +14,7 @@ function Profile({peopleType}) {
     const dept = useLocation().pathname.split('/')[2];
     var id = useLocation().pathname.split('/').at(-1);
     const {data,loading,error,reFetch} = useFetch(`/dept/${dept}/${peopleType}/${id}`);
+
     const [isLogin,setIsLogin] = useState(false); 
     useEffect(()=>{
         window.scrollTo(0,0);
