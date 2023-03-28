@@ -1,14 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
 
 function ResearchArea() {
-  const data = [
-    { img: 'https://www.nitj.ac.in/nitj_files/links/cc_lab2_05_92038.jpg', title: 'Research Area' },
-    { img: 'https://www.nitj.ac.in/nitj_files/links/cc_lab2_05_92038.jpg', title: 'Research Area' },
-    { img: 'https://www.nitj.ac.in/nitj_files/links/cc_lab2_05_92038.jpg', title: 'Research Area' },
-    { img: 'https://www.nitj.ac.in/nitj_files/links/cc_lab2_05_92038.jpg', title: 'Research Area' },
-    { img: 'https://www.nitj.ac.in/nitj_files/links/cc_lab2_05_92038.jpg', title: 'Research Area' },
-    { img: 'https://www.nitj.ac.in/nitj_files/links/cc_lab2_05_92038.jpg', title: 'Research Area' },
-  ]
+
   return (
     <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[90px] pt-[54px] place-items-center'>
       <div className='absolute leading-wider truncate -mt-[76px] p-2 px-4 bg-[rgba(0,105,140,1)] text-[#fff] shadow-lg rounded-3xl text-lg md:text-2xl'>Research Areas</div>
@@ -17,7 +12,7 @@ function ResearchArea() {
         {
           data ? data.map((item, i) => {
             return (
-              <div key={i} className='my-4 sm:mx-4 p-2'>
+              item.type==="Research Area"&&<div key={i} className='my-4 sm:mx-4 p-2'>
                 <div className="w-full border-2 object-cover object-center rounded-lg shadow-md overflow-hidden">
                   <img src={item?.img} alt=" random imgee" className="w-full object-cover object-center rounded-lg shadow-md hover:scale-110 duration-500" />
                 </div>
