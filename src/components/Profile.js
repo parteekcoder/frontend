@@ -9,85 +9,86 @@ import Exceldownloadpdf from './Img/Exceldownload.png'
 import axios from 'axios';
 import { SERVER_URL } from '../config/server';
 import PersonalDetails from '../forms/facultyprofile/PersonalDetails';
-function Profile({peopleType}) {
+function Profile({ peopleType }) {
     let navigate = useNavigate()
     const dept = useLocation().pathname.split('/')[2];
     var id = useLocation().pathname.split('/').at(-1);
-    const {data,loading,error,reFetch} = useFetch(`/dept/${dept}/${peopleType}/${id}`);
+    const { data, loading, error, reFetch } = useFetch(`/dept/${dept}/${peopleType}/${id}`);
 
-    const [isLogin,setIsLogin] = useState(false); 
-    useEffect(()=>{
-        window.scrollTo(0,0);
-        setIsLogin(data?.validation?.status?.isFaculty);
-    },[data])
+    const [isLogin, setIsLogin] = useState(false);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        console.log(data)
+        setIsLogin(data?.validation?.status?.login);
+    }, [data])
     const map = {
-        'Journal Publications':'journal',
-        'Profile Links':'personal_link',
-        'Personal Details':'publications',
-        'Conference Publications':'conference_publications',
-        'Research Profile':'research_profile',
-        'Research Projects':'research_project',
-        'Book/Chapter Publications':'book_publications',
-        'Events Organized':'event',
-        'Professional Affiliations':'affiliations',
-        'PhD Supervised':'phd_supervised',
-        'PG Dissertation Guided':'phd_dissertion',
-        'Patents':'patent',
-        'Admin. Responsiblities':'admin_responsibility',
-        'Award and Honours':'awards'
+        'Journal Publications': 'journal',
+        'Profile Links': 'personal_link',
+        'Personal Details': 'publications',
+        'Conference Publications': 'conference_publications',
+        'Research Profile': 'research_profile',
+        'Research Projects': 'research_project',
+        'Book/Chapter Publications': 'book_publications',
+        'Events Organized': 'event',
+        'Professional Affiliations': 'affiliations',
+        'PhD Supervised': 'phd_supervised',
+        'PG Dissertation Guided': 'phd_dissertion',
+        'Patents': 'patent',
+        'Admin. Responsiblities': 'admin_responsibility',
+        'Award and Honours': 'awards'
     };
 
     const Link = [{
         Title: 'Personal Details'
-      }, {
+    }, {
         Title: 'Profile Links'
-      }, {
+    }, {
         Title: 'Research Profile'
-      }, {
+    }, {
         Title: 'Journal Publications',
-        thead: ['Year', 'Journal', 'Publication'],
-        feild: ['Year', 'Journal', 'Jouranal Title']
-      }, {
+        thead: ['Year', 'Name', 'Aurthor + Title', 'Link'],
+        feild: ['Year', 'Name', 'Aurthor + Title', 'Link']
+    }, {
         Title: 'Conference Publications',
-        thead: ['Year', 'Conference', 'Publication'],
-        feild: ['Year', 'Publisher', 'Title']
-      }, {
+        thead: ['Year', 'Conference', 'Publication', 'Link'],
+        feild: ['Year', 'Publisher', 'Title', 'Link']
+    }, {
         Title: 'Book/Chapter Publications',
         thead: ['Type', 'Title', 'Publisher', 'Authors', 'ISBN/ISSN', 'Year'],
         feild: ['Type', 'Title', 'Publisher', 'Authors', 'ISBN/ISSN', 'Year']
-      }, {
+    }, {
         Title: 'Research Projects',
         thead: ['Role', 'Project Type', 'Title', 'Funding Agency', 'From', 'To', 'Amount', 'Status', 'Co-Investigator'],
         feild: ['Role', 'Project Type', 'Title', 'Funding Agency', 'From', 'To', 'Amount', 'Status', 'Co-investigator']
-      }, {
+    }, {
         Title: 'Events Organized',
         thead: ['Category', 'Type', 'Title', 'Venue', 'From', 'To', 'Designation'],
         feild: ['Category', 'Type', 'Title', 'Venue', 'From', 'To', 'Designation']
-      }, {
+    }, {
         Title: 'Professional Affiliations',
         thead: ['Designation', 'Organisation'],
         feild: ['Designation', 'Organisation']
-      }, {
+    }, {
         Title: 'PhD Supervised',
         thead: ['Scholar Name', 'Research Topic', 'Status', 'Year', 'Co-Supervisor'],
         feild: ['Scholar Name', 'Research Topic', 'Status', 'Year', 'Co-Supervisor']
-      }, {
+    }, {
         Title: 'PG Dissertation Guided',
         thead: ['Student Name', 'Dissertation Title', 'Status', 'Year', 'Co-Supervisor'],
         feild: ['Student Name', 'Dissertation Title', 'Status', 'Year', 'Co-Supervisor']
-      }, {
+    }, {
         Title: 'Patents',
         thead: ['Name', 'Reg./Ref. No.', 'Date of Award/Filling', 'Organization', 'Status'],
         feild: ['Name', 'Reg./Ref. No.', 'Date of Award/Filling', 'Organization', 'Status']
-      }, {
+    }, {
         Title: 'Admin. Responsiblities',
         thead: ['Position Held', 'Organization', 'From', 'To'],
         feild: ['Position Held', 'Organization', 'From', 'To']
-      }, {
+    }, {
         Title: 'Award and Honours',
         thead: ['Title', 'Activity', 'Given by', 'Year'],
         feild: ['Title', 'Activity', 'Given by', 'Year']
-      }];
+    }];
 
     const [active, setActive] = useState(0);
     const [edit, setEdit] = useState(false);
@@ -102,11 +103,12 @@ function Profile({peopleType}) {
         setedit();
         SetEditfeild(i);
     }
-    const logout = async(e)=>{
+    const logout = async (e) => {
         try {
-            
-           const response = await axios.post(`${SERVER_URL}/dept/${dept}/logout`,{},{withCredentials:true});
-           navigate(`/dept/${dept}/Faculty`);
+            window.location.reload(false);
+            console.log("Logout")
+            const response = await axios.post(`${SERVER_URL}/dept/${dept}/logout`, {}, { withCredentials: true });
+            navigate(`/dept/${dept}/Faculty`);
         } catch (error) {
             console.log(error);
         }
@@ -127,7 +129,13 @@ function Profile({peopleType}) {
             {
                 data?.data?.map((item, j) => {
                     return (
-                         <div key={item?._id} className="mt-16 py-4 w-[98%] mx-auto">
+                        <div key={item?._id} className="lg:mt-10 py-4 w-[98%] mx-auto">
+                            <div className='flex w-full text-lg items-center justify-end mb-2'>
+                                {isLogin && <span>
+                                    Hello,<span className='mx-1 font-medium'>{item?.name}</span>
+                                    <span className='underline ml-4 cursor-pointer text-red-500 active:scale-95' onClick={()=>logout()}>Logout</span>
+                                </span>}
+                            </div>
                             <div className="relative flex flex-col flex-auto w-full min-w-0 p-4 overflow-hidden break-words border shadow-md rounded-2xl bg-white/80 bg-clip-border mb-4 draggable mx-auto"
                                 draggable="true">
                                 <div className="flex flex-wrap items-center justify-between -mx-3">
@@ -140,7 +148,7 @@ function Profile({peopleType}) {
                                         <div className="flex-none w-auto max-w-full px-3 my-auto">
                                             <div className="h-full">
                                                 <h5 className="mb-1 text-gray-700 text-xl font-semibold">{item?.name}</h5>
-                                                <p title={item?.position} className="ml-2 text-zinc-500 mb-0 font-medium leading-normal w-96 whitespace-nowrap overflow-hidden">{item?.position}</p>
+                                                <p title={item?.position} className="ml-2 text-zinc-500 mb-0 font-medium leading-normal sm:w-96 whitespace-nowrap overflow-hidden">{item?.position}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -148,9 +156,9 @@ function Profile({peopleType}) {
                                         <a title="Download Profile as PDF" href='#' className='w-8 sm:w-10 mt-1 mx-2 active:translate-y-[2px]'>
                                             <img src={downloadpdf} alt="download pdf" className='w-full' />
                                         </a>
-                                       <button onClick={() => {!data?.validation?.status?.login?navigate(`/dept/${dept}/login`):logout()}} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-blue focus:ring-4 focus:outline-none focus:ring-cyan-200">
-                                            <span className="relative text-sm sm:text-base px-3 sm:px-4 py-2 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
-                                                {!data?.validation?.status?.login ?"Login":'Logout'}
+                                        <button onClick={() => { !data?.validation?.status?.login && navigate(`/dept/${dept}/login`)}} className={"relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-blue focus:ring-4 focus:outline-none focus:ring-cyan-200 "+(!data?.validation?.status?.login?'':'hidden')}>
+                                            <span className={"relative text-sm sm:text-base px-3 sm:px-4 py-2 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0 "}>
+                                                {!data?.validation?.status?.login && "Login"}
                                             </span>
                                         </button>
                                     </div>
@@ -184,8 +192,8 @@ function Profile({peopleType}) {
                                                 <span title='Download Table in Excel Format' className={"w-12 cursor-pointer px-3 "}>
                                                     <img src={Exceldownloadpdf} alt="Excel download" />
                                                 </span>
-                                                {isLogin &&<>
-                                                    <span className={"cursor-pointer px-3 " + (edit ? 'hidden ' : '')+(isLogin?'':'hidden')}><i className="fa-solid fa-eye"></i></span>
+                                                {isLogin && <>
+                                                    <span className={"cursor-pointer px-3 " + (edit ? 'hidden ' : '') + (isLogin ? '' : 'hidden')}><i className="fa-solid fa-eye"></i></span>
                                                     <span title='View as Table' className={"cursor-pointer px-3 " + (edit ? '' : 'hidden ')} onClick={() => setview()}><i className="fa-solid fa-eye-slash"></i></span>
                                                     <span title='Add new data' className={'cursor-pointer px-3'} onClick={() => setedit()}><i className="fa-solid fa-pen-to-square"></i></span>
                                                 </>}
@@ -194,8 +202,8 @@ function Profile({peopleType}) {
                                         <div className='p-2 mt-4'>
                                             {active === 0 && <PersonalDetails edit={edit} data={data?.data[0]} />}
                                             {active === 1 && <Otherprofilelink edit={edit} isLogin={isLogin} data={data?.data[0]} />}
-                                            {active === 2 && <ResearchProfile edit={edit} isLogin={isLogin} data={data?.data[0]['research_profile']} faculty={data?.data[0]}/>}
-                                            {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} faculty={data?.data[0]} data={data?.data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feild={Link[active].feild} isLogin={isLogin} title={map[Link[active].Title]}/>}
+                                            {active === 2 && <ResearchProfile edit={edit} isLogin={isLogin} data={data?.data[0]['research_profile']} faculty={data?.data[0]} />}
+                                            {active > 2 && <BaseTable edit={edit} tablehead={Link[active].thead} faculty={data?.data[0]} data={data?.data[0][map[Link[active].Title]]} Editfeild={Editfeild} HandleEdit={HandleEdit} feild={Link[active].feild} isLogin={isLogin} title={map[Link[active].Title]} />}
                                             {/* <BaseTable edit={edit} /> */}
                                         </div>
                                     </div>

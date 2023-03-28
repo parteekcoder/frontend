@@ -91,13 +91,14 @@ const AppRouter = () => {
                     <Route path='/dept/:dept/MessageofHOD' element={<HodMessage />} />
                     <Route path='/dept/:dept/MissionandVision' element={<VisionandMission />} />
                     <Route path='/dept/:dept/Infrastructure' element={<Infrastructure />} />
+                    <Route path='/dept/:dept/contactus' element={<ContactUs />} />
+                    <Route path='/dept/:dept/Achievement' element={<Achievements />} />
                     {/* Academic */}
                     <Route path='/dept/:dept/Syllabus' element={<Syllabus/>} />
                     <Route path='/dept/:dept/Timetable' element={<Timetable/>} />
                     <Route path='/dept/:dept/Acadcord' element={<AcadCordinator />} />
                     <Route path='/dept/:dept/Programme' element={<Programme />} />
-                    <Route path='/dept/:dept/contactus' element={<ContactUs />} />
-                    <Route path='/dept/:dept/Achievement' element={<Achievements />} />
+                    <Route path='/dept/:dept/AcademicCalender' element={<AcademicCalender />} />
                     {/* Person */}
                     <Route path='/dept/:dept/Faculty' element={<Faculty />} />
                     <Route path='/dept/:dept/Faculty/:id' element={<Profile peopleType="Faculty" />} />
@@ -117,7 +118,6 @@ const AppRouter = () => {
                     <Route path='/dept/:dept/Projects' element={<Projects />} />
                     <Route path='/dept/:dept/Consultancy' element={<Consultancy />} />
                     <Route path='/dept/:dept/SocietyClubs' element={<Society_Clubs_Teams />} />
-                    <Route path='/dept/:dept/AcademicCalender' element={<AcademicCalender />} />
                   </Routes>
                 </div>
               </main>
