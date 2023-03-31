@@ -73,7 +73,7 @@ function Programme() {
                 </div>
                 <div id='#BTech'>
                     <div className='mx-2 lg:mx-12 mb-8'>
-                        <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[90px] pt-[54px] place-items-center'>
+                        <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
                             <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[400] text-[#fff] shadow-lg rounded-3xl text-xl sm:text-2xl'>Curriculum</div>
                             <p className='mx-2 my-4'>Curriculum of B.Tech Programme in Computer Science and Engineering to be applicable from 2018 batch onwards(Annexure I - Curriculum of B.Tech program REVISED(10.01.2020))</p>
                             <div className='flex flex-col sm:flex-row'>
@@ -83,7 +83,7 @@ function Programme() {
                         </div>
                     </div>
                     <div className='mx-2 lg:mx-12 mb-8'>
-                        <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[90px] pt-[54px] place-items-center'>
+                        <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
                             <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[400] text-[#fff] shadow-lg rounded-3xl text-xl sm:text-2xl'>Program Outcomes</div>
                             <ol className='list-decimal'>
                                 <li className='ml-8 mb-3'>Apply knowledge of mathematics, science, and engineering fundamentals in the domain of Electronics and Communication</li>
@@ -91,7 +91,7 @@ function Programme() {
                         </div>
                     </div>
                     <div className='mx-2 lg:mx-12 mb-8'>
-                        <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[90px] pt-[54px] place-items-center'>
+                        <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
                             <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[400] text-[#fff] shadow-lg rounded-3xl text-xl sm:text-2xl'>Program Educational Objectives</div>
                             <div className=''>
                                 <div className='mx-2 mb-3'>

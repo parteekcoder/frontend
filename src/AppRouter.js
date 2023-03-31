@@ -69,20 +69,20 @@ const AppRouter = () => {
   
   return (
     <>
-      <div>
+      <div className='max-w-[1700px] mx-auto'>
         <Router>
           <div className='sticky top-0 z-40 flex-none w-full mx-auto bg-white'>
-            <NewNavbar SetScrollupmenu={SetScrollupmenu} />
-            {/* <Navbar/> */}
+            {/* <NewNavbar SetScrollupmenu={SetScrollupmenu} /> */}
+            <Navbar/>
           </div>
 
           <div className="w-full mx-auto max-w-8xl">
             <div className='lg:flex'>
-              <aside className='inset-0 z-20 top-[7rem] sm:top-[9rem] lg:top-0 flex-none relative h-full w-full lg:static lg:h-auto lg:overflow-y-visible lg:pt-0 lg:w-[19rem] lg:block shadow lg:ml-2'>
+              <aside className='inset-0 z-20 top-0 flex-none relative h-full w-full lg:static lg:h-auto lg:overflow-y-visible lg:pt-0 lg:w-[19rem] lg:block shadow lg:ml-2'>
                 <Menu scrollupmenu={scrollupmenu} />
               </aside> 
               <main className='flex-auto w-full min-w-0 lg:static lg:max-h-full lg:overflow-visible min-h-screen'>
-                <div className="w-full flex mt-28">
+                <div className="w-full flex mt-0">
                   <Routes>
                     <Route path='/dept/:dept/Home' element={<Homepage />} />
                     <Route path='/dept/:dept/Placement' element={<AllPlacement />} />

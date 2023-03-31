@@ -129,13 +129,7 @@ function Profile({ peopleType }) {
             {
                 data?.data?.map((item, j) => {
                     return (
-                        <div key={item?._id} className="lg:mt-10 py-4 w-[98%] mx-auto">
-                            <div className='flex w-full text-lg items-center justify-end mb-2'>
-                                {isLogin && <span>
-                                    Hello,<span className='mx-1 font-medium'>{item?.name}</span>
-                                    <span className='underline ml-4 cursor-pointer text-red-500 active:scale-95' onClick={()=>logout()}>Logout</span>
-                                </span>}
-                            </div>
+                        <div key={item?._id} className="block lg:mt-10 py-4 w-[98%] mx-auto">
                             <div className="relative flex flex-col flex-auto w-full min-w-0 p-4 overflow-hidden break-words border shadow-md rounded-2xl bg-white/80 bg-clip-border mb-4 draggable mx-auto"
                                 draggable="true">
                                 <div className="flex flex-wrap items-center justify-between -mx-3">
@@ -156,11 +150,6 @@ function Profile({ peopleType }) {
                                         <a title="Download Profile as PDF" href='#' className='w-8 sm:w-10 mt-1 mx-2 active:translate-y-[2px]'>
                                             <img src={downloadpdf} alt="download pdf" className='w-full' />
                                         </a>
-                                        <button onClick={() => { !data?.validation?.status?.login && navigate(`/dept/${dept}/login`)}} className={"relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-blue focus:ring-4 focus:outline-none focus:ring-cyan-200 "+(!data?.validation?.status?.login?'':'hidden')}>
-                                            <span className={"relative text-sm sm:text-base px-3 sm:px-4 py-2 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0 "}>
-                                                {!data?.validation?.status?.login && "Login"}
-                                            </span>
-                                        </button>
                                     </div>
                                 </div>
                             </div>
