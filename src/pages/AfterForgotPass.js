@@ -6,10 +6,10 @@ function AfterForgotPass() {
     const url=useLocation();
     const dept=url.pathname.split('/')[2];
     return (
-        <div className="container mx-auto">
+        <div className="w-full bg-blue-50/60 md:h-screen">
             <div className="flex justify-center mt-24">
-                <div className="w-full max-w-xl flex">
-                    <div className="w-full shadow-lg border bg-white p-5 rounded-lg lg:rounded-l-none">
+                <div className="w-full max-w-md flex">
+                    <div className="w-full shadow-lg border p-5 rounded-lg lg:rounded-l-none">
                         <div className="px-8 mb-4 text-center">
                             <h3 className="pt-4 mb-2 font-semibold text-2xl">Forgot Your Password?</h3>
                             <p className="mb-4 text-sm text-gray-700">
@@ -17,13 +17,13 @@ function AfterForgotPass() {
                                 link to reset your password!
                             </p>
                         </div>
-                        <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                        <form className="px-8 pt-6 pb-8 mb-4 rounded">
                             <div className="mb-4">
                                 <label className="block mb-2 text-sm font-bold text-gray-700" for="email">
                                     Email
                                 </label>
                                 <input
-                                    className="w-full p-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    className="w-full p-3 text-sm bg-blue-50 leading-tight text-gray-700 border rounded shadow-inner appearance-none focus:outline-none focus:shadow-outline"
                                     id="email"
                                     type="email"
                                     placeholder="Enter Email Address..."
@@ -31,7 +31,7 @@ function AfterForgotPass() {
                             </div>
                             <div className="mb-6 text-center">
                                 <button onClick={()=>navigate(`/dept/${dept}/ChangePass`)}
-                                    className="w-full px-4 py-2 font-bold text-white bg-red-500 rounded-full hover:bg-red-700 focus:outline-none focus:shadow-outline"
+                                    className="w-[80%] px-4 py-2 font-bold text-white bg-red-500 rounded-xl hover:bg-red-700 focus:outline-none focus:shadow-outline"
                                     type="button"
                                 >
                                     Reset Password
