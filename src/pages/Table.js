@@ -9,7 +9,7 @@ function Table({ tablehead, data }) {
 
     return (
 
-        <div className="flex flex-col items-center justify-center border-t border-gray-200 bg-white shadow-md sm:rounded-lg overflow-auto">
+        <div className="flex flex-col border-t border-gray-200 bg-white shadow-md sm:rounded-lg overflow-auto mx-auto">
             <div className='flex w-full items-center justify-around'>
                 <div className='flex items-center my-1 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 p-2 rounded'>
                     <label htmlFor="states" className="mr-2">Rows per Page :</label>
@@ -23,7 +23,7 @@ function Table({ tablehead, data }) {
                 </div>
                 <div className='my-1'><input className='mx-w-full border outline-none p-2 rounded' placeholder='Search' /></div>
             </div>
-            <div className="relative overflow-x-auto">
+            <div className="relative mx-auto overflow-x-auto">
                 <table className="min-w-[800px] text-sm text-left text-gray-800 scroll-auto border rounded-md">
                     <thead className="text-gray-700 uppercase bg-gray-100 shadow-md">
                         <tr>

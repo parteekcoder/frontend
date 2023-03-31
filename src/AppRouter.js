@@ -1,5 +1,4 @@
 import Footer from './components/Footer';
-import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AllPlacement from './components/AllPlacement';
 import Error from './pages/Errorpage';
@@ -9,7 +8,6 @@ import VisionandMission from './pages/VisionandMission';
 import Syllabus from './pages/Syllabus';
 import Infrastructure from './pages/Infrastructure'
 import AcadCordinator from './pages/AcadCordinator';
-import NewNavbar from './components/NewNavbar';
 import Menu from './components/Menu';
 import ContactUs from './pages/ContactUs';
 import Achievements from './pages/Achievements';
@@ -34,10 +32,8 @@ import AcademicCalender from './pages/AcademicCalender';
 import Timetable from './pages/Timetable';
 import Navbar from './components/Navbar';
 const AppRouter = () => {
-  const [scrollupmenu, setScrollupmenu] = useState(false);
-  const SetScrollupmenu = (val) => {
-    setScrollupmenu(val);
-  }
+  
+  window.scrollTo(0,0);
   // const departments={
 
   //   "it":"Information Technology",
@@ -69,20 +65,20 @@ const AppRouter = () => {
   
   return (
     <>
-      <div>
+      <div className='max-w-[1700px] mx-auto'>
         <Router>
           <div className='sticky top-0 z-40 flex-none w-full mx-auto bg-white'>
-            <NewNavbar SetScrollupmenu={SetScrollupmenu} />
-            {/* <Navbar/> */}
+            {/* <NewNavbar SetScrollupmenu={SetScrollupmenu} /> */}
+            <Navbar/>
           </div>
 
           <div className="w-full mx-auto max-w-8xl">
             <div className='lg:flex'>
-              <aside className='inset-0 z-20 top-[7rem] sm:top-[9rem] lg:top-0 flex-none relative h-full w-full lg:static lg:h-auto lg:overflow-y-visible lg:pt-0 lg:w-[19rem] lg:block shadow lg:ml-2'>
-                <Menu scrollupmenu={scrollupmenu} />
+              <aside className='inset-0 z-20 top-0 flex-none relative w-full lg:static lg:overflow-y-visible lg:pt-0 lg:w-[19rem] lg:block shadow lg:ml-2'>
+                <Menu />
               </aside> 
               <main className='flex-auto w-full min-w-0 lg:static lg:max-h-full lg:overflow-visible min-h-screen'>
-                <div className="w-full flex mt-28">
+                <div className="w-full flex mt-0">
                   <Routes>
                     <Route path='/dept/:dept/Home' element={<Homepage />} />
                     <Route path='/dept/:dept/Placement' element={<AllPlacement />} />
@@ -123,7 +119,7 @@ const AppRouter = () => {
               </main>
             </div>
           </div>
-          <div className='w-full h-full pt-2'>
+          <div className='w-full pt-2'>
             <Footer />
           </div>
         </Router>
