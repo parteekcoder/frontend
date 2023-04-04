@@ -1,6 +1,7 @@
 import React from 'react'
 import useFetch from '../hooks/useFetch';
 import { useLocation } from 'react-router-dom';
+import Heading from '../components/Heading';
 const Society_Clubs_Tems=()=> {
   const Society = [2, 3, 4, 5, 6, 7];
   const url = useLocation();
@@ -8,18 +9,17 @@ const Society_Clubs_Tems=()=> {
   const scrollNextPage = (id) => {
     const gallery = document.querySelector(id);
     const gallery_scroller = gallery.querySelector('.cards');
-    const gallery_item_size = gallery_scroller.querySelector('div').clientWidth;
-    gallery_scroller.scrollBy(gallery_item_size, 0);
+    gallery_scroller.scrollBy(320, 0);
   }
   const scrollPrevPage = (id) => {
     const gallery = document.querySelector(id);
     const gallery_scroller = gallery.querySelector('.cards');
-    const gallery_item_size = gallery_scroller.querySelector('div').clientWidth;
-    gallery_scroller.scrollBy(-gallery_item_size, 0);
+    gallery_scroller.scrollBy(-320,0);
   }
   return (
-    <div className='w-[98%] rounded-[9px] border border-[rgba(0,105,140,0.2)] p-3 mx-3 my-[72px] pt-[58px]'>
-      <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[410] tracking-wide leading-8 text-[#fff] shadow-lg rounded-3xl text-2xl'>Society/Clubs/Teams</div>
+    <div className='w-[98%] rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
+      
+      <Heading name="Society/Clubs/Teams"/>
       <div className="w-full mt-12 px-6 mx-auto">
         <section className="mb-20 text-gray-800 text-center">
           <h2 className="text-5xl font-bold mb-16">Departments <u className="text-blue-600">Societies</u></h2>

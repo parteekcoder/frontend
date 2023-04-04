@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import logo from './Img/logo.png'
-function Menu() {
+function Menu({menu,setMenu}) {
     let navigate = useNavigate();
     const dept= useLocation().pathname.split('/')[2];
     const link= useLocation().pathname.split('/')[3];
@@ -133,11 +133,11 @@ function Menu() {
         "hum":"Humaniyies",
         "cy":"Chemistry"
       }
-    const [menu, setMenu] = useState(false);
+    
     return (
         <>
             <div className={"z-20 overflow-y-auto bg-white scrolling-touch max-w-full lg:max-w-xs lg:max-h-[calc(100vh-4rem)] lg:block lg:sticky lg:mr-0 scrollbar lg:top-[80px]"}>
-                <span className="flex items-center border-b border-gray-300 w-full px-2 mt-2 active:translate-y-[2px]" onClick={() => { setMenu(!menu) }}>
+                <span className="hidden items-center border-b border-gray-300 w-full px-2 mt-2 active:translate-y-[2px]" onClick={() => { setMenu(!menu) }}>
                     <span className='w-8 lg:w-10 pb-1'><img src={logo} alt="logo"/></span>
                     <span className="ml-2 font-bold py-2">{departments[dept]}</span>
                 </span>

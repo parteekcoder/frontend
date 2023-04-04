@@ -3,14 +3,15 @@ import useFetch from '../hooks/useFetch'
 import OpenPdf from './OpenPdf'
 import { useLocation } from 'react-router-dom';
 import IT7 from '../components/Pdf/IT7.pdf'
+import Heading from '../components/Heading';
 function Students() {
 
     const [url, setUrl] = useState(useLocation());
     const { data, loading, error, reFetch } = useFetch(url.pathname);
 
     return (
-        <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
-            <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-medium text-[#fff] shadow-lg rounded-3xl text-2xl'>Students</div>
+        <div className='w-[98%] rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
+            <Heading name="Students" />
             <div>
                 <div className='flex w-fit items-center my-1 border border-gray-300 text-gray-900 text-sm p-2 rounded'>
                     <label htmlFor="states" className="mr-2">Branch :</label>

@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
+import Heading from '../components/Heading';
 
 function ContactUs() {
 
-  const [url,setUrl]=useState(useLocation());
-  const dept=url.pathname.split('/')[2];
+  const [url, setUrl] = useState(useLocation());
+  const dept = url.pathname.split('/')[2];
   return (
-    <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-3 my-[60px] pt-[54px] place-items-center'>
-      <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[400] text-[#fff] shadow-lg rounded-3xl text-2xl'>Contact Us</div>
+    <div className='w-[98%] rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
+      <Heading name="Contact Us" />
 
       <div className='flex-1 shadow p-8 rounded-md'>
         <div className=' w-11/12 mx-auto'>

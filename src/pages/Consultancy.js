@@ -1,5 +1,6 @@
 import React from 'react'
 import Table from './Table'
+import Heading from '../components/Heading'
 
 function Consultancy() {
     const tablehead = ['Sr. No', "Name of Faculty (Chief Consultant)", "Client Organization", "Title of Consultancy of Project", "Amount Received (in Rupees)","Amount Received (in words)"]
@@ -13,8 +14,8 @@ function Consultancy() {
     }]
     
     return (
-        <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
-            <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[400] text-[#fff] tracking-wider shadow-lg rounded-3xl text-2xl'>Consultancy</div>
+        <div className='w-[98%] rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
+            <Heading name="Consultancy" />
             <Table tablehead={tablehead} data={data}/>
         </div>
     )
