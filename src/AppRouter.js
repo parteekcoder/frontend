@@ -31,9 +31,11 @@ import Society_Clubs_Teams from './pages/Society_Clubs_Teams';
 import AcademicCalender from './pages/AcademicCalender';
 import Timetable from './pages/Timetable';
 import Navbar from './components/Navbar';
+import { useState } from 'react';
 const AppRouter = () => {
   
   window.scrollTo(0,0);
+  const [menu, setMenu] = useState(false);
   // const departments={
 
   //   "it":"Information Technology",
@@ -69,13 +71,13 @@ const AppRouter = () => {
         <Router>
           <div className='sticky top-0 z-40 flex-none w-full mx-auto bg-white'>
             {/* <NewNavbar SetScrollupmenu={SetScrollupmenu} /> */}
-            <Navbar/>
+            <Navbar menu = {menu} setMenu={setMenu}/>
           </div>
 
           <div className="w-full mx-auto max-w-8xl">
             <div className='lg:flex'>
-              <aside className='inset-0 z-20 top-0 flex-none relative w-full lg:static lg:overflow-y-visible lg:pt-0 lg:w-[19rem] lg:block shadow lg:ml-2'>
-                <Menu />
+              <aside className='inset-0 z-20 flex-none fixed top-[4rem] lg:top-0 w-full lg:static lg:overflow-y-visible lg:pt-0 lg:w-[19rem] lg:block shadow lg:ml-2'>
+                <Menu menu = {menu} setMenu={setMenu} />
               </aside> 
               <main className='flex-auto w-full min-w-0 lg:static lg:max-h-full lg:overflow-visible min-h-screen'>
                 <div className="w-full flex mt-0">

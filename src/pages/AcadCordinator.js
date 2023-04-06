@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Table from './Table'
+import Heading from '../components/Heading'
 // import useFetch from '../hooks/useFetch'
 // import { useLocation } from 'react-router-dom'
 // import axios from 'axios';
@@ -20,8 +21,8 @@ function AcadCordinator() {
         }
     ]
     return (
-        <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[50px] md:my-[60px] pt-[54px] place-items-center'>
-            <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] text-[#fff] tracking-wider shadow-lg rounded-3xl text-lg md:text-2xl'>Academic Cordinator</div>
+        <div className='w-[98%] rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
+            <Heading name="Academic Cordinator" />
             <Table tablehead={tablehead} data={data}/>
         </div>
     )

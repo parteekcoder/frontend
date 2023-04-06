@@ -5,7 +5,7 @@ import TopPlacement from '../components/TopPlacement'
 
 function Homepage() {
   return (
-    <div className='flex items-center flex-col w-full h-full px-auto mt-8 sm:mt-0'>
+    <div className='flex items-center flex-col w-full h-full px-auto mt-0'>
         <Imagesroll/>
         <Department/>
         <TopPlacement/>

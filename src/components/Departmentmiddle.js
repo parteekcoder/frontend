@@ -2,6 +2,7 @@ import { React, useState } from 'react'
 import gif from "./Vedio/New.gif";
 import { useLocation } from 'react-router-dom';
 import useFetch from '../hooks/useFetch.js'
+import Heading from './Heading';
 
 
 const Departmentmiddle = () => {
@@ -15,8 +16,8 @@ const Departmentmiddle = () => {
             <div className='flex flex-col overflow-hidden md:flex-row max-w-[100%-240px]'>
 
                 {/* Activity  */}
-                <div className='max-w-full md:w-1/2 h-96 rounded-[9px] border border-[rgba(0,105,140,0.2)] py-3 mx-3 my-[36px] pt-[54px]'>
-                    <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] tracking-wide leading-8 text-[#fff] shadow-lg rounded-3xl text-2xl mx-3'>Activities</div>
+                <div className='max-w-full md:w-1/2 h-96 rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
+                    <Heading name="Activities" />
                     <div className='scrollbar max-w-full block h-80 overflow-y-auto px-3'>
                         {
                             Activity ? Activity.map((n, i) =>
@@ -28,8 +29,8 @@ const Departmentmiddle = () => {
                         }
                     </div>
                 </div>
-                <div className='max-w-full md:w-1/2 h-96 rounded-[9px] border border-[rgba(0,105,140,0.2)] py-3 mx-3 my-[36px] pt-[54px]'>
-                    <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] tracking-wide leading-8 text-[#fff] shadow-lg rounded-3xl text-2xl mx-3'>News & Highlights</div>
+                <div className='max-w-full md:w-1/2 h-96 rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
+                    <Heading name="News & Highlights" />
                     <div className='scrollbar max-w-full block h-80 overflow-y-auto px-3'>
                         {
                             News ? News.map((n, i) =>
