@@ -18,8 +18,8 @@ function HodMessage() {
         </div>
         <div className="sm:basis-2/3">
           <div className="flex flex-col items-start">
-            <p className="font2 font-semibold text-[26px] lg:text-[40px] leading-[1.3] uppercase mb-2">{data?.name}</p>
-            <p className="text-gray-400 text-[12px] lg:text-[16px]">HOD, Dr. B R Ambedkar National Institute of
+            <p className="font-semibold text-[26px] lg:text-[40px] leading-[1.3 mb-2">{data?.name}</p>
+            <p className="text-zinc-900 font-medium text-[12px] lg:text-[16px]">HOD, Dr. B R Ambedkar National Institute of
               Technology, Jalandhar</p>
             <div className="bg-accent bg-teal-600 w-[100%] h-[3px] mb-4 mt-2"></div>
             <div className="w-[100%] flex flex-col gap-[4px]">
@@ -58,7 +58,7 @@ function HodMessage() {
 
       <div className="flex flex-col items-start px-4 lg:px-[4%] gap-[20px] lg:gap-[48px]">
         <div className="w-full flex flex-col items-start">
-          <p className="font2 font-medium text-[28px] lg:text-[44px]">Message </p>
+          <p className="font2 font-medium text-[28px] lg:text-[44px]">HoD's Message </p>
           <div className="bg-accent bg-teal-600 w-full lg:w-[111px] h-[1px] lg:h-[5px]"></div>
         </div>
         <p className="text-gray-800 lg:text-lg lg:leading-[30px] text-justify">

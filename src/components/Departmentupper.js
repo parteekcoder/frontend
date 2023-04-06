@@ -7,9 +7,9 @@ const Departmentupper = (props) => {
     
     return (
 
-        <div className='m-3 mt-5 flex flex-col md:flex-row justify-center items-center overflow-y-hidden'>
+        <div className='flex flex-col md:flex-row w-[98%] justify-around items-center p-2 md:p-4 pb-0 place-items-center mx-auto'>
             {/* // department intro */}
-            <div className="bg-white rounded-lg border border-gray-200 shadow-md md:w-1/2 m-1">
+            <div className="bg-white rounded-lg border border-gray-200 shadow-md md:w-1/2 md:mx-2 my-2">
 
                 <div className='flex justify-center items-center'>
                     <a href="/">
@@ -25,7 +25,7 @@ const Departmentupper = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="bg-white rounded-lg border border-gray-200 shadow-md md:w-1/2 m-1">
+            <div className="bg-white rounded-lg border border-gray-200 shadow-md md:w-1/2 md:mx-2 my-2">
 
                 <div className='flex justify-center items-center'>
                     <iframe className='w-full aspect-[2.11] rounded-lg'
