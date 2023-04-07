@@ -13,11 +13,11 @@ const Departmentlower = (props) => {
         body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae dolores deserunt ea doloremque natus error, rerum quas odio quaerat nam ex commodi hic, suscipit in a veritatis pariatur minus consequuntur!" />
       {/* HOD */}
 
-      <div className="w-full md:w-/2 py-4 px-7 mx-2 border bg-white shadow-lg rounded-lg mt-16 mb-6">
-        <div className="w-32 h-32 flex-grow-0 flex-shrink-0 flex justify-center md:justify-end -mt-20 mb-1 ml-auto mr-0">
+      <div className="relative w-full md:w-/2 py-4 px-7 mx-2 border bg-white shadow-lg rounded-lg mt-16 mb-6">
+        <div className="absolute right-4 w-32 h-32 flex-grow-0 flex-shrink-0 flex justify-center md:justify-end -mt-20 mb-1 ml-auto mr-0">
           <img src={props?.img} className="w-full h-full object-cover object-left-top rounded-full shadow-xl flex-grow-0 flex-shrink-0" alt='' />
         </div>
-        <span className='w-full inline-block h-[140px] overflow-hidden text-justify text-ellipsis'>
+        <span className='w-full inline-block h-[180px] overflow-hidden text-justify text-ellipsis mt-2'>
           <h2 className="text-blue-800 text-2xl font-semibold">{props?.name}</h2>
           <h2 className='font-medium'>(Head of Department)</h2>
           <p className="mt-2 text-gray-600 flex-wrap">{props?.message}</p>

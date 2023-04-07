@@ -18,7 +18,7 @@ function Programme() {
             Seats: ''
         }
     ]
-    const [program, setProgram] = useState('BTech');
+    const [program, setProgram] = useState('B.Tech');
     const handlescroll = (id) => {
         let str = "#" + id;
         setProgram(id);

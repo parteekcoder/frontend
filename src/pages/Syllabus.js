@@ -3,7 +3,6 @@ import syllabuspdf from '../components/Pdf/syllabus.pdf'
 import OpenPdf from './OpenPdf'
 import Heading from '../components/Heading'
 function Syllabus() {
-    const Data = ['Syllabus 2023', syllabuspdf]
     return (
         <div className='w-[98%] rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
             <Heading name="Syllabus" />
@@ -17,7 +16,7 @@ function Syllabus() {
                         </select>
                     </div>
                 </div>
-                <OpenPdf link={Data[1]} />
+                <OpenPdf link="https://www.nitj.ac.in/nitj_files/links/B_39132.pdf" />
             </div>
         </div>
     )
