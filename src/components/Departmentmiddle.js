@@ -13,10 +13,10 @@ const Departmentmiddle = () => {
     const News = useFetch(`/news`).data;
     return (
         <>
-            <div className='flex flex-col overflow-hidden md:flex-row max-w-[100%-240px]'>
+            <div className='flex flex-col md:flex-row w-[98%] justify-around items-center p-2 md:p-4 pb-0 place-items-center mx-auto'>
 
                 {/* Activity  */}
-                <div className='max-w-full md:w-1/2 h-96 rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
+                <div className='max-w-full w-full md:w-1/2 h-96 rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-2 my-[60px] pt-[54px] place-items-center'>
                     <Heading name="Activities" />
                     <div className='scrollbar max-w-full block h-80 overflow-y-auto px-3'>
                         {
@@ -29,9 +29,9 @@ const Departmentmiddle = () => {
                         }
                     </div>
                 </div>
-                <div className='max-w-full md:w-1/2 h-96 rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
+                <div className='max-w-full w-full md:w-1/2 h-96 rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-2 my-[60px] pt-[54px] place-items-center'>
                     <Heading name="News & Highlights" />
-                    <div className='scrollbar max-w-full block h-80 overflow-y-auto px-3'>
+                    <div className='scrollbar max-w-full block h-80 overflow-y-auto overflow-x-clip px-3'>
                         {
                             News ? News.map((n, i) =>
                                 <div key={i} className='flex flex-auto relative p-2 m-2'>

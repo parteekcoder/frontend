@@ -22,7 +22,7 @@ function Menu({menu,setMenu}) {
                     l: 'Vision and Mission',
                     link: `/dept/${dept}/MissionandVision`
                 },{
-                    l: "HOD's Message",
+                    l: "HoD's Message",
                     link: `/dept/${dept}/messageofHOD`
                 }, {
                     l: 'Achievements',
@@ -49,7 +49,7 @@ function Menu({menu,setMenu}) {
                     l: 'Syllabus',
                     link: `/dept/${dept}/Syllabus`
                 }, {
-                    l: 'Time-Tables',
+                    l: 'TimeTable',
                     link: `/dept/${dept}/Timetable`
                 }, {
                     l: 'Department Activities Calendar',
@@ -70,7 +70,7 @@ function Menu({menu,setMenu}) {
                     l: 'Students',
                     link: `/dept/${dept}/Student`
                 }, {
-                    l: 'Alumni*',
+                    l: 'Alumni',
                     link: `/dept/${dept}/Alumni`
                 }, {
                     l: 'Staff',
@@ -88,7 +88,7 @@ function Menu({menu,setMenu}) {
                     l: 'Department Labs',
                     link: `/dept/${dept}/DepartmentLab`
                 }, {
-                    l: 'Publications(Year-Wise)',
+                    l: 'Publications',
                     link: `/dept/${dept}/Publications`
                 }, {
                     l: 'Projects',

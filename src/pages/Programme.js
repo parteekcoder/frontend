@@ -5,11 +5,11 @@ import { useLocation } from 'react-router-dom';
 function Programme() {
     const Programs = [
         {
-            Name: 'BTech',
-            Seats: 120
+            Name: 'B.Tech',
+            Seats: '120 Seats'
         }, {
-            Name: 'MTech',
-            Seats: 30
+            Name: 'M.Tech',
+            Seats: '30 Seats'
         }, {
             Name: 'PhD',
             Seats: ''
@@ -49,7 +49,7 @@ function Programme() {
     return (
         <>
             <div className="text-gray-600 body-font w-full h-full">
-                <div className="container flex flex-col px-5 py-24 mx-auto" style={{ height: "100%" }}>
+                <div className="container flex flex-col px-5 py-12 mx-auto" style={{ height: "100%" }}>
                     <div className="flex flex-col text-center w-full mb-20">
                         <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Programmes of Study</h1>
                         <p className="lg:w-2/3 mx-auto leading-relaxed text-base">The Department offers following Undergraduate, Postgraduate and Research Programmes in <b>{departments[dept]}</b></p>
@@ -58,12 +58,12 @@ function Programme() {
                         {
                             Programs.map((item, i) => {
                                 return (
-                                    <div key={i} className="py-4 min-w-[250px] max-w-[350px] w-full mx-2">
+                                    <div key={i} className="py-4 min-w-[250px] max-w-[330px] w-full mx-2">
                                         <div className={"border-2 border-gray-200 py-6 rounded-lg active:translate-y-[2px] cursor-pointer " + (item.Name === program ? 'shadow-lg bg-blue-100 shadow-blue-400' : '')} onClick={() => handlescroll(item.Name)}>
                                             <i className="fa fa-graduation-cap text-blue-400 text-5xl m-3"></i>
                                             <h2 className="title-font font-medium text-2xl text-gray-900">{item.Name}</h2>
                                             <p className="text-sm py-1 leading-relaxed">({departments[dept]})</p>
-                                            <p className="p-1 font-bold leading-relaxed">{item.Seats} Seats</p>
+                                            <p className="p-1 font-bold leading-relaxed">{item.Seats}</p>
                                         </div>
                                     </div>
                                 )
