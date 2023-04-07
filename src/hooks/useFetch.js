@@ -12,7 +12,7 @@ const [error,setError]=React.useState(false);
       setLoading(true);
      try {
       const res=await axios.get(SERVER_URL+url,{
-        withCredentials:true
+        withCredentials:false
       });
 
       setData(res.data);
