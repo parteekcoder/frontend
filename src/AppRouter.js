@@ -106,8 +106,9 @@ const AppRouter = () => {
                     <Route path='/dept/:dept/PhdScholar' element={<PhdScholar />} />
                     <Route path='/dept/:dept/PhdScholar/:id' element={<Profile peopleType="PhdScholar" />} />
                     <Route path='/dept/:dept/login' element={<FacultyLogin />} />
-                    <Route path='/dept/:dept/onClickForgotPass' element={<AfterForgotPass />} />
-                    <Route path='/dept/:dept/ChangePass' element={<ChangePass />} />
+                    <Route path='/dept/:dept/onClickForgotPass/*' element={<AfterForgotPass />} />
+                    <Route path='/dept/:dept/confirmation/:token' element={<ChangePass />} />
+
                     {/* ResearchArea */}
                     <Route path='/dept/:dept/ResearchArea' element={<ResearchArea />} />
                     <Route path='/dept/:dept/ResearchLab' element={<ResearchLab />} />
@@ -116,6 +117,7 @@ const AppRouter = () => {
                     <Route path='/dept/:dept/Projects' element={<Projects />} />
                     <Route path='/dept/:dept/Consultancy' element={<Consultancy />} />
                     <Route path='/dept/:dept/SocietyClubs' element={<Society_Clubs_Teams />} />
+
                   </Routes>
                 </div>
               </main>
