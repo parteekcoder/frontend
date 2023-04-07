@@ -1,23 +1,11 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
 
 function Programme() {
-    const Programs = [
-        {
-            Name: 'B.Tech',
-            Seats: '120 Seats'
-        }, {
-            Name: 'M.Tech',
-            Seats: '30 Seats'
-        }, {
-            Name: 'PhD',
-            Seats: ''
-        }, {
-            Name: 'PG Diploma',
-            Seats: ''
-        }
-    ]
+    const dept = useParams()?.dept;
+    const Programs = useFetch(`/dept/${dept}/programmes`).data;
     const [program, setProgram] = useState('BTech');
     const handlescroll = (id) => {
         let str = "#" + id;
@@ -28,7 +16,6 @@ function Programme() {
     useEffect(() => {
         window.scroll(0, 0);
     }, [])
-    const dept = useLocation().pathname.split('/')[2];
     const departments = {
         "it": "Information Technology",
         "cse": "Computer Science and Engineering",
