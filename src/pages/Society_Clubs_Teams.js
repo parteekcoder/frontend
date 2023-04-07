@@ -24,7 +24,7 @@ const Society_Clubs_Tems=()=> {
           <div id='scrollcontrol' className='w-full'>
             <div className="cards w-full flex snap-x overflow-x-auto scrollhide delay-200 scroll-smooth gap-x-6 px-3 pt-[80px] pb-4">
               {
-                data["Coordinator"]?.map((item, i) => {
+                data.filter((e) => e.type==="Coordinator")?.map((item, i) => {
                   return (
                     <div key={i} className="mb-0 w-full h-full">
                       <div className="w-full rounded-lg shadow shadow-blue-500 h-full bg-white">
@@ -86,7 +86,7 @@ const Society_Clubs_Tems=()=> {
           <div id='scrollcontrol3' className='w-full'>
             <div className="cards w-full flex snap-x overflow-x-auto scrollhide delay-200 scroll-smooth gap-x-6 px-3 pt-[80px] pb-4">
               {
-                data['Clubs']?.map((item, i) => {
+                data.filter((e) => e.type==="Club")?.map((item, i) => {
                   return (
                     <div key={i} className="mb-0 w-full h-full">
                       <div className="w-full rounded-lg shadow shadow-blue-500 h-full bg-white">
@@ -148,7 +148,7 @@ const Society_Clubs_Tems=()=> {
           <div id='scrollcontrol2' className='w-full'>
             <div className="cards w-full flex snap-x overflow-x-auto scrollhide delay-200 scroll-smooth gap-x-6 px-3 pt-[80px] pb-4">
               {
-                data['Team']?.map((item, i) => {
+                data.filter((e) => e.type==="Team")?.map((item, i) => {
                   return (
                     <div key={i} className="mb-0 w-full h-full">
                       <div className="w-full rounded-lg shadow shadow-blue-500 h-full bg-white">
