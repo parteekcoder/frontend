@@ -107,7 +107,7 @@ function Profile({ peopleType }) {
         try {
             window.location.reload(false);
             console.log("Logout")
-            const response = await axios.post(`${SERVER_URL}/dept/${dept}/logout`, {}, { withCredentials: true });
+            const response = await axios.post(`${SERVER_URL}/dept/${dept}/logout`, {}, { withCredentials: false });
             navigate(`/dept/${dept}/Faculty`);
         } catch (error) {
             console.log(error);
