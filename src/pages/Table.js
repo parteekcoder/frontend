@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Table({ tablehead, data }) {
+function    Table({ tablehead, data }) {
 
     const [row, setrow] = useState(8); //row per page
     const totalrow = data.length;
@@ -41,19 +41,20 @@ function Table({ tablehead, data }) {
                     <tbody>
                         {
                             data.map((Item, i) => {
-                                return (
-                                    (i >= row * (page - 1) && i < row * (page)) && <tr className="border-b">
-                                        {
-                                            tablehead.map((item, j) => {
-                                                return (
-                                                    <td key={{ i, j }} className="align-top px-6 py-4 text-gray-900 border-r">
-                                                        <span>{Item[j + 1]}</span>
-                                                    </td>
-                                                )
-                                            })
-                                        }
-                                    </tr>
-                                )
+                               
+                                    return (
+                                        (i >= row * (page - 1) && i < row * (page)) && <tr className="border-b">
+                                            {
+                                                tablehead.map((item, j) => {
+                                                    return (
+                                                        <td key={{ i, j }} className="align-top px-6 py-4 text-gray-900 border-r">
+                                                            <span>{Item[item.toUpperCase()]}</span>
+                                                        </td>
+                                                    )
+                                                })
+                                            }
+                                        </tr>
+                                    )
                             })
                         }
                     </tbody>
