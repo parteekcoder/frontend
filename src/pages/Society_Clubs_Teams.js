@@ -1,11 +1,9 @@
 import React from 'react'
 import useFetch from '../hooks/useFetch';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import Heading from '../components/Heading';
 const Society_Clubs_Tems=()=> {
-  const Society = [2, 3, 4, 5, 6, 7];
-  const url = useLocation();
-  const {data,error,loading} = useFetch(url.pathname);
+  const {data,error,loading} = useFetch(`/dept/${useParams()?.dept}/SocietyClubs`);
   const scrollNextPage = (id) => {
     const gallery = document.querySelector(id);
     const gallery_scroller = gallery.querySelector('.cards');
@@ -26,19 +24,19 @@ const Society_Clubs_Tems=()=> {
           <div id='scrollcontrol' className='w-full'>
             <div className="cards w-full flex snap-x overflow-x-auto scrollhide delay-200 scroll-smooth gap-x-6 px-3 pt-[80px] pb-4">
               {
-                Society.map((item, i) => {
+                data.filter((e) => e.type==="Coordinator")?.map((item, i) => {
                   return (
                     <div key={i} className="mb-0 w-full h-full">
                       <div className="w-full rounded-lg shadow shadow-blue-500 h-full bg-white">
                         <div className="flex justify-center w-full">
                           <div className="flex justify-center -mt-[75px]" >
-                            <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" className="rounded-full mx-auto shadow-lg border-2 border-blue-500 w-[150px]" alt=""
+                            <img src={item?.img} className="rounded-full mx-auto shadow-lg border-2 border-blue-500 w-[150px]" alt=""
                             />
                           </div>
                         </div>
                         <div className="p-6 w-72">
-                          <h5 className="text-lg font-bold mb-4">Marta Smith</h5>
-                          <p className="mb-6">Frontend Developer</p>
+                          <h5 className="text-lg font-bold mb-4">{item?.name}</h5>
+                          <p className="mb-6">{item?.title}</p>
                           <ul className="list-inside flex mx-auto justify-center">
                             <a href="#!" className="px-2">
                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" className="w-4 h-4 text-blue-600">
@@ -88,19 +86,19 @@ const Society_Clubs_Tems=()=> {
           <div id='scrollcontrol3' className='w-full'>
             <div className="cards w-full flex snap-x overflow-x-auto scrollhide delay-200 scroll-smooth gap-x-6 px-3 pt-[80px] pb-4">
               {
-                Society.map((item, i) => {
+                data.filter((e) => e.type==="Club")?.map((item, i) => {
                   return (
                     <div key={i} className="mb-0 w-full h-full">
                       <div className="w-full rounded-lg shadow shadow-blue-500 h-full bg-white">
                         <div className="flex justify-center w-full">
                           <div className="flex justify-center -mt-[75px]" >
-                            <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" className="rounded-full mx-auto shadow-lg border-2 border-blue-500 w-[150px]" alt=""
+                            <img src={item?.img} className="rounded-full mx-auto shadow-lg border-2 border-blue-500 w-[150px]" alt=""
                             />
                           </div>
                         </div>
                         <div className="p-6 w-72">
-                          <h5 className="text-lg font-bold mb-4">Marta Smith</h5>
-                          <p className="mb-6">Frontend Developer</p>
+                          <h5 className="text-lg font-bold mb-4">{item?.name}</h5>
+                          <p className="mb-6">{item?.title}</p>
                           <ul className="list-inside flex mx-auto justify-center">
                             <a href="#!" className="px-2">
                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" className="w-4 h-4 text-blue-600">
@@ -150,19 +148,19 @@ const Society_Clubs_Tems=()=> {
           <div id='scrollcontrol2' className='w-full'>
             <div className="cards w-full flex snap-x overflow-x-auto scrollhide delay-200 scroll-smooth gap-x-6 px-3 pt-[80px] pb-4">
               {
-                Society.map((item, i) => {
+                data.filter((e) => e.type==="Team")?.map((item, i) => {
                   return (
                     <div key={i} className="mb-0 w-full h-full">
                       <div className="w-full rounded-lg shadow shadow-blue-500 h-full bg-white">
                         <div className="flex justify-center w-full">
                           <div className="flex justify-center -mt-[75px]" >
-                            <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" className="rounded-full mx-auto shadow-lg border-2 border-blue-500 w-[150px]" alt=""
+                            <img src={item?.img} className="rounded-full mx-auto shadow-lg border-2 border-blue-500 w-[150px]" alt=""
                             />
                           </div>
                         </div>
                         <div className="p-6 w-72">
-                          <h5 className="text-lg font-bold mb-4">Marta Smith</h5>
-                          <p className="mb-6">Frontend Developer</p>
+                          <h5 className="text-lg font-bold mb-4">{item?.name}</h5>
+                          <p className="mb-6">{item?.title}</p>
                           <ul className="list-inside flex mx-auto justify-center">
                             <a href="#!" className="px-2">
                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" className="w-4 h-4 text-blue-600">
