@@ -5,7 +5,7 @@ import useFetch from '../hooks/useFetch'
 import {useParams } from 'react-router-dom'
 
 function Consultancy() {
-    const tablehead = ['Sr. No', "Name of Faculty (Chief Consultant)", "Client Organization", "Title of Consultancy of Project", "Amount Received (in Rupees)","Amount Received (in words)"]
+    const tablehead = ['Sr No', "Name of Faculty (Chief Consultant)", "Client Organization", "Title of Consultancy of Project", "Amount Received (in Rupees)","Amount Received (in words)"]
     // const data = [{
     //     1:'1',
     //     2:'Dr. J.K. Ratan',
