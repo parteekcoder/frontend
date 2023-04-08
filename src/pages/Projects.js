@@ -5,7 +5,7 @@ import useFetch from '../hooks/useFetch'
 import { useParams } from 'react-router-dom'
 
 function Projects() {
-    const tablehead = ['Sr No', "Project Title", "Year of sanction", "Funding Agency", "Sanction Amount"]
+    const tablehead = ['Sr No', "Project Title", "Year of sanction", "Funding Agency", "SANCTION AMOUNT RS IN LAC"]
     const {data} = useFetch(`/dept/${useParams()?.dept}/Projects`)
     // console.log(data)
     return (

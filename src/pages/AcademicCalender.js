@@ -11,7 +11,6 @@ function AcademicCalender() {
             <Heading name="Department Activities Calendar" />
             <div className='shadow shadow-blue-400 md:m-4 pb-2'>
                 <div className='flex items-center w-full py-3 font-medium text-lg px-4 shadow-md shadow-blue-200'>
-                    <span>{data[0]?.link}</span>
                 </div>
                 <OpenPdf link={data[0]?.link} />
             </div>
