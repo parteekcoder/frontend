@@ -12,7 +12,7 @@ const useFetch = (url) => {
       try {
         console.log(SERVER_URL + url);
         const res = await axios.get(SERVER_URL + url, {
-          withCredentials: false,
+          withCredentials: true,
         });
 
         setData(res.data);
