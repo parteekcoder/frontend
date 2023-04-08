@@ -61,9 +61,9 @@ function Placement({ search,cnt = Infinity }) {
                                     <img src={item.img} className="w-full h-full object-cover object-left-top rounded-full shadow-xl flex-grow-0 flex-shrink-0 border-2" />
                                 </div>
                                 <div className="flex flex-col flex-grow leading-8 mr-5 md:justify-start md:mt-0 ml-7 md:ml-9 md:mb-0 w-52">
-                                    <div className="text-[22.5px]">Riya sharma</div>
-                                    <div className="font-semibold text-[rgba(0,0,0,0.7)] text-lg tracking-wide">MicroSoft</div>
-                                    <div className="font-normal text-[rgba(0,0,0,0.7)] tracking-wide">40 L.P.A  (2019-2020)</div>
+                                    <div className="text-[22.5px]">{item?.name}</div>
+                                    <div className="font-semibold text-[rgba(0,0,0,0.7)] text-lg tracking-wide">{item?.company}</div>
+                                    <div className="font-normal text-[rgba(0,0,0,0.7)] tracking-wide">{item?.package} LPA</div>
                                 </div>
                             </div>
                         </div>
