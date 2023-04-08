@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import BaseTable from '../pages/BaseTable';
 import useFetch from '../hooks/useFetch'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import Otherprofilelink from '../forms/facultyprofile/Otherprofilelink';
 import ResearchProfile from '../forms/facultyprofile/ResearchProfile';
 import downloadpdf from './Img/download.png'
@@ -11,7 +11,7 @@ import { SERVER_URL } from '../config/server';
 import PersonalDetails from '../forms/facultyprofile/PersonalDetails';
 function Profile({ peopleType }) {
     let navigate = useNavigate()
-    const dept = useLocation().pathname.split('/')[2];
+    const dept = useParams()?.dept;
     var id = useLocation().pathname.split('/').at(-1);
     const { data, loading, error, reFetch } = useFetch(`/dept/${dept}/${peopleType}/${id}`);
 
