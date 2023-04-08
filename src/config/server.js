@@ -1,2 +1,2 @@
-const SERVER_URL="http://localhost:8000"
+const SERVER_URL="https://teamcbackend.onrender.com"
 module.exports = {SERVER_URL}
