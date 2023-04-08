@@ -49,9 +49,6 @@ function HodMessage() {
                 <p>+91-181-2690932</p>
               </div>
             </div>
-            <div className="mt-4 lg:mt-8">
-              <a className="hover:bg-black hover:shadow-lg px-4 py-2 border-2 text-accent hover:text-white transition ease-in-out duration-300" href="profile/0">View profile →</a>
-            </div>
           </div>
         </div>
       </div>

@@ -14,13 +14,13 @@ function ContactUs() {
         <div className=' w-11/12 mx-auto'>
           <div className="w-full bg-white relative flex flex-wrap py-6 rounded">
             <div className="lg:w-1/2 px-6 ">
-              <h2 className="title-font font-semibold text-gray-900 tracking-widest">ADDRESS</h2>
+              <h2 className="title-font font-semibold text-gray-900 tracking-widest">Address</h2>
               <p className="mt-1">Grand Trunk Road, Barnala Amritsar Bypass Rd Jalandhar, Punjab-144027, India</p>
             </div>
             <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
-              <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
+              <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">Email</h2>
               <span className="text-indigo-500 leading-relaxed">o{dept}@nitj.ac.in</span>
-              <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
+              <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">Phone</h2>
               <p className="leading-relaxed">111-444-7890</p>
             </div>
           </div>
