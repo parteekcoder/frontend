@@ -4,7 +4,10 @@ import { SERVER_URL } from "../config/server";
 
 function FacultyLogin() {
   let navigate = useNavigate();
-  const dept = useParams()?.dept;
+  let params = useParams();
+  const dept = params?.dept;
+  const status = params?.status;
+
 
   return (
     <section className="bg-blue-50/60 w-full">
@@ -49,12 +52,15 @@ function FacultyLogin() {
                 <input
                   type="password"
                   name="password"
-                  id="username"
+                  id="password"
                   className="bg-blue-50 border shadow-inner outline-none p-2.5 w-full focus:ring-blue-500"
                   placeholder=""
                   required=""
                 />
               </div>
+              {status!=null && status=='failed' && <p className="text-red-400">
+                Invalid Email ID and Password
+              </p>}
               <div
                 onClick={() => navigate(`/dept/${dept}/onClickForgotPass`)}
                 className="text-sm cursor-pointer hover:underline"
