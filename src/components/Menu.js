@@ -71,7 +71,7 @@ function Menu({ menu, setMenu }) {
                     link: `/dept/${dept}/Student`
                 }, {
                     l: 'Alumni',
-                    link: `/dept/${dept}/Alumni`
+                    link: `https://nitjmain.onrender.com/alumni/alumni.html`
                 }, {
                     l: 'Staff',
                     link: `/dept/${dept}/Staff`

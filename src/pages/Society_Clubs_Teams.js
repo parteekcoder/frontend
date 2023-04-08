@@ -26,11 +26,11 @@ const Society_Clubs_Tems=()=> {
               {
                 data.filter((e) => e.type==="Coordinator")?.map((item, i) => {
                   return (
-                    <div key={i} className="mb-0 w-full h-full">
+                    <div key={i} className="mb-0 w-72 h-full">
                       <div className="w-full rounded-lg shadow shadow-blue-500 h-full bg-white">
                         <div className="flex justify-center w-full">
                           <div className="flex justify-center -mt-[75px]" >
-                            <img src={item?.img} className="rounded-full mx-auto shadow-lg border-2 border-blue-500 w-[150px]" alt=""
+                            <img src={item?.img} className="rounded-full mx-auto shadow-lg border-2 border-blue-500 w-32 h-32" alt=""
                             />
                           </div>
                         </div>
@@ -88,11 +88,11 @@ const Society_Clubs_Tems=()=> {
               {
                 data.filter((e) => e.type==="Club")?.map((item, i) => {
                   return (
-                    <div key={i} className="mb-0 w-full h-full">
+                    <div key={i} className="mb-0 w-72 h-full">
                       <div className="w-full rounded-lg shadow shadow-blue-500 h-full bg-white">
                         <div className="flex justify-center w-full">
                           <div className="flex justify-center -mt-[75px]" >
-                            <img src={item?.img} className="rounded-full mx-auto shadow-lg border-2 border-blue-500 w-[150px]" alt=""
+                            <img src={item?.img} className="rounded-full mx-auto shadow-lg border-2 border-blue-500 w-32 h-32" alt=""
                             />
                           </div>
                         </div>
@@ -150,11 +150,11 @@ const Society_Clubs_Tems=()=> {
               {
                 data.filter((e) => e.type==="Team")?.map((item, i) => {
                   return (
-                    <div key={i} className="mb-0 w-full h-full">
+                    <div key={i} className="mb-0 w-72 h-full">
                       <div className="w-full rounded-lg shadow shadow-blue-500 h-full bg-white">
                         <div className="flex justify-center w-full">
                           <div className="flex justify-center -mt-[75px]" >
-                            <img src={item?.img} className="rounded-full mx-auto shadow-lg border-2 border-blue-500 w-[150px]" alt=""
+                            <img src={item?.img} className="rounded-full mx-auto shadow-lg border-2 border-blue-500 w-32 h-32" alt=""
                             />
                           </div>
                         </div>
