@@ -35,7 +35,6 @@ const Departmentmiddle = () => {
                     <div className='scrollbar max-w-full block h-80 overflow-y-auto overflow-x-clip px-3'>
                         {
                             News ? News.map((n, i) => {
-                                if(n?.sourceOfInfoDepartment == dept)
                                 return (<div key={i} className='flex flex-auto relative p-2 m-2'>
                                     <li key={i} className="hover:font-medium"><a href={`${n?.link}`}>{n?.title}</a>&nbsp;<span className="absolute pt-1 text-lg"><img className='min-w-[32px]' src={gif} alt='...' /></span>
                                     </li>
