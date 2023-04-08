@@ -183,11 +183,10 @@ function Profile({ peopleType }) {
                                                 <span title='Download Table in Excel Format' className={"w-12 cursor-pointer px-3 "}>
                                                     <img src={Exceldownloadpdf} alt="Excel download" />
                                                 </span>
-                                                {isLogin && <>
-                                                    <span className={"cursor-pointer px-3 " + (edit ? 'hidden ' : '') + (isLogin ? '' : 'hidden')}><i className="fa-solid fa-eye"></i></span>
-                                                    <span title='View as Table' className={"cursor-pointer px-3 " + (edit ? '' : 'hidden ')} onClick={() => setview()}><i className="fa-solid fa-eye-slash"></i></span>
-                                                    <span title='Add new data' className={'cursor-pointer px-3'} onClick={() => setedit()}><i className="fa-solid fa-pen-to-square"></i></span>
-                                                </>}
+                                                {isLogin && data?.validation?.status?.isFaculty &&
+                                                    <span className={"cursor-pointer px-3 " + (edit ? 'hidden ' : '') + (isLogin ? '' : 'hidden')}><i className="fa-solid fa-eye"></i></span>}
+                                                    {isLogin && data?.validation?.status?.isFaculty && <span title='View as Table' className={"cursor-pointer px-3 " + (edit ? '' : 'hidden ')} onClick={() => setview()}><i className="fa-solid fa-eye-slash"></i></span>} 
+                                                    {isLogin && data?.validation?.status?.isFaculty && <span title='Add new data' className={'cursor-pointer px-3'} onClick={() => setedit()}><i className="fa-solid fa-pen-to-square"></i></span>}
                                             </div>
                                         </div>
                                         <div className='p-2 mt-4'>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { SERVER_URL } from '../config/server';
 
 function AfterForgotPass() {
   const url = useLocation();
@@ -24,7 +25,7 @@ function AfterForgotPass() {
             <form
               className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
               method="post"
-              action={`http://localhost:8000/dept/${dept}/confirmation`}
+              action={`${SERVER_URL}/dept/${dept}/confirmation`}
             >
               <div className="mb-4">
                 <label
