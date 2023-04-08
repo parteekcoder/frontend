@@ -8,7 +8,9 @@ import Heading from './Heading';
 const Departmentmiddle = () => {
     const dept = useParams()?.dept;
     const Activity = useFetch(`/dept/${dept}/Activity`).data;
-    const News = useFetch(`/news`).data;
+    const News = useFetch(`/dept/${dept}/news`).data;
+
+    console.log(News);
 
     return (
         <>
