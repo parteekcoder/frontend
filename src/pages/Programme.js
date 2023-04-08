@@ -4,9 +4,11 @@ import { useLocation, useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 
 function Programme() {
+
     const dept = useParams()?.dept;
     const Programs = useFetch(`/dept/${dept}/programmes`).data;
     const [program, setProgram] = useState('BTech');
+
     const handlescroll = (id) => {
         let str = "#" + id;
         setProgram(id);

@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import logo from './Img/logo.png'
-function Menu({menu,setMenu}) {
+function Menu({ menu, setMenu }) {
     let navigate = useNavigate();
-    const dept= useLocation().pathname.split('/')[2];
-    const link= useLocation().pathname.split('/')[3];
+    const dept = useLocation().pathname.split('/')[2];
+    const link = useLocation().pathname.split('/')[3];
     const Link = {
-        'Home':-1,
-        'MissionandVision':0,'messageofHOD':0,'Achievement':0,'Infrastructure':0,'contactus':0,
-        'Programme':1,'Acadcord':1,'Syllabus':1,'Timetable':1,'AcademicCalender':1,
-        'Faculty':2,'PhdScholar':2,'Student':2,'Alumni':2,'Staff':2,
-        'ResearchArea':3,'DepartmentLab':3,'Publications':3,'Projects':3,'Consultancy':3,'ResearchLab':3,
-        'SocietyClubs':4
+        'Home': -1,
+        'MissionandVision': 0, 'messageofHOD': 0, 'Achievement': 0, 'Infrastructure': 0, 'contactus': 0,
+        'Programme': 1, 'Acadcord': 1, 'Syllabus': 1, 'Timetable': 1, 'AcademicCalender': 1,
+        'Faculty': 2, 'PhdScholar': 2, 'Student': 2, 'Alumni': 2, 'Staff': 2,
+        'ResearchArea': 3, 'DepartmentLab': 3, 'Publications': 3, 'Projects': 3, 'Consultancy': 3, 'ResearchLab': 3,
+        'SocietyClubs': 4
     }
     const Menu = [
         {
@@ -21,7 +21,7 @@ function Menu({menu,setMenu}) {
                 {
                     l: 'Vision and Mission',
                     link: `/dept/${dept}/MissionandVision`
-                },{
+                }, {
                     l: "HoD's Message",
                     link: `/dept/${dept}/messageofHOD`
                 }, {
@@ -43,7 +43,7 @@ function Menu({menu,setMenu}) {
                     l: 'Programmes',
                     link: `/dept/${dept}/Programme`
                 }, {
-                    l: 'Academic Coordinator',
+                    l: 'Academic Coordinators',
                     link: `/dept/${dept}/Acadcord`
                 }, {
                     l: 'Syllabus',
@@ -101,12 +101,12 @@ function Menu({menu,setMenu}) {
                     link: `/dept/${dept}/ResearchLab`
                 }
             ]
-        },{
+        }, {
             Title: 'Societies/Clubs/Teams',
             Logo: 'fa fa-user-group',
             List: [],
             link: `/dept/${dept}/SocietyClubs`
-        }, 
+        },
         // {
         //     Title: 'Join Us',
         //     Logo: 'fa fa-address-book',
@@ -114,37 +114,37 @@ function Menu({menu,setMenu}) {
         //     link: `/dept/${dept}/Home`
         // },
     ]
-    
+
     const [linkOpen, setLinkOpen] = useState(Link[link]);
-    const departments={
-        "it":"Information Technology",
-        "cse":"Computer Science and Engineering",
-        "bt":"Bio Technology",
-        "ce":"Civil Engineering",
-        "ch":"Chemical Engineering",
-        "ece":"Electronics And Communication Engineering",
-        "ee":"Electrical And Electronics Engineering",
-        "ice":"Instrumentation And Control Engineering",
-        "me":"Mechanical Engineering",
-        "ipe":"Industrial And Production Enginnering",
-        "math":"Mathematics",
-        "phy":"Physics",
-        "tt":"Textile Technology",
-        "hum":"Humaniyies",
-        "cy":"Chemistry"
-      }
-    
+    const departments = {
+        "it": "Information Technology",
+        "cse": "Computer Science and Engineering",
+        "bt": "Bio Technology",
+        "ce": "Civil Engineering",
+        "ch": "Chemical Engineering",
+        "ece": "Electronics and Communication Engineering",
+        "ee": "Electrical and Electronics Engineering",
+        "ice": "Instrumentation and Control Engineering",
+        "me": "Mechanical Engineering",
+        "ipe": "Industrial and Production Enginnering",
+        "math": "Mathematics",
+        "phy": "Physics",
+        "tt": "Textile Technology",
+        "hum": "Humaniyies",
+        "cy": "Chemistry"
+    }
+
     return (
         <>
             <div className={"z-20 overflow-y-auto bg-white scrolling-touch max-w-full lg:max-w-xs lg:max-h-[calc(100vh-4rem)] lg:block lg:sticky lg:mr-0 scrollbar lg:top-[80px]"}>
                 <span className="hidden items-center border-b border-gray-300 w-full px-2 mt-2 active:translate-y-[2px]" onClick={() => { setMenu(!menu) }}>
-                    <span className='w-8 lg:w-10 pb-1'><img src={logo} alt="logo"/></span>
+                    <span className='w-8 lg:w-10 pb-1'><img src={logo} alt="logo" /></span>
                     <span className="ml-2 font-bold py-2">{departments[dept]}</span>
                 </span>
 
                 <div className={"mr-1 lg:flex flex-col items-center w-[98%] overflow-y-auto mt-1 mb-3 py-1 " + (menu ? 'flex' : 'hidden')}>
                     <div className='w-full px-1'>
-                        <span className={"flex items-center w-full h-10 px-3 mt-2 rounded cursor-pointer active:translate-y-[2px] shadow-sm border border-gray-200/75 "+ (linkOpen===-1?'shadow-sky-600 shadow':'')} onClick={() => { navigate(`/dept/${dept}/Home`); setLinkOpen(-1); setMenu(!menu); }}>
+                        <span className={"flex items-center w-full h-10 px-3 mt-2 rounded cursor-pointer active:translate-y-[2px] shadow-sm border border-gray-200/75 " + (linkOpen === -1 ? 'shadow-sky-600 shadow' : '')} onClick={() => { navigate(`/dept/${dept}/Home`); setLinkOpen(-1); setMenu(!menu); }}>
                             <i className="pl-1 pt-[2px] w-6 h-6 stroke-current fa fa-home"></i>
                             <span className="ml-1 font-medium">Home</span>
                         </span>
@@ -153,13 +153,13 @@ function Menu({menu,setMenu}) {
                         Menu.map((item, i) => {
 
                             return (
-                                <div key={i} className={'w-[98%] mt-2 rounded '+(i === linkOpen?'shadow-sky-600 shadow':'')}>
-                                    <span className="flex items-center w-full h-10 px-3 rounded shadow-sm border border-gray-200/75 cursor-pointer" onClick={() => { item.List.length===0 && navigate(item.link); item.List.length===0 && setMenu(!menu); (i===linkOpen)?setLinkOpen(-2):setLinkOpen(i)}}>
+                                <div key={i} className={'w-[98%] mt-2 rounded ' + (i === linkOpen ? 'shadow-sky-600 shadow' : '')}>
+                                    <span className="flex items-center w-full h-10 px-3 rounded shadow-sm border border-gray-200/75 cursor-pointer" onClick={() => { item.List.length === 0 && navigate(item.link); item.List.length === 0 && setMenu(!menu); (i === linkOpen) ? setLinkOpen(-2) : setLinkOpen(i) }}>
                                         <i className={"pl-1 pt-[2px] w-6 h-6 stroke-current " + item.Logo}></i>
                                         <span className="ml-1 font-medium">{item.Title}</span>
                                     </span>
-                                    
-                                    {item.List.length>0&&(i===linkOpen)&&<ul className={"space-y-2 delay-200 overflow-hidden h-auto transition-all ml-2 p-1"}>
+
+                                    {item.List.length > 0 && (i === linkOpen) && <ul className={"space-y-2 delay-200 overflow-hidden h-auto transition-all ml-2 p-1"}>
                                         {
                                             item.List?.map((iteml, j) => {
                                                 return (
