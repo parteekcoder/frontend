@@ -1,10 +1,11 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { SERVER_URL } from "../config/server";
 
 function FacultyLogin() {
   let navigate = useNavigate();
-  const dept = useLocation().pathname.split("/")[2];
+  const dept = useParams()?.dept;
+
   return (
     <section className="bg-blue-50/60 w-full">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
