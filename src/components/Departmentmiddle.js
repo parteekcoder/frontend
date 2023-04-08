@@ -1,6 +1,6 @@
 import { React, useState } from 'react'
 import gif from "./Vedio/New.gif";
-import { useLocation, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch.js'
 import Heading from './Heading';
 
@@ -10,7 +10,6 @@ const Departmentmiddle = () => {
     const Activity = useFetch(`/dept/${dept}/Activity`).data;
     const News = useFetch(`/dept/${dept}/news`).data;
 
-    console.log(News);
 
     return (
         <>
