@@ -54,13 +54,13 @@ function AfterForgotPass() {
                 <p>Email not found in database!</p>
               )}
               <hr className="mb-6 border-t" />
-              <div className="text-center">
+              {/* <div className="text-center">
                 <Link to={{ pathname: `/dept/${dept}/Login` }}>
                   <span className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800">
                     Already have an account? Login!
                   </span>
                 </Link>
-              </div>
+              </div> */}
             </form>
           </div>
         </div>
