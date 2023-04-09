@@ -27,7 +27,7 @@ function ChangePass() {
                   </h1>
                   <form
                     className="space-y-4 md:space-y-6"
-                    action={SERVER_URL+`/dept/${dept}/confirmation/submit/${token}`}
+                    action={`${SERVER_URL}/dept/${dept}/confirmation/submit/${token}`}
                     method="POST"
                   >
                     <div>
