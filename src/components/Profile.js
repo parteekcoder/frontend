@@ -106,17 +106,6 @@ function Profile({ peopleType }) {
         setedit();
         SetEditfeild(i);
     }
-    const logout = async (e) => {
-
-        try {
-            window.location.reload();
-            var token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('session=')).split('=')[1];
-            const response = await axios.get(`${SERVER_URL}/dept/${dept}/logout/${token}`, { withCredentials: true });
-            navigate(`/dept/${dept}/Faculty`);
-        } catch (error) {
-            console.log(error);
-        }
-    }
     const scrollNextPage = () => {
         const gallery = document.querySelector('#scrollcontrol');
         const gallery_scroller = gallery.querySelector('.cards');
