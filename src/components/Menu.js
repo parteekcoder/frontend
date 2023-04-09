@@ -71,7 +71,8 @@ function Menu({ menu, setMenu }) {
                     link: `/dept/${dept}/Student`
                 }, {
                     l: 'Alumni',
-                    link: `https://nitjmain.onrender.com/alumni/alumni.html`
+                    link: `https://nitjmain.onrender.com/alumni/alumni.html`,
+                    newTab:true
                 }, {
                     l: 'Staff',
                     link: `/dept/${dept}/Staff`
@@ -163,7 +164,12 @@ function Menu({ menu, setMenu }) {
                                         {
                                             item.List?.map((iteml, j) => {
                                                 return (
-                                                    <li key={j} className="flex transition duration-75 group font-medium hover:text-blue-900 hover:scale-[1.02] cursor-pointer active:translate-y-[2px]" onClick={() => { navigate(iteml.link); setMenu(!menu) }}>
+                                                    <li key={j} className="flex transition duration-75 group font-medium hover:text-blue-900 hover:scale-[1.02] cursor-pointer active:translate-y-[2px]" onClick={() => { 
+                                                        setMenu(!menu)
+                                                        if(!iteml.newTab) navigate(iteml.link); 
+                                                        else window.open(iteml.link,"_blank")
+                                                        
+                                                        }}>
                                                         <i className="fa-sm fa-regular fa-circle-check stroke-current w-4 h-4 mr-1 pt-3"></i>
                                                         <span className="block p-1 text-sm text-gray-700 hover:text-blue-900" >{iteml.l}</span>
                                                     </li>
