@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import Error from "./Errorpage";
-
+import { SERVER_URL } from '../config/server';
 function ChangePass() {
   let url = useLocation();
   const { data, loading, error, reFetch } = useFetch(url.pathname);
@@ -27,7 +27,7 @@ function ChangePass() {
                   </h1>
                   <form
                     className="space-y-4 md:space-y-6"
-                    action={`http://localhost:8000/dept/${dept}/confirmation/submit/${token}`}
+                    action={SERVER_URL+`/dept/${dept}/confirmation/submit/${token}`}
                     method="POST"
                   >
                     <div>
