@@ -51,7 +51,7 @@ function AfterForgotPass() {
               </div>
               {status && status == "success" && <p>Email sent!</p>}
               {status && status == "failure" && (
-                <p>Email not found in database!</p>
+                <p>Email not valid for selected profile!</p>
               )}
               <hr className="mb-6 border-t" />
               {/* <div className="text-center">
