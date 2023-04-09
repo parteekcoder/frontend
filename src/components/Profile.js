@@ -109,9 +109,15 @@ function Profile({ peopleType }) {
     const logout = async (e) => {
 
         try {
+<<<<<<< HEAD
             window.location.reload();
             var token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('session=')).split('=')[1];
             const response = await axios.get(`${SERVER_URL}/dept/${dept}/logout/${token}`, { withCredentials: true });
+=======
+            window.location.reload(false);
+            console.log("Logout")
+            const response = await axios.post(`${SERVER_URL}/dept/${dept}/logout`, {}, { withCredentials: false });
+>>>>>>> 8f15065a9a3a4394d199ef5648d3d7295a026a64
             navigate(`/dept/${dept}/Faculty`);
         } catch (error) {
             console.log(error);
@@ -154,7 +160,7 @@ function Profile({ peopleType }) {
                                         <a title="Download Profile as PDF" href='#' className='w-8 sm:w-10 mt-1 mx-2 active:translate-y-[2px]'>
                                             <img src={downloadpdf} alt="download pdf" className='w-full' />
                                         </a>
-                                        <button className={"bg-[#0054A6] mx-4 text-white text-xs xl:text-base duration-500 w-20 xl:w-24 py-2 px-2 text-center h-[1.875rem] xl:h-10 shadow-md border border-[#FFD66E]  rounded hover:-translate-y-1 hover:scale-110"}><a href={`http://localhost:8000/admin/resources/Faculty/records/${id}/edit`}>Login</a></button>
+                                        <button className={"bg-[#0054A6] mx-4 text-white text-xs xl:text-base duration-500 w-20 xl:w-24 py-2 px-2 text-center h-[1.875rem] xl:h-10 shadow-md border border-[#FFD66E]  rounded hover:-translate-y-1 hover:scale-110"}><a href={`http://localhost:8000/admin/resources/Faculty/records/${id}/edit`} target='_blank' >Login</a></button>
                                         <button onClick={()=>{navigate(`/dept/${dept}/onClickForgotPass`)}}>Forgot Password</button>
                                         {/* <button onClick={() => { !data?.validation?.status?.login ? navigate(`/dept/${dept}/login`) : logout() }} className={"bg-[#0054A6] mx-4 text-white text-xs xl:text-base duration-500 w-20 xl:w-24 py-2 px-2 text-center h-[1.875rem] xl:h-10 shadow-md border border-[#FFD66E]  rounded hover:-translate-y-1 hover:scale-110"}>
                                             {!data?.validation?.status?.login ? "Login" : "Logout"}
