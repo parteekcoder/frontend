@@ -10,7 +10,7 @@ const Card = () => {
     return (
         <div className="relative w-full md:w-/2 py-4 px-7 mx-2 border bg-white shadow-lg rounded-lg mt-16 mb-6">
             <div className="absolute right-4 w-32 h-32 flex-grow-0 flex-shrink-0 flex justify-center md:justify-end -mt-20 mb-1 ml-auto mr-0">
-                <img src={club?.img} alt='Club' />
+                <img src={club?.img} className="w-full h-full object-cover object-left-top rounded-full shadow-xl flex-grow-0 flex-shrink-0" alt='Club' />
             </div>
             <span className='w-full inline-block h-[180px] overflow-hidden text-justify text-ellipsis mt-2'>
                 <h2 className="text-blue-800 text-2xl font-semibold">{club?.title}</h2>

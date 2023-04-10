@@ -3,6 +3,8 @@ import { useLocation, useParams } from 'react-router-dom';
 import Heading from '../components/Heading';
 import useFetch from '../hooks/useFetch';
 
+import classes from './c.module.css';
+
 function ContactUs() {
 
   const {data} = useFetch(`/dept/${useParams()?.dept}/contactus`);
@@ -15,10 +17,10 @@ function ContactUs() {
           <div className="w-full bg-white relative flex flex-wrap py-6 rounded">
             <div className="lg:w-1/2 px-6 ">
               <h2 className="title-font font-semibold text-gray-900 tracking-widest">Address</h2>
-              <p className="mt-1">{data?.Address}</p>
+              <p className={`mt-1 ${classes.x}` }>{data?.Address}</p>
             </div>
             <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
-              <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">Email</h2>
+              <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">Office Email</h2>
               <span className="text-indigo-500 leading-relaxed">{data?.Email}</span>
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">Phone</h2>
               <p className="leading-relaxed">{data?.Phone}</p>

@@ -19,8 +19,7 @@ function HodMessage() {
         <div className="sm:basis-2/3">
           <div className="flex flex-col items-start">
             <p className="font-semibold text-[26px] lg:text-[40px] leading-[1.3 mb-2">{data?.name}</p>
-            <p className="text-zinc-900 font-medium text-[12px] lg:text-[16px]">HOD, Dr. B R Ambedkar National Institute of
-              Technology, Jalandhar</p>
+            <p className="text-zinc-900 font-medium text-[12px] lg:text-[16px]">Head of Department</p>
             <div className="bg-accent bg-teal-600 w-[100%] h-[3px] mb-4 mt-2"></div>
             <div className="w-[100%] flex flex-col gap-[4px]">
               <div className="flex flex-row">

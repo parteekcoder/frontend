@@ -25,9 +25,9 @@ function VisionandMission() {
         </p>
       </div>
       <div className='w-[98%] rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 mt-[60px] pt-[54px] place-items-center'>
-        <Heading name="Quality Statements" />
+        <Heading name="Quality Policy" />
         <p className='px-4 text-justify justify-center'>
-          {data?.mission}
+          {data?.QualityStatements}
         </p>
       </div>
 
