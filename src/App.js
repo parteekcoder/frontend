@@ -17,7 +17,7 @@ function App() {
     "tt":"Textile Technology",
     "hum":"Humaniyies",
     "cy":"Chemistry",
-    'cee':'Center for Continuing Education','cai':'Center for Artificial Intelligence',
+    'cee':'Center for Energy and Environment','cai':'Center for Artificial Intelligence',
   }
   const arr= window.location.pathname.split('/');
   arr.forEach((ele,i)=>{
