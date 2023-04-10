@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import BaseTable from '../pages/BaseTable';
 import useFetch from '../hooks/useFetch'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import Otherprofilelink from '../forms/facultyprofile/Otherprofilelink';
 import ResearchProfile from '../forms/facultyprofile/ResearchProfile';
 import downloadpdf from './Img/download.png'
@@ -10,9 +10,12 @@ import axios from 'axios';
 import { SERVER_URL } from '../config/server';
 import PersonalDetails from '../forms/facultyprofile/PersonalDetails';
 function Profile({ peopleType }) {
+
     let navigate = useNavigate()
-    const dept = useLocation().pathname.split('/')[2];
+    const dept = useParams()?.dept;
     var id = useLocation().pathname.split('/').at(-1);
+    // var token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('session=')).split('=')[1];
+    // console.log(token);
     const { data, loading, error, reFetch } = useFetch(`/dept/${dept}/${peopleType}/${id}`);
 
     const [isLogin, setIsLogin] = useState(false);
@@ -103,16 +106,6 @@ function Profile({ peopleType }) {
         setedit();
         SetEditfeild(i);
     }
-    const logout = async (e) => {
-        try {
-            window.location.reload(false);
-            console.log("Logout")
-            const response = await axios.post(`${SERVER_URL}/dept/${dept}/logout`, {}, { withCredentials: false });
-            navigate(`/dept/${dept}/Faculty`);
-        } catch (error) {
-            console.log(error);
-        }
-    }
     const scrollNextPage = () => {
         const gallery = document.querySelector('#scrollcontrol');
         const gallery_scroller = gallery.querySelector('.cards');
@@ -150,9 +143,11 @@ function Profile({ peopleType }) {
                                         <a title="Download Profile as PDF" href='#' className='w-8 sm:w-10 mt-1 mx-2 active:translate-y-[2px]'>
                                             <img src={downloadpdf} alt="download pdf" className='w-full' />
                                         </a>
-                                        <button onClick={() => { !data?.validation?.status?.login && navigate(`/dept/${dept}/login`) }} className={"bg-[#0054A6] mx-4 text-white text-xs xl:text-base duration-500 w-20 xl:w-24 py-2 px-2 text-center h-[1.875rem] xl:h-10 shadow-md border border-[#FFD66E]  rounded hover:-translate-y-1 hover:scale-110"}>
+                                        <button className={"bg-[#0054A6] mx-4 text-white text-xs xl:text-base duration-500 w-20 xl:w-24 py-2 px-2 text-center h-[1.875rem] xl:h-10 shadow-md border border-[#FFD66E]  rounded hover:-translate-y-1 hover:scale-110"}><a href={`http://localhost:8000/admin/resources/Faculty/records/${id}/edit`} target='_blank' >Login</a></button>
+                                        <button onClick={()=>{navigate(`/dept/${dept}/onClickForgotPass`)}}>Forgot Password</button>
+                                        {/* <button onClick={() => { !data?.validation?.status?.login ? navigate(`/dept/${dept}/login`) : logout() }} className={"bg-[#0054A6] mx-4 text-white text-xs xl:text-base duration-500 w-20 xl:w-24 py-2 px-2 text-center h-[1.875rem] xl:h-10 shadow-md border border-[#FFD66E]  rounded hover:-translate-y-1 hover:scale-110"}>
                                             {!data?.validation?.status?.login ? "Login" : "Logout"}
-                                        </button>
+                                        </button> */}
                                     </div>
                                 </div>
                             </div>

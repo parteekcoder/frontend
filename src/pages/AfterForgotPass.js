@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import { SERVER_URL } from '../config/server';
 function AfterForgotPass() {
   const url = useLocation();
   const dept = url.pathname.split("/")[2];
@@ -24,7 +24,7 @@ function AfterForgotPass() {
             <form
               className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
               method="post"
-              action={`http://localhost:8000/dept/${dept}/confirmation`}
+              action={`${SERVER_URL}/dept/${dept}/confirmation`}
             >
               <div className="mb-4">
                 <label
@@ -51,16 +51,16 @@ function AfterForgotPass() {
               </div>
               {status && status == "success" && <p>Email sent!</p>}
               {status && status == "failure" && (
-                <p>Email not found in database!</p>
+                <p>Email not valid for selected profile!</p>
               )}
               <hr className="mb-6 border-t" />
-              <div className="text-center">
+              {/* <div className="text-center">
                 <Link to={{ pathname: `/dept/${dept}/Login` }}>
                   <span className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800">
                     Already have an account? Login!
                   </span>
                 </Link>
-              </div>
+              </div> */}
             </form>
           </div>
         </div>

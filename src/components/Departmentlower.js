@@ -9,8 +9,7 @@ const Departmentlower = (props) => {
   return (
     <div className='flex flex-col md:flex-row w-[98%] justify-around items-center px-2 md:px-4 place-items-center mx-auto'>
       {/* Club */}
-      <Card title="Coding Club"
-        body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae dolores deserunt ea doloremque natus error, rerum quas odio quaerat nam ex commodi hic, suscipit in a veritatis pariatur minus consequuntur!" />
+      <Card  />
       {/* HOD */}
 
       <div className="relative w-full md:w-/2 py-4 px-7 mx-2 border bg-white shadow-lg rounded-lg mt-16 mb-6">
