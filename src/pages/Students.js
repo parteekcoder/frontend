@@ -14,7 +14,7 @@ function Students() {
             <div className='shadow shadow-blue-400 md:m-4 pb-2'>
                 <div className='flex items-center w-full py-3 font-medium text-lg px-4 shadow-md shadow-blue-200'>
                     <div className='flex w-fit items-center border border-gray-300 text-gray-900 text-sm p-2 rounded'>
-                    <label htmlFor="states" className="mr-2">Branch :</label>
+                    <label htmlFor="states" className="mr-2">Batch :</label>
                     <select id="states" className="border-none outline-none" onChange={(e) =>{
                         setState(e.target.value);
                     }}>

@@ -20,7 +20,7 @@ const Society_Clubs_Tems = () => {
   const Intialize = () => {
     data?.map((item) => {
       item.type === "Club" && setClub(true)
-      item.type === "Coordinator" && setSoceity(true)
+      item.type === "Society" && setSoceity(true)
       item.type === "Team" && setTeam(true)
     })
   }

@@ -37,7 +37,11 @@ function Navbar({menu,setMenu}) {
                     <div className='flex items-center justify-center'>
                         <img className="w-[3.5rem] inline mx-2 cursor-pointer" src={logo} alt="logo" />
                         <div className="text-lg sm:text-xl ml-2 leading-5 text-[#0054A6]  cursor-pointer font-bold">
-                            <a href="#"> {departments[dept]}</a>
+                            <div className='flex-col py-8'>
+            
+                            <a href="#">Department of {departments[dept]}</a>
+                            <div >Dr. B.R Ambedkar National Institute of Technology, Jalandhar</div>
+                            </div>
                         </div>
                     </div>
 
@@ -50,8 +54,8 @@ function Navbar({menu,setMenu}) {
 
                     <li className="m-4 lg:mr-4 xl:m-4 my-6 lg:my-0">
                         <a target='_blank' href="https://nitjmain.onrender.com/" className="flex items-center justify-center text-[#0054A6] hover:text-[#D3D3D3] duration-500 ">
-                            <i className="fa-xl fa-solid fa-house"></i>
                             <span className='hidden sm:block text-lg font-bold mx-2 mt-1'>NITJ Home</span>
+                            <i className="fa-xl fa-solid fa-house"></i>
                         </a>
                     </li>
                 </ul>
