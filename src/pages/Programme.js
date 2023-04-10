@@ -7,7 +7,7 @@ function Programme() {
 
     const dept = useParams()?.dept;
     const Programs = useFetch(`/dept/${dept}/programmes`).data;
-    const [program, setProgram] = useState(-1); //B.Tech
+    const [program, setProgram] = useState(0); //B.Tech
     const [programInfo,setProgramInfo] = useState({
          curriculum :"",
          programOutcomes : "",
@@ -66,7 +66,7 @@ function Programme() {
                                 return (
                                     <div key={i} className="py-4 min-w-[250px] max-w-[330px] w-full mx-2">
                                         <div className={"border-2 border-gray-200 py-6 rounded-lg active:translate-y-[2px] cursor-pointer " + (i === program ? 'shadow-lg bg-blue-100 shadow-blue-400' : '')} onClick={() => {
-                                            handlescroll(item.Name);
+                                            // handlescroll(item.Name);/
                                             setProgram(i);
                                             setProgramInfo({
                                                 curriculum:item?item["Curriculum"]:"",
