@@ -37,7 +37,11 @@ function Navbar({menu,setMenu}) {
                     <div className='flex items-center justify-center'>
                         <img className="w-[3.5rem] inline mx-2 cursor-pointer" src={logo} alt="logo" />
                         <div className="text-lg sm:text-xl ml-2 leading-5 text-[#0054A6]  cursor-pointer font-bold">
-                            <a href="#"> {departments[dept]}</a>
+                            <div className='flex-col py-8'>
+            
+                            <a href="#">Department of {departments[dept]}</a>
+                            <div >Dr. B.R Ambedkar National Institute of Technology, Jalandhar</div>
+                            </div>
                         </div>
                     </div>
 
@@ -49,27 +53,11 @@ function Navbar({menu,setMenu}) {
                 <ul className="lg:flex lg:items-center z-50 lg:z-auto lg:relative absolute bg-white w-full lg:h-[5rem] lg:top-0 lg:w-auto lg:py-0 py-4 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
 
                     <li className="m-4 lg:mr-4 xl:m-4 my-6 lg:my-0">
-                        <a href="" className="text-xs xl:text-base w-auto h-[1rem] text-[#0054A6] hover:text-[#D3D3D3] duration-500 ">
+                        <a target='_blank' href="https://nitjmain.onrender.com/" className="flex items-center justify-center text-[#0054A6] hover:text-[#D3D3D3] duration-500 ">
+                            <span className='hidden sm:block text-lg font-bold mx-2 mt-1'>NITJ Home</span>
                             <i className="fa-xl fa-solid fa-house"></i>
                         </a>
                     </li>
-
-
-                    {/* <li className="m-4 lg:mr-4 xl:m-4 my-6 lg:my-0">
-                        <a href="givingback.html" className="text-xs xl:text-base w-auto h-[1rem] text-black hover:text-[#D3D3D3] duration-500 ">GIVING BACK</a>
-                    </li>
-                    <li className="m-4 lg:mr-4 xl:m-4 my-6 lg:my-0">
-                        <a href="#" className="text-xs xl:text-base w-auto h-[1rem] text-black hover:text-[#D3D3D3] duration-500 ">
-                            CHAPTERS</a>
-                    </li> */}
-
-                    {/* <li className="m-4 lg:mr-4 xl:m-4 my-6 lg:my-0">
-                        <a href="" className="text-xs xl:text-base w-auto h-[1rem] text-black font-bold hover:text-[#D3D3D3] duration-500 ">LOGIN</a>
-                    </li> */}
-
-                    
-
-
                 </ul>
             </nav>
         </div>
