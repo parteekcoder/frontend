@@ -1,30 +1,30 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 
 function Programme() {
 
     const dept = useParams()?.dept;
     const Programs = useFetch(`/dept/${dept}/programmes`).data;
-    const [program, setProgram] = useState('BTech');
-    const programInfo = useFetch(`/dept/${dept}/programmeInfo`).data;
+    const [program, setProgram] = useState(-1); //B.Tech
+    const [programInfo,setProgramInfo] = useState({
+         curriculum :"",
+         programOutcomes : "",
+         programEducationalObjectives :""
+    });
 
-    let curriculum = "";
-    let programOutcomes = "";
-    let programEducationalObjectives = "";
-
-    for(let x in programInfo){
-        if(programInfo[x]["type"]=='Curriculum'){
-            curriculum = programInfo[x]["description"];
-        }
-        else if(programInfo[x]["type"]=='Program Outcomes'){
-            programOutcomes = programInfo[x]["description"];
-        }
-        else if(programInfo[x]["type"]=='Program Educational Objectives'){
-            programEducationalObjectives = programInfo[x]["description"];
-        }
-    }
+    // for(let x in programInfo){
+    //     if(programInfo[x]["type"]=='Curriculum'){
+    //         curriculum = programInfo[x]["description"];
+    //     }
+    //     else if(programInfo[x]["type"]=='Program Outcomes'){
+    //         programOutcomes = programInfo[x]["description"];
+    //     }
+    //     else if(programInfo[x]["type"]=='Program Educational Objectives'){
+    //         programEducationalObjectives = programInfo[x]["description"];
+    //     }
+    // }
 
     const handlescroll = (id) => {
         let str = "#" + id;
@@ -65,10 +65,18 @@ function Programme() {
                             Programs.map((item, i) => {
                                 return (
                                     <div key={i} className="py-4 min-w-[250px] max-w-[330px] w-full mx-2">
-                                        <div className={"border-2 border-gray-200 py-6 rounded-lg active:translate-y-[2px] cursor-pointer " + (item.Name === program ? 'shadow-lg bg-blue-100 shadow-blue-400' : '')} onClick={() => handlescroll(item.Name)}>
+                                        <div className={"border-2 border-gray-200 py-6 rounded-lg active:translate-y-[2px] cursor-pointer " + (i === program ? 'shadow-lg bg-blue-100 shadow-blue-400' : '')} onClick={() => {
+                                            handlescroll(item.Name);
+                                            setProgram(i);
+                                            setProgramInfo({
+                                                curriculum:item?item["Curriculum"]:"",
+                                                programEducationalObjectives:item?item["Program Educational Objectives"]:"",
+                                                programOutcomes:item?item["Program Outcomes"]:""
+                                            })
+                                        }}>
                                             <i className="fa fa-graduation-cap text-blue-400 text-5xl m-3"></i>
                                             <h2 className="title-font font-medium text-2xl text-gray-900">{item.Name}</h2>
-                                            <p className="text-sm py-1 leading-relaxed">({departments[dept]})</p>
+                                            <p className="text-sm py-1 leading-relaxed">{item?.branch}</p>
                                             
                                         </div>
                                     </div>
@@ -81,14 +89,14 @@ function Programme() {
                     <div className='mx-2 lg:mx-12 mb-8'>
                         <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
                             <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[400] text-[#fff] shadow-lg rounded-3xl text-xl sm:text-2xl'>Curriculum</div>
-                            <p className='mx-2 my-4'>{curriculum}</p>
+                            <p className='mx-2 my-4'>{programInfo?.curriculum}</p>
                         </div>
                     </div>
                     <div className='mx-2 lg:mx-12 mb-8'>
                         <div className='w-full rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
                             <div className='absolute -mt-[78px] p-2 px-4 bg-[rgba(0,105,140,1)] font-[400] text-[#fff] shadow-lg rounded-3xl text-xl sm:text-2xl'>Program Outcomes</div>
                             <ol className='list-decimal'>
-                                <li className='ml-8 mb-3'>{programOutcomes}</li>
+                                <li className='ml-8 mb-3'>{programInfo?.programOutcomes}</li>
                             </ol>
                         </div>
                     </div>
@@ -99,7 +107,7 @@ function Programme() {
                                 <div className='mx-2 mb-3'>
                                     <h2 className='text-black font-medium'>
                                         <i className="fas fa-lightbulb"></i>  PEO-1</h2>
-                                    <p>{programEducationalObjectives}</p>
+                                    <p>{programInfo?.programEducationalObjectives}</p>
                                 </div>
                             </div>
                         </div>
