@@ -5,10 +5,10 @@ import Error from "./Errorpage";
 import { SERVER_URL } from '../config/server';
 function ChangePass() {
   let url = useLocation();
+  const status = url.pathname.split("/")[5];
   const { data, loading, error, reFetch } = useFetch(url.pathname);
   const dept = url.pathname.split("/")[2];
   const token = url.pathname.split("/")[4];
-
 
   return (
     <>
@@ -60,7 +60,7 @@ function ChangePass() {
                         required=""
                       />
                     </div>
-
+                    {status && status == 'passwordMismatch' && <div>Both passwords should match</div>}
                     <button
                       type="submit"
                       className="w-[80%] block text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none shadow font-medium rounded-lg text-sm px-5 py-2.5 text-center mx-auto"
