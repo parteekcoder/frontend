@@ -37,7 +37,7 @@ function Achievements() {
 
               
 
-                  <div className="flex flex-col flex-grow leading-8 mr-5 text-start justify-start ml-9 w-56">
+                  <div className="flex flex-col flex-grow leading-8 mr-5 text-start justify-start ml-9 w-40 xl:w-56">
                     <div className="text-2xl font-semibold">{item?.title}</div>
                     <div className="text-blue-600 text-xl font-medium tracking-wide">{item?.count}</div>
 
