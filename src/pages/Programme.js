@@ -6,7 +6,7 @@ import useFetch from '../hooks/useFetch';
 function Programme() {
 
     const dept = useParams()?.dept;
-    const Programs = useFetch(`/dept/${dept}/programmes`).data;
+    const Programs = useFetch(`/dept/${dept}/programmeInfo`).data;
     const [program, setProgram] = useState(0); //B.Tech
     const [programInfo,setProgramInfo] = useState({
          curriculum :"",
