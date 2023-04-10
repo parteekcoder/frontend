@@ -4,7 +4,6 @@ import { useLocation } from 'react-router-dom';
 
 function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild,isLogin ,faculty,title}) {
     const [changedata, setChangedata] = useState(data);
-    console.log(data)
     const Setdata = () => {
         var val = Editfeild < 0 ? 0 : Editfeild;
         setChangedata(data[val])

@@ -34,7 +34,8 @@ function Programme() {
         "phy": "Physics",
         "tt": "Textile Technology",
         "hum": "Humaniyies",
-        "cy": "Chemistry"
+        "cy": "Chemistry",
+        'cee':'Center for Continuing Education','cai':'Center for Artificial Intelligence',
     }
     return (
         <>
