@@ -6,8 +6,9 @@ import { useParams } from 'react-router-dom';
 function Students() {
 
  
-    const [state,setState] = useState(2021);
-    const {data} = useFetch(`/dept/${useParams()?.dept}/Student?q=${state}`);
+    const [state,setState] = useState("2021");
+    const {data} = useFetch(`/dept/${useParams()?.dept}/Student`);
+
     return (
         <div className='w-[98%] rounded-[9px] border border-[rgba(0,105,140,0.2)] p-4 mx-1 xl:mx-3 my-[60px] pt-[54px] place-items-center'>
             <Heading name="Students" />
@@ -18,15 +19,16 @@ function Students() {
                     <select id="states" className="border-none outline-none" onChange={(e) =>{
                         setState(e.target.value);
                     }}>
-                        <option value={2021}>2021</option>
-                        <option value={2020}>2020</option>
-                        <option value={2019}>2019</option>
-                        <option value={2018}>2018</option>
+                        {
+                            data?.map((ele) => {
+                                return <option value={ele?.year}>{ele?.year}</option>
+                            })
+                        }
                     </select>
                     </div>
                 </div>
 
-                <OpenPdf link={data?.link} />
+                <OpenPdf link={data?.find((ele) => ele.year==state)?.link} />
             </div>
             
         </div>
