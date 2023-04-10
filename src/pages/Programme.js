@@ -10,21 +10,9 @@ function Programme() {
     const [program, setProgram] = useState(0); //B.Tech
     const [programInfo,setProgramInfo] = useState({
          curriculum :"",
-         programOutcomes : "",
+         programOutcomes :"",
          programEducationalObjectives :""
     });
-
-    // for(let x in programInfo){
-    //     if(programInfo[x]["type"]=='Curriculum'){
-    //         curriculum = programInfo[x]["description"];
-    //     }
-    //     else if(programInfo[x]["type"]=='Program Outcomes'){
-    //         programOutcomes = programInfo[x]["description"];
-    //     }
-    //     else if(programInfo[x]["type"]=='Program Educational Objectives'){
-    //         programEducationalObjectives = programInfo[x]["description"];
-    //     }
-    // }
 
     const handlescroll = (id) => {
         let str = "#" + id;
@@ -75,7 +63,7 @@ function Programme() {
                                             })
                                         }}>
                                             <i className="fa fa-graduation-cap text-blue-400 text-5xl m-3"></i>
-                                            <h2 className="title-font font-medium text-2xl text-gray-900">{item.Name}</h2>
+                                            <h2 className="title-font font-medium text-2xl text-gray-900">{item["Program of Study"]}</h2>
                                             <p className="text-sm py-1 leading-relaxed">{item?.branch}</p>
                                             
                                         </div>
