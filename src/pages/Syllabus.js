@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import syllabuspdf from '../components/Pdf/syllabus.pdf'
 import OpenPdf from './OpenPdf'
 import Heading from '../components/Heading'
 import { useParams } from 'react-router-dom'
