@@ -7,7 +7,7 @@ function PhdScholar() {
     const {data,loading,error,reFetch}=useFetch(url.pathname);
     
     return (
-        <People Title="Phd Scholars" Data={data}/>
+        <People Title="PhD Scholars" Data={data}/>
     )
 }
 

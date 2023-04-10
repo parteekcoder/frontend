@@ -69,7 +69,7 @@ function Programme() {
                                             <i className="fa fa-graduation-cap text-blue-400 text-5xl m-3"></i>
                                             <h2 className="title-font font-medium text-2xl text-gray-900">{item.Name}</h2>
                                             <p className="text-sm py-1 leading-relaxed">({departments[dept]})</p>
-                                            <p className="p-1 font-bold leading-relaxed">{item.Seats}</p>
+                                            
                                         </div>
                                     </div>
                                 )

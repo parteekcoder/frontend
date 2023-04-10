@@ -19,7 +19,7 @@ function Menu({ menu, setMenu }) {
             Logo: 'fa fa-info',
             List: [
                 {
-                    l: 'Vision and Mission',
+                    l: 'Vision and Missions',
                     link: `/dept/${dept}/MissionandVision`
                 }, {
                     l: "HoD's Message",
