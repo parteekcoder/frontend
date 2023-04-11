@@ -13,7 +13,9 @@ function Profile({ peopleType }) {
     let navigate = useNavigate()
     const dept = useParams()?.dept;
     var id = useLocation().pathname.split('/').at(-1);
-    const { data, loading, error, reFetch } = useFetch(`/dept/${dept}/${peopleType}/${id}`);
+    var token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('session=')).split('=')[1];
+    console.log(token);
+    const { data, loading, error, reFetch } = useFetch(`/dept/${dept}/${peopleType}/${id}/${token}`);
 
     const [isLogin, setIsLogin] = useState(false);
     useEffect(() => {
@@ -106,7 +108,8 @@ function Profile({ peopleType }) {
     const logout = async (e) => {
         try {
             window.location.reload();
-            const response = await axios.get(`${SERVER_URL}/dept/${dept}/logout`, { withCredentials: true });
+            var token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('session=')).split('=')[1];
+            const response = await axios.get(`${SERVER_URL}/dept/${dept}/logout/${token}`, { withCredentials: true });
             navigate(`/dept/${dept}/Faculty`);
         } catch (error) {
             console.log(error);
