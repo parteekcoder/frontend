@@ -43,7 +43,7 @@ function Programme() {
                 <div className="container flex flex-col px-5 py-12 mx-auto" style={{ height: "100%" }}>
                     <div className="flex flex-col text-center w-full mb-20">
                         <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Programmes of Study</h1>
-                        <p className="lg:w-2/3 mx-auto leading-relaxed text-base">The Department offers following Undergraduate, Postgraduate and Research Programmes in <b>{departments[dept]}</b></p>
+                        <p className="lg:w-2/3 mx-auto leading-relaxed text-base">The Department offers following Undergraduate, Postgraduate and Research Programmes</p>
                     </div>
                     <div className="flex flex-auto overflow-x-auto -m-4 place-items-center text-center scrollbar">
                         {
