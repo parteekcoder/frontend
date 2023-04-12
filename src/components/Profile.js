@@ -170,9 +170,9 @@ function Profile({ peopleType }) {
                                         </div>
                                     </div>
                                     <div className="flex mx-2">
-                                        <a title="Download Profile as PDF" href='#' className='w-8 sm:w-10 mt-1 mx-2 active:translate-y-[2px]'>
+                                        {/* <a title="Download Profile as PDF" href='#' className='w-8 sm:w-10 mt-1 mx-2 active:translate-y-[2px]'>
                                             <img src={downloadpdf} alt="download pdf" className='w-full' />
-                                        </a>
+                                        </a> */}
                                         <button onClick={() => { !data?.validation?.status?.login ? navigate(`/dept/${dept}/login`) : logout() }} className={"bg-[#0054A6] mx-4 text-white text-xs xl:text-base duration-500 w-20 xl:w-24 py-2 px-2 text-center h-[1.875rem] xl:h-10 shadow-md border border-[#FFD66E]  rounded hover:-translate-y-1 hover:scale-110"}>
                                             {!data?.validation?.status?.login ? "Login" : "Logout"}
                                         </button>
@@ -204,13 +204,13 @@ function Profile({ peopleType }) {
                                         <div className="flex justify-between items-center my-2 shadow-lg py-2 rounded-t border">
                                             <div className="text-lg font-medium px-3 py-1">{Link[active]?.Title}</div>
                                             <div className='flex items-center justify-center mx-2'>
-                                                <span title='Download Table in Excel Format' className={"w-12 cursor-pointer px-3 "}>
+                                                {/* <span title='Download Table in Excel Format' className={"w-12 cursor-pointer px-3 "}>
                                                     <img src={Exceldownloadpdf} alt="Excel download" />
-                                                </span>
+                                                </span> */}
                                                 {isLogin && data?.validation?.status?.isFaculty &&
                                                      <span className={"cursor-pointer px-3 " + (edit ? 'hidden ' : '') + (isLogin ? '' : 'hidden')}><i className="fa-solid fa-eye"></i></span>}
                                                      {isLogin && data?.validation?.status?.isFaculty && <span title='View as Table' className={"cursor-pointer px-3 " + (edit ? '' : 'hidden ')} onClick={() => setview()}><i className="fa-solid fa-eye-slash"></i></span>} 
-                                                     {(isLogin && data?.validation?.status?.isFaculty && Link[active].Title!="Personal Details" ) && <span title='Add new data' className={'cursor-pointer px-3'} onClick={() => setedit()}><i className="fa-solid fa-pen-to-square"></i></span>}
+                                                     {(isLogin && data?.validation?.status?.isFaculty && Link[active].Title!="Personal Details" ) && <span title='Add new data' className={'cursor-pointer px-3'} onClick={() => setedit()}><i className="fa fa-plus"></i></span>}
                                             </div>
                                         </div>
                                         <div className='p-2 mt-4'>
