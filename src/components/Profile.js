@@ -13,7 +13,18 @@ function Profile({ peopleType }) {
     let navigate = useNavigate()
     const dept = useParams()?.dept;
     var id = useLocation().pathname.split('/').at(-1);
-    var token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('session=')).split('=')[1];
+    var token = "";
+    console.log(document.cookie);
+    if(document.cookie){
+        var initialArr = document.cookie.split(';');
+        if(initialArr.length){
+            var values = initialArr.find(cookie => cookie.trim().startsWith('session='));
+
+            if(values){
+                token = values.split('=')[1];
+            }
+        }
+    }
     console.log(token);
     const { data, loading, error, reFetch } = useFetch(`/dept/${dept}/${peopleType}/${id}/${token}`);
 
@@ -108,7 +119,17 @@ function Profile({ peopleType }) {
     const logout = async (e) => {
         try {
             window.location.reload();
-            var token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('session=')).split('=')[1];
+            var token = "";
+            if(document.cookie){
+                var initialArr = document.cookie.split(';');
+                if(initialArr.length){
+                    var values = initialArr.find(cookie => cookie.trim().startsWith('session='));
+        
+                    if(values){
+                        token = values.split('=')[1];
+                    }
+                }
+            }
             const response = await axios.get(`${SERVER_URL}/dept/${dept}/logout/${token}`, { withCredentials: true });
             navigate(`/dept/${dept}/Faculty`);
         } catch (error) {

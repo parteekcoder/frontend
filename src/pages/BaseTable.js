@@ -21,6 +21,17 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild,isLogin 
         setPage(1)
     }, [changedata,row,title])
     console.log(title);
+    var token = "";
+    if(document.cookie){
+        var initialArr = document.cookie.split(';');
+        if(initialArr.length){
+            var values = initialArr.find(cookie => cookie.trim().startsWith('session='));
+
+            if(values){
+                token = values.split('=')[1];
+            }
+        }
+    }
     const handleSubmit=async(e)=>{
         
         let newRow = {};
@@ -34,8 +45,9 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild,isLogin 
         if(Editfeild<0)
         data.push(newRow);
         else data[Editfeild] = newRow;
+        console.log(newRow);
         try {
-            await axios.put(`${SERVER_URL}/dept/${dept}/Faculty/${faculty._id}?q=${title}`,data);
+            await axios.put(`${SERVER_URL}/dept/${dept}/Faculty/${faculty._id}/${token}?q=${title}`,data);
         } catch (error) {
             console.log(error);
         }
@@ -56,7 +68,7 @@ function BaseTable({ edit, tablehead, data, Editfeild, HandleEdit,feild,isLogin 
                 <div className="mt-10 sm:mt-0 shadow-md border-2 rounded">
                     <div className="">
                         <div className="mt-5 md:mt-0">
-                            <form  onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit}>
                                 <div className="overflow-hidden sm:rounded-md">
                                     <div className="bg-white px-4 py-5 sm:p-6">
                                         <div className="grid grid-cols-6 gap-6">

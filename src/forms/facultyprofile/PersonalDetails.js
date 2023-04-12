@@ -1,4 +1,6 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
+import { SERVER_URL } from '../../config/server';
 
 function PersonalDetails({ edit, data }) {
     const tablehead = ['Name', 'Designation', 'Department', 'Qualification', 'Address', 'Phone', 'Email ID', 'Fax'];
@@ -6,7 +8,20 @@ function PersonalDetails({ edit, data }) {
     const address = ['address1', 'address2', 'city', 'pin', 'state']
     const Phone = data['address']['phone']
     const Fax = data['address']['fax']
-    console.log(data)
+    const dept = useParams()?.dept;
+    const id = useParams()?.id;
+    var token = "";
+    if(document.cookie){
+        var initialArr = document.cookie.split(';');
+        if(initialArr.length){
+            var values = initialArr.find(cookie => cookie.trim().startsWith('session='));
+
+            if(values){
+                token = values.split('=')[1];
+            }
+        }
+    }
+
     const departments = {
         "it": "Information Technology",
         "cse": "Computer Science and Engineering",
@@ -21,7 +36,7 @@ function PersonalDetails({ edit, data }) {
         "math": "Mathematics",
         "phy": "Physics",
         "tt": "Textile Technology",
-        "hum": "Humaniyies",
+        "hum": "Humanities",
         "cy": "Chemistry"
     }
     return (
@@ -30,7 +45,7 @@ function PersonalDetails({ edit, data }) {
                 edit ? <div className="mt-10 sm:mt-0 shadow-md border-2 rounded">
                     <div className="">
                         <div className="mt-5 md:mt-0">
-                            <form>
+                            <form action={`${SERVER_URL}/dept/${dept}/Faculty/${id}/${token}`} method='POST'>
                                 <div className="overflow-hidden sm:rounded-md">
                                     <div className="bg-white px-4 py-5 sm:p-6">
                                         <div className="grid grid-cols-6 gap-6">
