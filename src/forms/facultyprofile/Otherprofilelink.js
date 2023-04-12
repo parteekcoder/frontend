@@ -5,21 +5,29 @@ import { SERVER_URL } from '../../config/server';
 
 function Otherprofilelink({ edit, data }) {
     const dept = useLocation().pathname.split('/')[2];
-    console.log(data)
-    const [link, setLink] = useState(data['personal_link'] ? data['personal_link'][0]['Personal Link'] : '');
-    const [googlelink, setGooglelink] = useState(data['personal_link'] ? data['personal_link'][0]['Google Scholar Link'] : '');
-    const handleSubmit = async (e) => {
+    const [link, setLink] = useState(data['personal_link'] ? data['personal_link']['Personal Link'] : '');
+    const [googlelink, setGooglelink] = useState(data['personal_link'] ? data['personal_link']['Google Scholar Link'] : '');
+    var token = "";
+    if(document.cookie){
+        var initialArr = document.cookie.split(';');
+        if(initialArr.length){
+            var values = initialArr.find(cookie => cookie.trim().startsWith('session='));
 
-        let newRow = {};
-        const formdata = new FormData(e.target);
-        for (let [key, value] of formdata.entries()) {
-            newRow = {
-                ...newRow,
-                [key]: value
+            if(values){
+                token = values.split('=')[1];
             }
         }
+    }
+    const handleSubmit = async (e) => {
+
+        let newRow = {
+            "Google Scholar Link":googlelink,
+            
+            "Personal Link":link
+        };
+        
         try {
-            await axios.put(`${SERVER_URL}/dept/${dept}/Faculty/${data._id}?q=personal_link`, newRow);
+            await axios.put(`${SERVER_URL}/dept/${dept}/Faculty/${data._id}/${token}?q=personal_link`, newRow);
         } catch (error) {
             console.log(error);
         }

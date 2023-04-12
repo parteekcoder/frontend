@@ -7,6 +7,17 @@ function ResearchProfile({ edit,data ,faculty}) {
     const dept = useLocation().pathname.split('/')[2];
     const [interset, setInterset] = useState(data[0]['Research Interests']);
     const [researchlink, setResearchlink] = useState(data[0]['Brief Research Profile'])
+    var token = "";
+    if(document.cookie){
+        var initialArr = document.cookie.split(';');
+        if(initialArr.length){
+            var values = initialArr.find(cookie => cookie.trim().startsWith('session='));
+
+            if(values){
+                token = values.split('=')[1];
+            }
+        }
+    }
     const handleSubmit=async(e)=>{
 
         let newRow = {};
@@ -19,7 +30,7 @@ function ResearchProfile({ edit,data ,faculty}) {
         }
 
         try {
-            await axios.put(`${SERVER_URL}/dept/${dept}/Faculty/${faculty._id}?q=research_profile`,newRow);
+            await axios.put(`${SERVER_URL}/dept/${dept}/Faculty/${faculty._id}/${token}?q=research_profile`,newRow);
         } catch (error) {
             console.log(error);
         }
