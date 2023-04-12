@@ -16,7 +16,8 @@ function App() {
     "phy":"Physics",
     "tt":"Textile Technology",
     "hum":"Humaniyies",
-    "cy":"Chemistry"
+    "cy":"Chemistry",
+    'cee':'Center for Energy and Environment','cai':'Center for Artificial Intelligence',
   }
   const arr= window.location.pathname.split('/');
   arr.forEach((ele,i)=>{

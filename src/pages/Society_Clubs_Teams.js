@@ -20,7 +20,7 @@ const Society_Clubs_Tems = () => {
   const Intialize = () => {
     data?.map((item) => {
       item.type === "Club" && setClub(true)
-      item.type === "Coordinator" && setSoceity(true)
+      item.type === "Societies" && setSoceity(true)
       item.type === "Team" && setTeam(true)
     })
   }
@@ -39,7 +39,7 @@ const Society_Clubs_Tems = () => {
             <div id='scrollcontrol' className='w-full'>
               <div className="cards w-full flex snap-x overflow-x-auto scrollhide delay-200 scroll-smooth gap-x-6 px-3 pt-[80px] pb-4">
                 {
-                  data.filter((e) => e.type === "Coordinator")?.map((item, i) => {
+                  data.filter((e) => e.type === "Societies")?.map((item, i) => {
                     return (
                       <div key={i} className="mb-0 w-72 h-full">
                         <div className="w-full rounded-lg shadow shadow-blue-500 h-full bg-white">

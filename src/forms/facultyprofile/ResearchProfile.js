@@ -21,7 +21,7 @@ function ResearchProfile({ edit,data ,faculty}) {
         try {
             await axios.put(`${SERVER_URL}/dept/${dept}/Faculty/${faculty._id}?q=research_profile`,newRow);
         } catch (error) {
-            console.log(error);
+            
         }
     }
     return (

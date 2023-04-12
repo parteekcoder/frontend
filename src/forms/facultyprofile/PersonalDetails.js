@@ -6,7 +6,6 @@ function PersonalDetails({ edit, data }) {
     const address = ['address1', 'address2', 'city', 'pin', 'state']
     const Phone = data['address']['phone']
     const Fax = data['address']['fax']
-    console.log(data)
     const departments = {
         "it": "Information Technology",
         "cse": "Computer Science and Engineering",
@@ -22,7 +21,8 @@ function PersonalDetails({ edit, data }) {
         "phy": "Physics",
         "tt": "Textile Technology",
         "hum": "Humaniyies",
-        "cy": "Chemistry"
+        "cy": "Chemistry",
+        'cee':'Center for Energy and Environment','cai':'Center for Artificial Intelligence',
     }
     return (
         <div>

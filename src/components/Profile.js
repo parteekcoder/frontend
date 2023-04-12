@@ -135,7 +135,7 @@ function Profile({ peopleType }) {
                                         <div className="flex-none w-auto max-w-full px-3 my-auto">
                                             <div className="h-full">
                                                 <h5 className="mb-1 text-gray-700 text-xl font-semibold">{item?.name}</h5>
-                                                <p title={item?.position} className="ml-2 text-zinc-500 mb-0 font-medium leading-normal sm:w-96 whitespace-nowrap overflow-hidden">{item?.position}</p>
+                                                <p title={item?.position} className="text-zinc-500 mb-0 font-medium leading-normal sm:w-96 whitespace-nowrap overflow-hidden">{item?.position}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +143,7 @@ function Profile({ peopleType }) {
                                         <a title="Download Profile as PDF" href='#' className='w-8 sm:w-10 mt-1 mx-2 active:translate-y-[2px]'>
                                             <img src={downloadpdf} alt="download pdf" className='w-full' />
                                         </a>
-                                        <button className={"bg-[#0054A6] mx-4 text-white text-xs xl:text-base duration-500 w-20 xl:w-24 py-2 px-2 text-center h-[1.875rem] xl:h-10 shadow-md border border-[#FFD66E]  rounded hover:-translate-y-1 hover:scale-110"}><a href={`http://localhost:8000/admin/resources/Faculty/records/${id}/edit`} target='_blank' >Login</a></button>
+                                        <button className={"bg-[#0054A6] mx-4 text-white text-xs xl:text-base duration-500 w-20 xl:w-24 py-2 px-2 text-center h-[1.875rem] xl:h-10 shadow-md border border-[#FFD66E]  rounded hover:-translate-y-1 hover:scale-110"}><a href={`${SERVER_URL}/admin/resources/Faculty/records/${id}/show`} target='_blank' >Login</a></button>
                                         <button onClick={()=>{navigate(`/dept/${dept}/onClickForgotPass`)}}>Forgot Password</button>
                                         {/* <button onClick={() => { !data?.validation?.status?.login ? navigate(`/dept/${dept}/login`) : logout() }} className={"bg-[#0054A6] mx-4 text-white text-xs xl:text-base duration-500 w-20 xl:w-24 py-2 px-2 text-center h-[1.875rem] xl:h-10 shadow-md border border-[#FFD66E]  rounded hover:-translate-y-1 hover:scale-110"}>
                                             {!data?.validation?.status?.login ? "Login" : "Logout"}

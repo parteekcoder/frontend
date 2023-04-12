@@ -19,7 +19,7 @@ function Menu({ menu, setMenu }) {
             Logo: 'fa fa-info',
             List: [
                 {
-                    l: 'Vision and Mission',
+                    l: 'Vision and Missions',
                     link: `/dept/${dept}/MissionandVision`
                 }, {
                     l: "HoD's Message",
@@ -132,7 +132,8 @@ function Menu({ menu, setMenu }) {
         "phy": "Physics",
         "tt": "Textile Technology",
         "hum": "Humaniyies",
-        "cy": "Chemistry"
+        "cy": "Chemistry",
+        'cee':'Center for Energy and Environment','cai':'Center for Artificial Intelligence',
     }
 
     return (
