@@ -41,7 +41,7 @@ function Navbar({menu,setMenu}) {
                             <div className='flex-col py-8'>
             
                             <a href="#">Department of {departments[dept]}</a>
-                            <div className='font-normal'>Dr. B R Ambedkar National Institute of Technology Jalandhar</div>
+                            <div className='font-normal'>Dr B R Ambedkar National Institute of Technology Jalandhar</div>
                             </div>
                         </div>
                     </div>

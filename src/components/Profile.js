@@ -135,7 +135,7 @@ function Profile({ peopleType }) {
                                         <div className="flex-none w-auto max-w-full px-3 my-auto">
                                             <div className="h-full">
                                                 <h5 className="mb-1 text-gray-700 text-xl font-semibold">{item?.name}</h5>
-                                                <p title={item?.position} className="ml-2 text-zinc-500 mb-0 font-medium leading-normal sm:w-96 whitespace-nowrap overflow-hidden">{item?.position}</p>
+                                                <p title={item?.position} className="text-zinc-500 mb-0 font-medium leading-normal sm:w-96 whitespace-nowrap overflow-hidden">{item?.position}</p>
                                             </div>
                                         </div>
                                     </div>
