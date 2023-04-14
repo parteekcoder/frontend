@@ -22,7 +22,7 @@ function AfterForgotPass() {
               </p>
             </div>
             <form
-              className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
+              className="px-8 pt-6 pb-8 mb-4 rounded"
               method="post"
               action={`${SERVER_URL}/dept/${dept}/confirmation`}
             >
