@@ -4,11 +4,9 @@ import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 
 function Programme() {
-
     const dept = useParams()?.dept;
-    const Programs = useFetch(`/dept/${dept}/programmeInfo`).data;
-    
     const [programInfo, setProgramInfo] = useState({});
+    const Programs = useFetch(`/dept/${dept}/programmeInfo`).data;
 
     const handlescroll = (id) => {
         let str = "#" + id;
@@ -18,7 +16,8 @@ function Programme() {
     }
     useEffect(() => {
         window.scroll(0, 0);
-    }, [])
+        setProgramInfo(Programs[0])
+    }, [Programs])
     const departments = {
         "it": "Information Technology",
         "cse": "Computer Science and Engineering",
@@ -37,7 +36,9 @@ function Programme() {
         "cy": "Chemistry",
         'cee':'Center for Energy and Environment','cai':'Center for Artificial Intelligence',
     }
+    
     return (
+        
         <>
             <div className="text-gray-600 body-font w-full h-full">
                 <div className="container flex flex-col px-5 py-12 mx-auto" style={{ height: "100%" }}>
