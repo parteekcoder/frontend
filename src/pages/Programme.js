@@ -38,7 +38,6 @@ function Programme() {
     }
     
     return (
-        
         <>
             <div className="text-gray-600 body-font w-full h-full">
                 <div className="container flex flex-col px-5 py-12 mx-auto" style={{ height: "100%" }}>
